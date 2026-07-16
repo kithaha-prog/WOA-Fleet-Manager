@@ -1,0 +1,6775 @@
+{
+  "fleet": [
+    {
+      "id": "1782225326911",
+      "reg": "HB-ZPC",
+      "icao": "CRJX",
+      "base": "ZRH",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "LCA",
+      "dist": "1352",
+      "totalDist": "100048",
+      "flightHrs": 1,
+      "flightMins": 40,
+      "maint": "3.51",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-07-01T12:29:43.705Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:35:26.911Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782225383773",
+      "reg": "HB-CHD",
+      "icao": "A339",
+      "status": "active",
+      "base": "ZRH",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "PDX",
+      "dist": "4656",
+      "totalDist": "46560",
+      "flightHrs": 5,
+      "flightMins": 15,
+      "maint": "6.95",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-24T13:48:01.129Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T13:48:01.129Z",
+          "changes": [
+            "<strong>经济舱</strong>: 308 ➔ 309"
+          ]
+        },
+        {
+          "time": "2026-06-24T13:47:42.941Z",
+          "changes": [
+            "<strong>经济舱</strong>: 309 ➔ 308"
+          ]
+        },
+        {
+          "time": "2026-06-23T14:36:23.773Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1782225456659",
+      "reg": "HB-KMA",
+      "icao": "A21NY",
+      "base": "ZRH",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ADD",
+      "dist": "2774",
+      "totalDist": "49932",
+      "flightHrs": 3,
+      "flightMins": 19,
+      "maint": "5.08",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-07-01T12:29:39.827Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:37:36.659Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782225508009",
+      "reg": "HB-AXN",
+      "icao": "A339",
+      "base": "ZRH",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "LAD",
+      "dist": "3389",
+      "totalDist": "67780",
+      "flightHrs": 3,
+      "flightMins": 54,
+      "maint": "5.61",
+      "first": 10,
+      "biz": 16,
+      "eco": 308,
+      "updatedAt": "2026-07-01T12:29:37.435Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:38:28.009Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782225776583",
+      "reg": "HB-WTS",
+      "icao": "A321F",
+      "base": "ZRH",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Cargo",
+      "dest": "LCA",
+      "dist": "1352",
+      "totalDist": "54080",
+      "flightHrs": 1,
+      "flightMins": 47,
+      "maint": "3.49",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-01T12:29:34.815Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:42:56.583Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782225928558",
+      "reg": "I-CZL",
+      "icao": "CRJX",
+      "base": "BRI",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "LPA",
+      "dist": "1762",
+      "totalDist": "42288",
+      "flightHrs": 2,
+      "flightMins": 7,
+      "maint": "3.97",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T14:45:28.558Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:45:28.558Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782225999439",
+      "reg": "I-DEN",
+      "icao": "CRJX",
+      "base": "BRI",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "LPA",
+      "dist": "1762",
+      "totalDist": "59908",
+      "flightHrs": 2,
+      "flightMins": 7,
+      "maint": "3.97",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T14:46:39.439Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:46:39.439Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782226093144",
+      "reg": "I-OWI",
+      "icao": "CRJX",
+      "base": "BRI",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "LPA",
+      "dist": "1762",
+      "totalDist": "59908",
+      "flightHrs": 2,
+      "flightMins": 7,
+      "maint": "3.97",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T14:48:13.145Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:48:13.145Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782226305184",
+      "reg": "NFGK",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "LIM",
+      "dist": "3058",
+      "totalDist": "134552",
+      "flightHrs": 3,
+      "flightMins": 38,
+      "maint": "5.4",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T14:51:45.184Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:51:45.184Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782226417257",
+      "reg": "NBQN",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ARN",
+      "dist": "3578",
+      "totalDist": "78716",
+      "flightHrs": 4,
+      "flightMins": 12,
+      "maint": "5.98",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T14:53:37.258Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:53:37.258Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782226531536",
+      "reg": "NBGZ",
+      "icao": "B77LF",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "LEJ",
+      "dist": "3624",
+      "totalDist": "79728",
+      "flightHrs": 4,
+      "flightMins": 9,
+      "maint": "5.7",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T14:56:54.974Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:55:31.536Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782226686102",
+      "reg": "NMGX",
+      "icao": "A346",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "BOG",
+      "dist": "2063",
+      "totalDist": "16504",
+      "flightHrs": 2,
+      "flightMins": 33,
+      "maint": "4.17",
+      "first": 0,
+      "biz": 0,
+      "eco": 475,
+      "updatedAt": "2026-06-23T14:58:06.102Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T14:58:06.103Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227403653",
+      "reg": "NCFS",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MAN",
+      "dist": "3088",
+      "totalDist": "135872",
+      "flightHrs": 3,
+      "flightMins": 40,
+      "maint": "5.43",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:10:03.654Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:10:03.654Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227504681",
+      "reg": "NRMI",
+      "icao": "A343",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "OPO",
+      "dist": "3075",
+      "totalDist": "24600",
+      "flightHrs": 3,
+      "flightMins": 34,
+      "maint": "5.27",
+      "first": 0,
+      "biz": 0,
+      "eco": 440,
+      "updatedAt": "2026-06-23T15:11:44.681Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:11:44.681Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227584787",
+      "reg": "NVTR",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "ARN",
+      "dist": "3578",
+      "totalDist": "28624",
+      "flightHrs": 4,
+      "flightMins": 6,
+      "maint": "5.81",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T15:13:04.787Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:13:04.787Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227650548",
+      "reg": "NBCY",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "EDI",
+      "dist": "3012",
+      "totalDist": "132528",
+      "flightHrs": 3,
+      "flightMins": 35,
+      "maint": "5.35",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:14:10.549Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:14:10.549Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227751237",
+      "reg": "NUNY",
+      "icao": "B744",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "IST",
+      "dist": "4526",
+      "totalDist": "153884",
+      "flightHrs": 4,
+      "flightMins": 59,
+      "maint": "6.62",
+      "first": 13,
+      "biz": 19,
+      "eco": 385,
+      "updatedAt": "2026-06-23T15:15:51.237Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:15:51.237Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227814249",
+      "reg": "NKMF",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "PRG",
+      "dist": "3729",
+      "totalDist": "37290",
+      "flightHrs": 4,
+      "flightMins": 16,
+      "maint": "5.97",
+      "first": 10,
+      "biz": 16,
+      "eco": 308,
+      "updatedAt": "2026-06-23T15:16:54.249Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:16:54.249Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227893894",
+      "reg": "NNDX",
+      "icao": "B789",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "NRT",
+      "dist": "5852",
+      "totalDist": "93632",
+      "flightHrs": 6,
+      "flightMins": 15,
+      "maint": "8",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T16:03:39.447Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:03:39.447Z",
+          "changes": [
+            "<strong>基地</strong>: IAS ➔ IAD"
+          ]
+        },
+        {
+          "time": "2026-06-23T15:18:13.894Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782227956722",
+      "reg": "NXNB",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ANC",
+      "dist": "2908",
+      "totalDist": "133768",
+      "flightHrs": 3,
+      "flightMins": 28,
+      "maint": "5.23",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:19:16.723Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:19:16.723Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228022803",
+      "reg": "NEKK",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "VIE",
+      "dist": "3866",
+      "totalDist": "38660",
+      "flightHrs": 4,
+      "flightMins": 25,
+      "maint": "6.11",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T15:20:22.803Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:20:22.803Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228106125",
+      "reg": "NQMQ",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CNF",
+      "dist": "3986",
+      "totalDist": "95664",
+      "flightHrs": 4,
+      "flightMins": 39,
+      "maint": "6.43",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:21:46.125Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:21:46.125Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228183614",
+      "reg": "NIEB",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "VIE",
+      "dist": "3866",
+      "totalDist": "92784",
+      "flightHrs": 4,
+      "flightMins": 31,
+      "maint": "6.3",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:23:03.614Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:23:03.614Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228250749",
+      "reg": "NJPJ",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HNL",
+      "dist": "4176",
+      "totalDist": "41760",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.44",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T15:24:10.749Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:24:10.749Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228326257",
+      "reg": "NOHQ",
+      "icao": "A343",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "PRG",
+      "dist": "3729",
+      "totalDist": "126786",
+      "flightHrs": 4,
+      "flightMins": 16,
+      "maint": "5.97",
+      "first": 10,
+      "biz": 16,
+      "eco": 308,
+      "updatedAt": "2026-06-23T15:25:26.257Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:25:26.257Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228387611",
+      "reg": "NMYW",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "ESB",
+      "dist": "4717",
+      "totalDist": "47170",
+      "flightHrs": 5,
+      "flightMins": 19,
+      "maint": "7.02",
+      "first": 10,
+      "biz": 16,
+      "eco": 308,
+      "updatedAt": "2026-06-23T15:26:27.611Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:26:27.611Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228441427",
+      "reg": "NDGB",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ALG",
+      "dist": "3692",
+      "totalDist": "88608",
+      "flightHrs": 4,
+      "flightMins": 20,
+      "maint": "6.1",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:27:21.427Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:27:21.427Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228495322",
+      "reg": "NSCT",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "HEL",
+      "dist": "3744",
+      "totalDist": "89856",
+      "flightHrs": 4,
+      "flightMins": 23,
+      "maint": "6.16",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:28:15.322Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:28:15.322Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228549573",
+      "reg": "NIMT",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "ATH",
+      "dist": "4478",
+      "totalDist": "44780",
+      "flightHrs": 5,
+      "flightMins": 4,
+      "maint": "6.76",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T15:29:09.573Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:29:09.573Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228595664",
+      "reg": "NVFK",
+      "icao": "A339",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "MLA",
+      "dist": "4182",
+      "totalDist": "41820",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.45",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T15:29:55.664Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:29:55.664Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228653908",
+      "reg": "NLQO",
+      "icao": "CRJX",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MCI",
+      "dist": "803",
+      "totalDist": "205568",
+      "flightHrs": 1,
+      "flightMins": 3,
+      "maint": "2.9",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T15:30:53.908Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:30:53.908Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228757085",
+      "reg": "NJYX",
+      "icao": "A332F",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "ANC",
+      "dist": "2908",
+      "totalDist": "104688",
+      "flightHrs": 3,
+      "flightMins": 34,
+      "maint": "5.09",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T15:32:37.085Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:32:37.085Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228852248",
+      "reg": "NWRS",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "UIO",
+      "dist": "2344",
+      "totalDist": "112512",
+      "flightHrs": 2,
+      "flightMins": 50,
+      "maint": "4.6",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:34:12.248Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:34:12.248Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782228905727",
+      "reg": "NQIS",
+      "icao": "CRJX",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "1461",
+      "totalDist": "295122",
+      "flightHrs": 1,
+      "flightMins": 47,
+      "maint": "3.63",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T15:35:05.727Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:35:05.727Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229036190",
+      "reg": "NTKW",
+      "icao": "B789",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SVO",
+      "dist": "4215",
+      "totalDist": "84300",
+      "flightHrs": 4,
+      "flightMins": 35,
+      "maint": "6.32",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T15:37:16.190Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:37:16.190Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229470473",
+      "reg": "NLAZ",
+      "icao": "B789",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "IST",
+      "dist": "4526",
+      "totalDist": "90520",
+      "flightHrs": 4,
+      "flightMins": 54,
+      "maint": "6.64",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T15:44:30.473Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:44:30.473Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229545625",
+      "reg": "NLRF",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SCL",
+      "dist": "4356",
+      "totalDist": "165528",
+      "flightHrs": 5,
+      "flightMins": 4,
+      "maint": "6.84",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:45:45.625Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:45:45.625Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229601005",
+      "reg": "NWLV",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "FUE",
+      "dist": "3173",
+      "totalDist": "120574",
+      "flightHrs": 3,
+      "flightMins": 45,
+      "maint": "5.53",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:46:41.005Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:46:41.005Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229649873",
+      "reg": "NXBN",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CTA",
+      "dist": "4152",
+      "totalDist": "166080",
+      "flightHrs": 4,
+      "flightMins": 51,
+      "maint": "6.61",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:47:29.873Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:47:29.873Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229692985",
+      "reg": "NDDH",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "TUN",
+      "dist": "3978",
+      "totalDist": "159120",
+      "flightHrs": 4,
+      "flightMins": 39,
+      "maint": "6.42",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:48:12.985Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:48:12.985Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229770706",
+      "reg": "NEHW",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "VVI",
+      "dist": "3490",
+      "totalDist": "139600",
+      "flightHrs": 4,
+      "flightMins": 6,
+      "maint": "5.88",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:49:30.706Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:49:30.706Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229824193",
+      "reg": "NRUG",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "BEG",
+      "dist": "4103",
+      "totalDist": "164120",
+      "flightHrs": 4,
+      "flightMins": 47,
+      "maint": "6.56",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:50:24.193Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:50:24.193Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229886846",
+      "reg": "NKKB",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MRS",
+      "dist": "3584",
+      "totalDist": "143360",
+      "flightHrs": 4,
+      "flightMins": 13,
+      "maint": "5.98",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:51:26.846Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:51:26.846Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229934555",
+      "reg": "NRGB",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "AGP",
+      "dist": "3364",
+      "totalDist": "134560",
+      "flightHrs": 3,
+      "flightMins": 58,
+      "maint": "5.74",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:52:14.555Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:52:14.555Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782229982066",
+      "reg": "NMMA",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "GOT",
+      "dist": "3468",
+      "totalDist": "138720",
+      "flightHrs": 4,
+      "flightMins": 5,
+      "maint": "5.85",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:53:02.066Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:53:02.066Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230017016",
+      "reg": "NZDN",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ALG",
+      "dist": "3692",
+      "totalDist": "147680",
+      "flightHrs": 4,
+      "flightMins": 20,
+      "maint": "6.1",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:53:37.016Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:53:37.016Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230069114",
+      "reg": "NYUQ",
+      "icao": "A359",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "BEY",
+      "dist": "5063",
+      "totalDist": "151890",
+      "flightHrs": 5,
+      "flightMins": 31,
+      "maint": "7.19",
+      "first": 9,
+      "biz": 16,
+      "eco": 315,
+      "updatedAt": "2026-06-23T15:54:29.114Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:54:29.114Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230116696",
+      "reg": "NRYA",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "OSL",
+      "dist": "3377",
+      "totalDist": "135080",
+      "flightHrs": 3,
+      "flightMins": 59,
+      "maint": "5.75",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:55:16.696Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:55:16.696Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230160746",
+      "reg": "NUIT",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "PRG",
+      "dist": "3729",
+      "totalDist": "149160",
+      "flightHrs": 4,
+      "flightMins": 22,
+      "maint": "6.14",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:56:00.746Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:56:00.746Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230209416",
+      "reg": "NNWJ",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CMN",
+      "dist": "3319",
+      "totalDist": "132760",
+      "flightHrs": 3,
+      "flightMins": 55,
+      "maint": "5.69",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:56:49.416Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:56:49.416Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230265455",
+      "reg": "NHFR",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CPH",
+      "dist": "3529",
+      "totalDist": "141160",
+      "flightHrs": 4,
+      "flightMins": 9,
+      "maint": "5.92",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:57:45.455Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:57:45.455Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230311915",
+      "reg": "NLBN",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "GRU",
+      "dist": "4127",
+      "totalDist": "165080",
+      "flightHrs": 4,
+      "flightMins": 49,
+      "maint": "6.59",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T15:58:31.915Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:58:31.915Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230373346",
+      "reg": "NMRA",
+      "icao": "CRJX",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MUN",
+      "dist": "1913",
+      "totalDist": "271646",
+      "flightHrs": 2,
+      "flightMins": 17,
+      "maint": "4.14",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T15:59:33.346Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T15:59:33.346Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230416577",
+      "reg": "NFAA",
+      "icao": "CRJX",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MUN",
+      "dist": "1913",
+      "totalDist": "279298",
+      "flightHrs": 2,
+      "flightMins": 17,
+      "maint": "4.14",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:00:16.577Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:00:16.577Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230456567",
+      "reg": "NRLD",
+      "icao": "A21NY",
+      "base": "IAD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "FUE",
+      "dist": "3173",
+      "totalDist": "285570",
+      "flightHrs": 3,
+      "flightMins": 45,
+      "maint": "5.53",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T16:00:56.568Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:00:56.568Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230768356",
+      "reg": "JAEJX",
+      "icao": "B789",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SYD",
+      "dist": "4206",
+      "totalDist": "92532",
+      "flightHrs": 4,
+      "flightMins": 34,
+      "maint": "6.31",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T16:06:58.909Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:06:58.909Z",
+          "changes": [
+            "<strong>累计总距离</strong>: 9532 ➔ 92532"
+          ]
+        },
+        {
+          "time": "2026-06-23T16:06:31.689Z",
+          "changes": [
+            "<strong>累计总距离</strong>: 92532 ➔ 9532"
+          ]
+        },
+        {
+          "time": "2026-06-23T16:06:08.356Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230899918",
+      "reg": "JASJC",
+      "icao": "A35K",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "1417",
+      "totalDist": "82186",
+      "flightHrs": 1,
+      "flightMins": 49,
+      "maint": "3.45",
+      "first": 20,
+      "biz": 0,
+      "eco": 336,
+      "updatedAt": "2026-06-23T16:08:19.918Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:08:19.918Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782230958777",
+      "reg": "JAESR",
+      "icao": "C919",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "COMAC",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "BKI",
+      "dist": "2081",
+      "totalDist": "91564",
+      "flightHrs": 2,
+      "flightMins": 28,
+      "maint": "4.3",
+      "first": 0,
+      "biz": 10,
+      "eco": 153,
+      "updatedAt": "2026-06-23T16:09:18.777Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:09:18.777Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231018619",
+      "reg": "JAYSZ",
+      "icao": "A332",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "BKK",
+      "dist": "2326",
+      "totalDist": "18608",
+      "flightHrs": 2,
+      "flightMins": 46,
+      "maint": "4.47",
+      "first": 16,
+      "biz": 0,
+      "eco": 290,
+      "updatedAt": "2026-06-23T16:10:18.619Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:10:18.619Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231085509",
+      "reg": "JABCY",
+      "icao": "A21NY",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CNN",
+      "dist": "3584",
+      "totalDist": "157696",
+      "flightHrs": 4,
+      "flightMins": 13,
+      "maint": "5.98",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T16:11:25.509Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:11:25.509Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231124769",
+      "reg": "JAQBG",
+      "icao": "B789",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SYD",
+      "dist": "4206",
+      "totalDist": "92532",
+      "flightHrs": 4,
+      "flightMins": 34,
+      "maint": "6.31",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T16:12:04.769Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:12:04.769Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231173449",
+      "reg": "JALPX",
+      "icao": "B789",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "1417",
+      "totalDist": "68016",
+      "flightHrs": 1,
+      "flightMins": 43,
+      "maint": "3.45",
+      "first": 10,
+      "biz": 14,
+      "eco": 296,
+      "updatedAt": "2026-06-23T16:12:53.449Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:12:53.449Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231221828",
+      "reg": "JAFXO",
+      "icao": "C919",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "COMAC",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "BKK",
+      "dist": "2326",
+      "totalDist": "111648",
+      "flightHrs": 2,
+      "flightMins": 44,
+      "maint": "4.57",
+      "first": 0,
+      "biz": 15,
+      "eco": 134,
+      "updatedAt": "2026-06-23T16:13:41.828Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:13:41.828Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231263767",
+      "reg": "JAXOC",
+      "icao": "CRJX",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "1417",
+      "totalDist": "144534",
+      "flightHrs": 1,
+      "flightMins": 44,
+      "maint": "3.59",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:14:23.767Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:14:23.767Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231305507",
+      "reg": "JAZVG",
+      "icao": "C919",
+      "base": "NGO",
+      "inductionDate": "2026-06-23",
+      "mfr": "COMAC",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "1417",
+      "totalDist": "124696",
+      "flightHrs": 1,
+      "flightMins": 44,
+      "maint": "3.56",
+      "first": 0,
+      "biz": 0,
+      "eco": 190,
+      "updatedAt": "2026-06-23T16:15:05.507Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:15:05.507Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231380507",
+      "reg": "NOEK",
+      "icao": "CRJX",
+      "base": "SAN",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "SJC",
+      "dist": "363",
+      "totalDist": "35574",
+      "flightHrs": 0,
+      "flightMins": 33,
+      "maint": "2.41",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:16:20.507Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:16:20.507Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231421379",
+      "reg": "NBVM",
+      "icao": "CRJX",
+      "base": "SAN",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "LAX",
+      "dist": "95",
+      "totalDist": "13110",
+      "flightHrs": 0,
+      "flightMins": 15,
+      "maint": "2.11",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:17:01.379Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:17:01.379Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231464285",
+      "reg": "NXJE",
+      "icao": "CRJX",
+      "base": "SAN",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "1386",
+      "totalDist": "69300",
+      "flightHrs": 1,
+      "flightMins": 42,
+      "maint": "3.55",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:17:44.285Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:17:44.285Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231494494",
+      "reg": "NLHM",
+      "icao": "CRJX",
+      "base": "SAN",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "1386",
+      "totalDist": "91476",
+      "flightHrs": 1,
+      "flightMins": 42,
+      "maint": "3.55",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:18:14.494Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:18:14.494Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231529555",
+      "reg": "NLAY",
+      "icao": "CRJX",
+      "base": "SAN",
+      "inductionDate": "2026-06-23",
+      "mfr": "Bombardier",
+      "size": "B",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "1386",
+      "totalDist": "94248",
+      "flightHrs": 1,
+      "flightMins": 42,
+      "maint": "3.55",
+      "first": 0,
+      "biz": 0,
+      "eco": 104,
+      "updatedAt": "2026-06-23T16:18:49.555Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:18:49.555Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231708254",
+      "reg": "A4O-LEM",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "4066",
+      "totalDist": "65056",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.52",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T16:21:48.254Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:21:48.254Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231749810",
+      "reg": "A4O-JOK",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "4066",
+      "totalDist": "65056",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.52",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T16:26:05.802Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:22:29.810Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231790697",
+      "reg": "A4O-BWD",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "4066",
+      "totalDist": "65056",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.52",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T16:23:10.697Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:23:10.697Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231835492",
+      "reg": "A4O-CKU",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "LHR",
+      "dist": "3148",
+      "totalDist": "56664",
+      "flightHrs": 3,
+      "flightMins": 44,
+      "maint": "5.5",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T16:23:55.493Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:23:55.493Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231884129",
+      "reg": "A4O-OVC",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "3055",
+      "totalDist": "54990",
+      "flightHrs": 3,
+      "flightMins": 37,
+      "maint": "5.39",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T16:24:44.129Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:24:44.129Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782231940187",
+      "reg": "A4O-TAA",
+      "icao": "A21NY",
+      "base": "MCT",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "4066",
+      "totalDist": "130112",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.52",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T16:25:40.187Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T16:25:40.187Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782235947812",
+      "reg": "G-CWG",
+      "icao": "A339",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "PEK",
+      "dist": "4400",
+      "totalDist": "61600",
+      "flightHrs": 4,
+      "flightMins": 59,
+      "maint": "6.68",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T17:32:27.812Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:32:27.812Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782235999229",
+      "reg": "G-TTE",
+      "icao": "A339",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "DFW",
+      "dist": "4116",
+      "totalDist": "57624",
+      "flightHrs": 4,
+      "flightMins": 41,
+      "maint": "6.38",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T17:33:19.229Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:33:19.229Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782236658465",
+      "reg": "G-IYA",
+      "icao": "A339",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "YVR",
+      "dist": "4090",
+      "totalDist": "57260",
+      "flightHrs": 4,
+      "flightMins": 39,
+      "maint": "6.35",
+      "first": 13,
+      "biz": 10,
+      "eco": 309,
+      "updatedAt": "2026-06-23T17:44:18.466Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:44:18.466Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782236719434",
+      "reg": "G-EPH",
+      "icao": "A388",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "DXB",
+      "dist": "2967",
+      "totalDist": "71208",
+      "flightHrs": 3,
+      "flightMins": 33,
+      "maint": "5.04",
+      "first": 30,
+      "biz": 10,
+      "eco": 600,
+      "updatedAt": "2026-06-23T17:45:19.434Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:45:19.434Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782236787452",
+      "reg": "G-ZHX",
+      "icao": "B789",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "CMB",
+      "dist": "4703",
+      "totalDist": "84654",
+      "flightHrs": 5,
+      "flightMins": 5,
+      "maint": "6.82",
+      "first": 10,
+      "biz": 13,
+      "eco": 299,
+      "updatedAt": "2026-06-23T17:46:27.452Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:46:27.452Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237347004",
+      "reg": "G-ILG",
+      "icao": "B789",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "KMG",
+      "dist": "4704",
+      "totalDist": "94080",
+      "flightHrs": 5,
+      "flightMins": 5,
+      "maint": "6.82",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-23T17:55:47.004Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:55:47.004Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237493680",
+      "reg": "G-QWZ",
+      "icao": "B789",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HRB",
+      "dist": "4358",
+      "totalDist": "87160",
+      "flightHrs": 4,
+      "flightMins": 44,
+      "maint": "6.47",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-23T17:58:13.680Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:58:13.680Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237554246",
+      "reg": "G-PSH",
+      "icao": "B789",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "CTU",
+      "dist": "4480",
+      "totalDist": "89600",
+      "flightHrs": 4,
+      "flightMins": 51,
+      "maint": "6.59",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-23T17:59:14.246Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T17:59:14.246Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237610078",
+      "reg": "G-XBD",
+      "icao": "B77LF",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "PKX",
+      "dist": "4423",
+      "totalDist": "88460",
+      "flightHrs": 4,
+      "flightMins": 57,
+      "maint": "6.51",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T18:00:10.078Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:00:10.078Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237668493",
+      "reg": "G-VEE",
+      "icao": "A388",
+      "base": "LHR",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "LAX",
+      "dist": "4727",
+      "totalDist": "94540",
+      "flightHrs": 5,
+      "flightMins": 21,
+      "maint": "6.84",
+      "first": 30,
+      "biz": 10,
+      "eco": 600,
+      "updatedAt": "2026-06-23T18:01:08.493Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:01:08.493Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782237832243",
+      "reg": "VH-SFF",
+      "icao": "B752F",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "D",
+      "load": "Cargo",
+      "dest": "TSV",
+      "dist": "913",
+      "totalDist": "67562",
+      "flightHrs": 1,
+      "flightMins": 20,
+      "maint": "2.99",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T18:03:52.243Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:03:52.243Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238010655",
+      "reg": "VH-LVG",
+      "icao": "A388",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "3990",
+      "totalDist": "175560",
+      "flightHrs": 4,
+      "flightMins": 36,
+      "maint": "6.09",
+      "first": 29,
+      "biz": 10,
+      "eco": 607,
+      "updatedAt": "2026-06-23T18:06:50.655Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:06:50.655Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238110582",
+      "reg": "VH-JLK",
+      "icao": "A21NY",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "4206",
+      "totalDist": "185064",
+      "flightHrs": 4,
+      "flightMins": 54,
+      "maint": "6.67",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:08:30.582Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:08:30.582Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238162910",
+      "reg": "VH-TIE",
+      "icao": "A21NY",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "BKK",
+      "dist": "4055",
+      "totalDist": "162200",
+      "flightHrs": 4,
+      "flightMins": 44,
+      "maint": "6.51",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:09:22.910Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:09:22.910Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238224984",
+      "reg": "VH-JYB",
+      "icao": "A21NY",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "HKG",
+      "dist": "3990",
+      "totalDist": "167580",
+      "flightHrs": 4,
+      "flightMins": 40,
+      "maint": "6.43",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:10:24.984Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:10:24.985Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238279491",
+      "reg": "VH-TMR",
+      "icao": "C919",
+      "base": "SYD",
+      "inductionDate": "2026-06-23",
+      "mfr": "COMAC",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "DPS",
+      "dist": "2502",
+      "totalDist": "220176",
+      "flightHrs": 2,
+      "flightMins": 56,
+      "maint": "4.76",
+      "first": 0,
+      "biz": 10,
+      "eco": 153,
+      "updatedAt": "2026-06-23T18:11:19.491Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:11:19.491Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238547272",
+      "reg": "HS-SSB",
+      "icao": "B789",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "2326",
+      "totalDist": "32564",
+      "flightHrs": 2,
+      "flightMins": 39,
+      "maint": "4.38",
+      "first": 16,
+      "biz": 2,
+      "eco": 296,
+      "updatedAt": "2026-06-23T18:15:47.272Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:15:47.272Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238625246",
+      "reg": "HS-TQQ",
+      "icao": "B789",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "ADD",
+      "dist": "3647",
+      "totalDist": "21882",
+      "flightHrs": 4,
+      "flightMins": 0,
+      "maint": "5.74",
+      "first": 10,
+      "biz": 13,
+      "eco": 299,
+      "updatedAt": "2026-06-23T18:17:05.246Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:17:05.246Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238757843",
+      "reg": "HS-WDF",
+      "icao": "B77LF",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "GYD",
+      "dist": "3093",
+      "totalDist": "18558",
+      "flightHrs": 3,
+      "flightMins": 36,
+      "maint": "5.16",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T18:19:17.843Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:19:17.843Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238858252",
+      "reg": "HS-OIZ",
+      "icao": "B789",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HEL",
+      "dist": "4267",
+      "totalDist": "25602",
+      "flightHrs": 4,
+      "flightMins": 38,
+      "maint": "6.37",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T18:20:58.252Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:20:58.252Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782238970181",
+      "reg": "HS-MUL",
+      "icao": "A332F",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "NGO",
+      "dist": "2326",
+      "totalDist": "55824",
+      "flightHrs": 2,
+      "flightMins": 57,
+      "maint": "4.47",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T18:22:50.181Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:22:50.181Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239049994",
+      "reg": "HS-MVH",
+      "icao": "B788",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "TLV",
+      "dist": "3748",
+      "totalDist": "22488",
+      "flightHrs": 4,
+      "flightMins": 5,
+      "maint": "5.84",
+      "first": 13,
+      "biz": 5,
+      "eco": 268,
+      "updatedAt": "2026-06-23T18:24:09.995Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:24:09.995Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239097963",
+      "reg": "HS-PRJ",
+      "icao": "A21NY",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "ADL",
+      "dist": "3625",
+      "totalDist": "21750",
+      "flightHrs": 4,
+      "flightMins": 15,
+      "maint": "6.03",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:24:57.963Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:24:57.963Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239246885",
+      "reg": "HS-QFJ",
+      "icao": "A388",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "SYD",
+      "dist": "4055",
+      "totalDist": "24330",
+      "flightHrs": 4,
+      "flightMins": 40,
+      "maint": "6.15",
+      "first": 26,
+      "biz": 16,
+      "eco": 605,
+      "updatedAt": "2026-06-23T18:33:37.883Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:32:38.997Z",
+          "changes": [
+            "<strong>基地</strong>: SYD ➔ BKK"
+          ]
+        },
+        {
+          "time": "2026-06-23T18:27:26.885Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239320913",
+      "reg": "HS-XZK",
+      "icao": "A21NY",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SAW",
+      "dist": "4028",
+      "totalDist": "24168",
+      "flightHrs": 4,
+      "flightMins": 42,
+      "maint": "6.48",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:28:40.913Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:28:40.913Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239411195",
+      "reg": "HS-BHT",
+      "icao": "A388",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "2326",
+      "totalDist": "37216",
+      "flightHrs": 2,
+      "flightMins": 54,
+      "maint": "4.38",
+      "first": 26,
+      "biz": 18,
+      "eco": 598,
+      "updatedAt": "2026-06-23T18:30:11.195Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:30:11.195Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239460564",
+      "reg": "HS-ISK",
+      "icao": "A21NY",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SAW",
+      "dist": "4028",
+      "totalDist": "24168",
+      "flightHrs": 4,
+      "flightMins": 42,
+      "maint": "6.48",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:31:00.564Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:31:00.564Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782239527400",
+      "reg": "HS-UWQ",
+      "icao": "B789",
+      "base": "BKK",
+      "inductionDate": "2026-06-23",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "HEL",
+      "dist": "4267",
+      "totalDist": "25602",
+      "flightHrs": 4,
+      "flightMins": 38,
+      "maint": "6.37",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-23T18:32:07.400Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:32:07.400Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782240096050",
+      "reg": "NCZT",
+      "icao": "A21NY",
+      "base": "MSY",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "GRU",
+      "dist": "4079",
+      "totalDist": "97896",
+      "flightHrs": 4,
+      "flightMins": 46,
+      "maint": "6.53",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:42:25.985Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:41:36.050Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782240466035",
+      "reg": "NBIM",
+      "icao": "B789",
+      "base": "MSY",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "1646",
+      "totalDist": "42796",
+      "flightHrs": 1,
+      "flightMins": 57,
+      "maint": "3.69",
+      "first": 6,
+      "biz": 22,
+      "eco": 294,
+      "updatedAt": "2026-06-23T18:47:46.035Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:47:46.035Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782240635105",
+      "reg": "NOXJ",
+      "icao": "A21NY",
+      "base": "MSY",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SAN",
+      "dist": "1386",
+      "totalDist": "52668",
+      "flightHrs": 1,
+      "flightMins": 46,
+      "maint": "3.54",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:42:50.029Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:50:35.105Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782240676563",
+      "reg": "NFCH",
+      "icao": "A21NY",
+      "base": "MSY",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SAN",
+      "dist": "1386",
+      "totalDist": "69300",
+      "flightHrs": 1,
+      "flightMins": 46,
+      "maint": "3.54",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T18:51:16.563Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:51:16.563Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241055171",
+      "reg": "PP-ITT",
+      "icao": "B738",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "AEP",
+      "dist": "915",
+      "totalDist": "67710",
+      "flightHrs": 1,
+      "flightMins": 10,
+      "maint": "2.99",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T18:57:35.171Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:57:35.171Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241117334",
+      "reg": "PP-KOD",
+      "icao": "B738",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "PUQ",
+      "dist": "2092",
+      "totalDist": "46024",
+      "flightHrs": 2,
+      "flightMins": 27,
+      "maint": "4.27",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T18:58:37.334Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:58:37.334Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241197127",
+      "reg": "PP-FPW",
+      "icao": "B763F",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "D",
+      "load": "Cargo",
+      "dest": "HAV",
+      "dist": "3486",
+      "totalDist": "48804",
+      "flightHrs": 4,
+      "flightMins": 1,
+      "maint": "5.59",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T18:59:57.127Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T18:59:57.127Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241254931",
+      "reg": "PP-GXI",
+      "icao": "A21NY",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "CPT",
+      "dist": "3428",
+      "totalDist": "20568",
+      "flightHrs": 4,
+      "flightMins": 2,
+      "maint": "5.81",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:00:54.931Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:00:54.931Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241539201",
+      "reg": "PP-FEQ",
+      "icao": "A20N",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "2673",
+      "totalDist": "16038",
+      "flightHrs": 3,
+      "flightMins": 9,
+      "maint": "4.97",
+      "first": 0,
+      "biz": 15,
+      "eco": 138,
+      "updatedAt": "2026-06-23T19:05:39.201Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:05:39.201Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241610914",
+      "reg": "PP-DKY",
+      "icao": "B789",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "AGP",
+      "dist": "4318",
+      "totalDist": "25908",
+      "flightHrs": 4,
+      "flightMins": 41,
+      "maint": "6.42",
+      "first": 9,
+      "biz": 10,
+      "eco": 318,
+      "updatedAt": "2026-06-23T19:06:50.914Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:06:50.914Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241660656",
+      "reg": "PP-VAQ",
+      "icao": "B789",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "LIS",
+      "dist": "4282",
+      "totalDist": "42820",
+      "flightHrs": 4,
+      "flightMins": 39,
+      "maint": "6.39",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-23T19:07:40.656Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:07:40.656Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241708062",
+      "reg": "PP-BDS",
+      "icao": "A388",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "IAD",
+      "dist": "4127",
+      "totalDist": "49524",
+      "flightHrs": 4,
+      "flightMins": 45,
+      "maint": "6.23",
+      "first": 10,
+      "biz": 49,
+      "eco": 599,
+      "updatedAt": "2026-06-23T19:08:28.062Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:08:28.062Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241753046",
+      "reg": "PP-YIF",
+      "icao": "B789",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "IAD",
+      "dist": "4127",
+      "totalDist": "115556",
+      "flightHrs": 4,
+      "flightMins": 29,
+      "maint": "6.23",
+      "first": 10,
+      "biz": 13,
+      "eco": 299,
+      "updatedAt": "2026-06-23T19:09:13.046Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:09:13.046Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241821060",
+      "reg": "PP-MKG",
+      "icao": "A332F",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "LIM",
+      "dist": "1875",
+      "totalDist": "93750",
+      "flightHrs": 2,
+      "flightMins": 28,
+      "maint": "3.99",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T19:10:21.060Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:10:21.060Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241878642",
+      "reg": "PP-ITW",
+      "icao": "B738",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SCL",
+      "dist": "1411",
+      "totalDist": "115702",
+      "flightHrs": 1,
+      "flightMins": 43,
+      "maint": "3.53",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T19:11:18.643Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:11:18.643Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241910454",
+      "reg": "PP-XKJ",
+      "icao": "B738",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SCL",
+      "dist": "1411",
+      "totalDist": "76194",
+      "flightHrs": 1,
+      "flightMins": 43,
+      "maint": "3.53",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T19:11:50.454Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:11:50.455Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782241964314",
+      "reg": "PP-JUX",
+      "icao": "B738",
+      "base": "GRU",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SCL",
+      "dist": "1411",
+      "totalDist": "124168",
+      "flightHrs": 1,
+      "flightMins": 43,
+      "maint": "3.53",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T19:12:44.314Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:12:44.314Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242109989",
+      "reg": "CC-EEB",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NLU",
+      "dist": "3575",
+      "totalDist": "28600",
+      "flightHrs": 4,
+      "flightMins": 12,
+      "maint": "5.97",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T19:15:09.989Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:15:09.989Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242153946",
+      "reg": "CC-ENB",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "TPA",
+      "dist": "3743",
+      "totalDist": "7486",
+      "flightHrs": 4,
+      "flightMins": 23,
+      "maint": "6.16",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:15:53.947Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:15:53.947Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242190354",
+      "reg": "CC-QXT",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "TPA",
+      "dist": "3743",
+      "totalDist": "7486",
+      "flightHrs": 4,
+      "flightMins": 23,
+      "maint": "6.16",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:16:30.354Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:16:30.354Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242241666",
+      "reg": "CC-YPG",
+      "icao": "B738",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MDE",
+      "dist": "2389",
+      "totalDist": "33446",
+      "flightHrs": 2,
+      "flightMins": 46,
+      "maint": "4.6",
+      "first": 0,
+      "biz": 15,
+      "eco": 133,
+      "updatedAt": "2026-06-23T19:17:21.666Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:17:21.666Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242326766",
+      "reg": "CC-TLN",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MBJ",
+      "dist": "3141",
+      "totalDist": "25128",
+      "flightHrs": 3,
+      "flightMins": 43,
+      "maint": "5.49",
+      "first": 0,
+      "biz": 0,
+      "eco": 244,
+      "updatedAt": "2026-06-23T19:18:46.766Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:18:46.766Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242373408",
+      "reg": "CC-SLZ",
+      "icao": "B789",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "3118",
+      "totalDist": "68596",
+      "flightHrs": 3,
+      "flightMins": 27,
+      "maint": "5.19",
+      "first": 9,
+      "biz": 16,
+      "eco": 295,
+      "updatedAt": "2026-06-23T19:19:33.408Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:19:33.408Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242505123",
+      "reg": "CC-AZS",
+      "icao": "A332F",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "PTY",
+      "dist": "2595",
+      "totalDist": "36330",
+      "flightHrs": 3,
+      "flightMins": 14,
+      "maint": "4.76",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T19:21:45.123Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:21:45.123Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242563309",
+      "reg": "CC-YXK",
+      "icao": "B738",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "UIO",
+      "dist": "2042",
+      "totalDist": "16336",
+      "flightHrs": 2,
+      "flightMins": 24,
+      "maint": "4.22",
+      "first": 0,
+      "biz": 0,
+      "eco": 189,
+      "updatedAt": "2026-06-23T19:22:43.309Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:22:43.309Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242614681",
+      "reg": "CC-WBS",
+      "icao": "A321F",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Cargo",
+      "dest": "GYN",
+      "dist": "1539",
+      "totalDist": "36936",
+      "flightHrs": 1,
+      "flightMins": 59,
+      "maint": "3.69",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T19:23:34.681Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:23:34.681Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242659130",
+      "reg": "CC-MZY",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MTY",
+      "dist": "3925",
+      "totalDist": "23550",
+      "flightHrs": 4,
+      "flightMins": 35,
+      "maint": "6.36",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:24:19.130Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:24:19.130Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242718437",
+      "reg": "CC-IVR",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "3118",
+      "totalDist": "81068",
+      "flightHrs": 3,
+      "flightMins": 42,
+      "maint": "5.46",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:25:18.437Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:25:18.437Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242783377",
+      "reg": "CC-DVA",
+      "icao": "A321",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "GRU",
+      "dist": "1411",
+      "totalDist": "50796",
+      "flightHrs": 1,
+      "flightMins": 44,
+      "maint": "3.55",
+      "first": 0,
+      "biz": 0,
+      "eco": 220,
+      "updatedAt": "2026-06-23T19:26:23.377Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:26:23.377Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242830093",
+      "reg": "CC-SYY",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "3961",
+      "totalDist": "102986",
+      "flightHrs": 4,
+      "flightMins": 38,
+      "maint": "6.4",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:27:10.093Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:27:10.093Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242866322",
+      "reg": "CC-KSA",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "3961",
+      "totalDist": "102986",
+      "flightHrs": 4,
+      "flightMins": 38,
+      "maint": "6.4",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:27:46.322Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:27:46.322Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242905646",
+      "reg": "CC-MVV",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "IAD",
+      "dist": "4356",
+      "totalDist": "43560",
+      "flightHrs": 5,
+      "flightMins": 4,
+      "maint": "6.84",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:28:25.647Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:28:25.647Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242938491",
+      "reg": "CC-RPC",
+      "icao": "A21NY",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "SXM",
+      "dist": "3118",
+      "totalDist": "87304",
+      "flightHrs": 3,
+      "flightMins": 42,
+      "maint": "5.46",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:28:58.491Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:28:58.491Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782242981932",
+      "reg": "CC-QUF",
+      "icao": "B789",
+      "base": "SCL",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "MSY",
+      "dist": "3961",
+      "totalDist": "79220",
+      "flightHrs": 4,
+      "flightMins": 19,
+      "maint": "6.06",
+      "first": 10,
+      "biz": 13,
+      "eco": 299,
+      "updatedAt": "2026-06-23T19:29:41.932Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:29:41.932Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782243230238",
+      "reg": "B-HOFQ",
+      "icao": "A388",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "IST",
+      "dist": "4321",
+      "totalDist": "25926",
+      "flightHrs": 4,
+      "flightMins": 56,
+      "maint": "6.43",
+      "first": 19,
+      "biz": 32,
+      "eco": 597,
+      "updatedAt": "2026-07-05T12:48:38.483Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:33:50.238Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1782243327644",
+      "reg": "B-HGGK",
+      "icao": "A306F",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "D",
+      "load": "Cargo",
+      "dest": "ISB",
+      "dist": "2264",
+      "totalDist": "99616",
+      "flightHrs": 2,
+      "flightMins": 53,
+      "maint": "4.52",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T19:35:27.644Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:35:27.644Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782243379193",
+      "reg": "B-HGLV",
+      "icao": "A21NY",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "MED",
+      "dist": "4036",
+      "totalDist": "234088",
+      "flightHrs": 4,
+      "flightMins": 43,
+      "maint": "6.48",
+      "first": 0,
+      "biz": 20,
+      "eco": 170,
+      "updatedAt": "2026-06-23T19:36:19.193Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:36:19.193Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782243450467",
+      "reg": "B-HMAE",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "EVN",
+      "dist": "3631",
+      "totalDist": "159764",
+      "flightHrs": 3,
+      "flightMins": 59,
+      "maint": "5.72",
+      "first": 8,
+      "biz": 18,
+      "eco": 295,
+      "updatedAt": "2026-06-23T19:37:30.467Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:37:30.467Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782243497197",
+      "reg": "B-HXFN",
+      "icao": "A388",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "F",
+      "load": "Passenger",
+      "dest": "IST",
+      "dist": "4321",
+      "totalDist": "25926",
+      "flightHrs": 4,
+      "flightMins": 56,
+      "maint": "6.43",
+      "first": 19,
+      "biz": 32,
+      "eco": 597,
+      "updatedAt": "2026-07-05T12:49:27.240Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:38:17.197Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1782243558982",
+      "reg": "B-HIXA",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "DME",
+      "dist": "3836",
+      "totalDist": "184128",
+      "flightHrs": 4,
+      "flightMins": 11,
+      "maint": "5.93",
+      "first": 8,
+      "biz": 18,
+      "eco": 295,
+      "updatedAt": "2026-06-23T19:39:18.982Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:39:18.982Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782243635056",
+      "reg": "B-HXVG",
+      "icao": "B77LF",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "DEL",
+      "dist": "2022",
+      "totalDist": "157716",
+      "flightHrs": 2,
+      "flightMins": 30,
+      "maint": "4.06",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-23T19:40:35.056Z",
+      "changelog": [
+        {
+          "time": "2026-06-23T19:40:35.056Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782277651911",
+      "reg": "B-HQAQ",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "BEY",
+      "dist": "4114",
+      "totalDist": "148104",
+      "flightHrs": 4,
+      "flightMins": 29,
+      "maint": "6.22",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-24T05:07:31.911Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:07:31.911Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782277766352",
+      "reg": "B-HNMV",
+      "icao": "A332F",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "CNS",
+      "dist": "3005",
+      "totalDist": "234390",
+      "flightHrs": 3,
+      "flightMins": 40,
+      "maint": "5.2",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T05:09:26.352Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:09:26.352Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782277939622",
+      "reg": "B-HCHK",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "MEL",
+      "dist": "4000",
+      "totalDist": "152000",
+      "flightHrs": 4,
+      "flightMins": 22,
+      "maint": "6.1",
+      "first": 10,
+      "biz": 10,
+      "eco": 311,
+      "updatedAt": "2026-06-24T05:12:19.622Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:12:19.622Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278018022",
+      "reg": "B-HJJX",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "IST",
+      "dist": "4321",
+      "totalDist": "216050",
+      "flightHrs": 4,
+      "flightMins": 41,
+      "maint": "6.43",
+      "first": 16,
+      "biz": 0,
+      "eco": 304,
+      "updatedAt": "2026-06-24T05:13:38.022Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:13:38.022Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278138230",
+      "reg": "B-HRLU",
+      "icao": "A332F",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "SCO",
+      "dist": "3325",
+      "totalDist": "212800",
+      "flightHrs": 4,
+      "flightMins": 0,
+      "maint": "5.54",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T05:15:38.230Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:15:38.230Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278213118",
+      "reg": "B-HYFQ",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "KWI",
+      "dist": "3542",
+      "totalDist": "184184",
+      "flightHrs": 3,
+      "flightMins": 53,
+      "maint": "5.63",
+      "first": 13,
+      "biz": 0,
+      "eco": 326,
+      "updatedAt": "2026-06-24T05:16:53.118Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:16:53.118Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278310807",
+      "reg": "B-HWTX",
+      "icao": "B744F",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "NRT",
+      "dist": "1599",
+      "totalDist": "63960",
+      "flightHrs": 2,
+      "flightMins": 13,
+      "maint": "3.63",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T05:18:30.807Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:18:30.807Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278396005",
+      "reg": "B-HARQ",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "JED",
+      "dist": "4112",
+      "totalDist": "222048",
+      "flightHrs": 4,
+      "flightMins": 28,
+      "maint": "6.21",
+      "first": 16,
+      "biz": 0,
+      "eco": 304,
+      "updatedAt": "2026-06-24T05:19:56.005Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:19:56.005Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278549090",
+      "reg": "B-HQQR",
+      "icao": "B77LF",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "GYD",
+      "dist": "3372",
+      "totalDist": "141624",
+      "flightHrs": 3,
+      "flightMins": 53,
+      "maint": "5.44",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T05:22:29.090Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:22:29.090Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278646763",
+      "reg": "B-HTEA",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "GDN",
+      "dist": "4505",
+      "totalDist": "189210",
+      "flightHrs": 4,
+      "flightMins": 53,
+      "maint": "6.62",
+      "first": 6,
+      "biz": 20,
+      "eco": 302,
+      "updatedAt": "2026-06-24T05:24:06.763Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:24:06.763Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278803317",
+      "reg": "B-HGLP",
+      "icao": "A359",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "CAI",
+      "dist": "4372",
+      "totalDist": "183624",
+      "flightHrs": 4,
+      "flightMins": 49,
+      "maint": "6.48",
+      "first": 10,
+      "biz": 13,
+      "eco": 319,
+      "updatedAt": "2026-06-24T05:26:43.317Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:26:43.317Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278865211",
+      "reg": "B-HYQW",
+      "icao": "B77LF",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "SYD",
+      "dist": "3990",
+      "totalDist": "215460",
+      "flightHrs": 4,
+      "flightMins": 31,
+      "maint": "6.07",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T05:27:45.211Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:27:45.211Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782278929409",
+      "reg": "B-HOIS",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "PRG",
+      "dist": "4737",
+      "totalDist": "322116",
+      "flightHrs": 5,
+      "flightMins": 7,
+      "maint": "6.85",
+      "first": 13,
+      "biz": 6,
+      "eco": 303,
+      "updatedAt": "2026-06-24T05:28:49.409Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:28:49.409Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782279016882",
+      "reg": "B-HEQQ",
+      "icao": "C919",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "COMAC",
+      "size": "C",
+      "load": "Passenger",
+      "dest": "NGO",
+      "dist": "1417",
+      "totalDist": "204048",
+      "flightHrs": 1,
+      "flightMins": 44,
+      "maint": "3.56",
+      "first": 0,
+      "biz": 10,
+      "eco": 153,
+      "updatedAt": "2026-06-24T05:30:16.882Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:30:16.882Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782279072577",
+      "reg": "B-HZOV",
+      "icao": "B789",
+      "base": "HKG",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Passenger",
+      "dest": "SYD",
+      "dist": "3990",
+      "totalDist": "279300",
+      "flightHrs": 4,
+      "flightMins": 21,
+      "maint": "6.09",
+      "first": 10,
+      "biz": 13,
+      "eco": 299,
+      "updatedAt": "2026-06-24T05:31:12.577Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T05:31:12.577Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782293641954",
+      "reg": "HB-IBR",
+      "icao": "B77LF",
+      "base": "ZRH",
+      "inductionDate": "2026-06-24",
+      "mfr": "Boeing",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "MCT",
+      "dist": "2757",
+      "totalDist": "0",
+      "flightHrs": 3,
+      "flightMins": 15,
+      "maint": "4.81",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-01T12:29:31.307Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T09:34:01.954Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "1782316659735",
+      "reg": "HB-FCP",
+      "icao": "A332F",
+      "base": "ZRH",
+      "inductionDate": "2026-06-24",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "NBO",
+      "dist": "3283",
+      "totalDist": "0",
+      "flightHrs": 3,
+      "flightMins": 58,
+      "maint": "5.49",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-06-24T15:58:07.524Z",
+      "changelog": [
+        {
+          "time": "2026-06-24T15:57:39.735Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783254915270",
+      "reg": "B-HBPH",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "ATH",
+      "dist": "4589",
+      "totalDist": "18356",
+      "flightHrs": 5,
+      "flightMins": 23,
+      "maint": "6.82",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:35:15.270Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:35:15.270Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255007254",
+      "reg": "B-HACN",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "ZRH",
+      "dist": "5008",
+      "totalDist": "10016",
+      "flightHrs": 5,
+      "flightMins": 50,
+      "maint": "7.26",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:36:47.254Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:36:47.255Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255058186",
+      "reg": "B-HRHS",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "OSL",
+      "dist": "4612",
+      "totalDist": "9224",
+      "flightHrs": 5,
+      "flightMins": 25,
+      "maint": "6.84",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:37:38.186Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:37:38.186Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255109939",
+      "reg": "B-HMAD",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "HEL",
+      "dist": "4215",
+      "totalDist": "16860",
+      "flightHrs": 5,
+      "flightMins": 0,
+      "maint": "6.43",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:38:29.939Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:38:29.939Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255158349",
+      "reg": "B-HYAJ",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "EBB",
+      "dist": "4926",
+      "totalDist": "19704",
+      "flightHrs": 5,
+      "flightMins": 45,
+      "maint": "7.17",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:39:18.349Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:39:18.349Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255213470",
+      "reg": "B-HYQO",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "NBO",
+      "dist": "4710",
+      "totalDist": "18840",
+      "flightHrs": 5,
+      "flightMins": 31,
+      "maint": "6.95",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:40:13.470Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:40:13.470Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255258359",
+      "reg": "B-HJUR",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "SYD",
+      "dist": "3990",
+      "totalDist": "23940",
+      "flightHrs": 4,
+      "flightMins": 46,
+      "maint": "6.19",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:40:58.359Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:40:58.359Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255312862",
+      "reg": "B-HZBV",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "ATH",
+      "dist": "4589",
+      "totalDist": "27534",
+      "flightHrs": 5,
+      "flightMins": 23,
+      "maint": "6.82",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:41:52.862Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:41:52.862Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255364708",
+      "reg": "B-HNMO",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "HNL",
+      "dist": "4828",
+      "totalDist": "28968",
+      "flightHrs": 5,
+      "flightMins": 39,
+      "maint": "7.07",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:42:44.708Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:42:44.708Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255409586",
+      "reg": "B-HTWT",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "LEJ",
+      "dist": "4779",
+      "totalDist": "28674",
+      "flightHrs": 5,
+      "flightMins": 35,
+      "maint": "7.02",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:43:29.586Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:43:29.586Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1783255476331",
+      "reg": "B-HGVM",
+      "icao": "A346F",
+      "base": "HKG",
+      "inductionDate": "2026-07-05",
+      "mfr": "Airbus",
+      "size": "E",
+      "load": "Cargo",
+      "dest": "LEJ",
+      "dist": "4779",
+      "totalDist": "28674",
+      "flightHrs": 5,
+      "flightMins": 35,
+      "maint": "7.02",
+      "first": 0,
+      "biz": 0,
+      "eco": 0,
+      "updatedAt": "2026-07-05T12:44:36.331Z",
+      "changelog": [
+        {
+          "time": "2026-07-05T12:44:36.331Z",
+          "changes": [
+            "<strong>System:</strong> 新机队资产登入注册"
+          ]
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "1782225326911",
+      "name": "ZRH → LCA",
+      "acLabel": "HB-ZPC",
+      "minR": 455,
+      "maxR": 1102,
+      "revenue": 970.05,
+      "maintCost": 276.4125,
+      "profit": 693.6374999999999
+    },
+    {
+      "id": "1782225383774",
+      "name": "ZRH → PDX",
+      "acLabel": "HB-CHD",
+      "minR": 4375,
+      "maxR": 11296,
+      "revenue": 10027.25,
+      "maintCost": 3344.6875,
+      "profit": 6682.5625
+    },
+    {
+      "id": "1782225456660",
+      "name": "ZRH → ADD",
+      "acLabel": "HB-KMA",
+      "minR": 2219,
+      "maxR": 4545,
+      "revenue": 3901.49,
+      "maintCost": 1084.58,
+      "profit": 2816.91
+    },
+    {
+      "id": "1782225508009",
+      "name": "ZRH → LAD",
+      "acLabel": "HB-AXN",
+      "minR": 3998,
+      "maxR": 9423,
+      "revenue": 8263.58,
+      "maintCost": 2699.8125,
+      "profit": 5563.7675
+    },
+    {
+      "id": "1782225776583",
+      "name": "ZRH → LCA",
+      "acLabel": "HB-WTS",
+      "minR": 1120,
+      "maxR": 2122,
+      "revenue": 1797.1999999999998,
+      "maintCost": 684.04,
+      "profit": 1113.1599999999999
+    },
+    {
+      "id": "1782225928558",
+      "name": "BRI → LPA",
+      "acLabel": "I-CZL",
+      "minR": 523,
+      "maxR": 1326,
+      "revenue": 1174.33,
+      "maintCost": 312.6375,
+      "profit": 861.6924999999999
+    },
+    {
+      "id": "1782225999440",
+      "name": "BRI → LPA",
+      "acLabel": "I-DEN",
+      "minR": 523,
+      "maxR": 1326,
+      "revenue": 1174.33,
+      "maintCost": 312.6375,
+      "profit": 861.6924999999999
+    },
+    {
+      "id": "1782226093145",
+      "name": "BRI → LPA",
+      "acLabel": "I-OWI",
+      "minR": 523,
+      "maxR": 1326,
+      "revenue": 1174.33,
+      "maintCost": 312.6375,
+      "profit": 861.6924999999999
+    },
+    {
+      "id": "1782226305185",
+      "name": "IAD → LIM",
+      "acLabel": "NFGK",
+      "minR": 2349,
+      "maxR": 4863,
+      "revenue": 4181.79,
+      "maintCost": 1152.9,
+      "profit": 3028.89
+    },
+    {
+      "id": "1782226417258",
+      "name": "IAD → ARN",
+      "acLabel": "NBQN",
+      "minR": 2547,
+      "maxR": 5395,
+      "revenue": 4656.37,
+      "maintCost": 1276.73,
+      "profit": 3379.64
+    },
+    {
+      "id": "1782226531536",
+      "name": "IAD → LEJ",
+      "acLabel": "NBGZ",
+      "minR": 4043,
+      "maxR": 11757,
+      "revenue": 10584.529999999999,
+      "maintCost": 3690.75,
+      "profit": 6893.779999999999
+    },
+    {
+      "id": "1782226686103",
+      "name": "IAD → BOG",
+      "acLabel": "NMGX",
+      "minR": 1294,
+      "maxR": 5395,
+      "revenue": 5019.74,
+      "maintCost": 2627.1,
+      "profit": 2392.64
+    },
+    {
+      "id": "1782227403654",
+      "name": "IAD → MAN",
+      "acLabel": "NCFS",
+      "minR": 2363,
+      "maxR": 4899,
+      "revenue": 4213.73,
+      "maintCost": 1159.3049999999998,
+      "profit": 3054.4249999999997
+    },
+    {
+      "id": "1782227504682",
+      "name": "IAD → OPO",
+      "acLabel": "NRMI",
+      "minR": 1680,
+      "maxR": 6420,
+      "revenue": 5932.8,
+      "maintCost": 2886.6425,
+      "profit": 3046.1575000000003
+    },
+    {
+      "id": "1782227584788",
+      "name": "IAD → ARN",
+      "acLabel": "NVTR",
+      "minR": 4129,
+      "maxR": 9798,
+      "revenue": 8600.59,
+      "maintCost": 2796.0625,
+      "profit": 5804.5275
+    },
+    {
+      "id": "1782227650549",
+      "name": "IAD → EDI",
+      "acLabel": "NBCY",
+      "minR": 2329,
+      "maxR": 4813,
+      "revenue": 4137.59,
+      "maintCost": 1142.225,
+      "profit": 2995.3650000000002
+    },
+    {
+      "id": "1782227751238",
+      "name": "IAD → IST",
+      "acLabel": "NUNY",
+      "minR": 4132,
+      "maxR": 13691,
+      "revenue": 12492.72,
+      "maintCost": 4518.15,
+      "profit": 7974.57
+    },
+    {
+      "id": "1782227814250",
+      "name": "IAD → PRG",
+      "acLabel": "NKMF",
+      "minR": 4136,
+      "maxR": 9985,
+      "revenue": 8785.56,
+      "maintCost": 2873.0625,
+      "profit": 5912.4974999999995
+    },
+    {
+      "id": "1782227893895",
+      "name": "IAD → NRT",
+      "acLabel": "NNDX",
+      "minR": 3480,
+      "maxR": 10367,
+      "revenue": 9357.8,
+      "maintCost": 3808,
+      "profit": 5549.799999999999
+    },
+    {
+      "id": "1782227956723",
+      "name": "IAD → ANC",
+      "acLabel": "NXNB",
+      "minR": 2285,
+      "maxR": 4699,
+      "revenue": 4036.35,
+      "maintCost": 1116.605,
+      "profit": 2919.745
+    },
+    {
+      "id": "1782228022804",
+      "name": "IAD → VIE",
+      "acLabel": "NEKK",
+      "minR": 4239,
+      "maxR": 10258,
+      "revenue": 9028.69,
+      "maintCost": 2940.4375,
+      "profit": 6088.2525000000005
+    },
+    {
+      "id": "1782228106126",
+      "name": "IAD → CNF",
+      "acLabel": "NQMQ",
+      "minR": 2667,
+      "maxR": 5763,
+      "revenue": 4989.57,
+      "maintCost": 1372.8049999999998,
+      "profit": 3616.765
+    },
+    {
+      "id": "1782228183614",
+      "name": "IAD → VIE",
+      "acLabel": "NIEB",
+      "minR": 2635,
+      "maxR": 5659,
+      "revenue": 4894.85,
+      "maintCost": 1345.05,
+      "profit": 3549.8
+    },
+    {
+      "id": "1782228250750",
+      "name": "IAD → HNL",
+      "acLabel": "NJPJ",
+      "minR": 4315,
+      "maxR": 10700,
+      "revenue": 9448.65,
+      "maintCost": 3099.25,
+      "profit": 6349.4
+    },
+    {
+      "id": "1782228326258",
+      "name": "IAD → PRG",
+      "acLabel": "NOHQ",
+      "minR": 2015,
+      "maxR": 7710,
+      "revenue": 7125.65,
+      "maintCost": 3270.0674999999997,
+      "profit": 3855.5825
+    },
+    {
+      "id": "1782228387612",
+      "name": "IAD → ESB",
+      "acLabel": "NMYW",
+      "minR": 4050,
+      "maxR": 11033,
+      "revenue": 9858.5,
+      "maintCost": 3378.375,
+      "profit": 6480.125
+    },
+    {
+      "id": "1782228441428",
+      "name": "IAD → ALG",
+      "acLabel": "NDGB",
+      "minR": 2585,
+      "maxR": 5505,
+      "revenue": 4755.35,
+      "maintCost": 1302.35,
+      "profit": 3453.0000000000005
+    },
+    {
+      "id": "1782228495322",
+      "name": "IAD → HEL",
+      "acLabel": "NSCT",
+      "minR": 2599,
+      "maxR": 5549,
+      "revenue": 4795.29,
+      "maintCost": 1315.1599999999999,
+      "profit": 3480.13
+    },
+    {
+      "id": "1782228549573",
+      "name": "IAD → ATH",
+      "acLabel": "NIMT",
+      "minR": 4363,
+      "maxR": 11090,
+      "revenue": 9824.73,
+      "maintCost": 3253.25,
+      "profit": 6571.48
+    },
+    {
+      "id": "1782228595664",
+      "name": "IAD → MLA",
+      "acLabel": "NVFK",
+      "minR": 4319,
+      "maxR": 10712,
+      "revenue": 9459.49,
+      "maintCost": 3104.0625,
+      "profit": 6355.4275
+    },
+    {
+      "id": "1782228653909",
+      "name": "IAD → MCI",
+      "acLabel": "NLQO",
+      "minR": 339,
+      "maxR": 766,
+      "revenue": 667.69,
+      "maintCost": 228.375,
+      "profit": 439.31500000000005
+    },
+    {
+      "id": "1782228757085",
+      "name": "IAD → ANC",
+      "acLabel": "NJYX",
+      "minR": 2691,
+      "maxR": 6190,
+      "revenue": 5409.61,
+      "maintCost": 2093.2625,
+      "profit": 3316.3475
+    },
+    {
+      "id": "1782228852248",
+      "name": "IAD → UIO",
+      "acLabel": "NWRS",
+      "minR": 1999,
+      "maxR": 4023,
+      "revenue": 3443.29,
+      "maintCost": 982.0999999999999,
+      "profit": 2461.19
+    },
+    {
+      "id": "1782228905728",
+      "name": "IAD → SXM",
+      "acLabel": "NQIS",
+      "minR": 473,
+      "maxR": 1162,
+      "revenue": 1024.83,
+      "maintCost": 285.8625,
+      "profit": 738.9675
+    },
+    {
+      "id": "1782229036191",
+      "name": "IAD → SVO",
+      "acLabel": "NTKW",
+      "minR": 4012,
+      "maxR": 10273,
+      "revenue": 9109.52,
+      "maintCost": 3008.32,
+      "profit": 6101.200000000001
+    },
+    {
+      "id": "1782229470473",
+      "name": "IAD → IST",
+      "acLabel": "NLAZ",
+      "minR": 4042,
+      "maxR": 10643,
+      "revenue": 9470.82,
+      "maintCost": 3160.64,
+      "profit": 6310.18
+    },
+    {
+      "id": "1782229545626",
+      "name": "IAD → SCL",
+      "acLabel": "NLRF",
+      "minR": 2751,
+      "maxR": 6061,
+      "revenue": 5263.21,
+      "maintCost": 1460.34,
+      "profit": 3802.87
+    },
+    {
+      "id": "1782229601006",
+      "name": "IAD → FUE",
+      "acLabel": "NWLV",
+      "minR": 2399,
+      "maxR": 4989,
+      "revenue": 4293.29,
+      "maintCost": 1180.6550000000002,
+      "profit": 3112.6349999999998
+    },
+    {
+      "id": "1782229649873",
+      "name": "IAD → CTA",
+      "acLabel": "NXBN",
+      "minR": 2707,
+      "maxR": 5903,
+      "revenue": 5117.969999999999,
+      "maintCost": 1411.2350000000001,
+      "profit": 3706.734999999999
+    },
+    {
+      "id": "1782229692985",
+      "name": "IAD → TUN",
+      "acLabel": "NDDH",
+      "minR": 2665,
+      "maxR": 5755,
+      "revenue": 4982.15,
+      "maintCost": 1370.67,
+      "profit": 3611.4799999999996
+    },
+    {
+      "id": "1782229770706",
+      "name": "IAD → VVI",
+      "acLabel": "NEHW",
+      "minR": 2517,
+      "maxR": 5311,
+      "revenue": 4581.07,
+      "maintCost": 1255.3799999999999,
+      "profit": 3325.6899999999996
+    },
+    {
+      "id": "1782229824193",
+      "name": "IAD → BEG",
+      "acLabel": "NRUG",
+      "minR": 2697,
+      "maxR": 5861,
+      "revenue": 5078.87,
+      "maintCost": 1400.56,
+      "profit": 3678.31
+    },
+    {
+      "id": "1782229886846",
+      "name": "IAD → MRS",
+      "acLabel": "NKKB",
+      "minR": 2551,
+      "maxR": 5403,
+      "revenue": 4663.21,
+      "maintCost": 1276.73,
+      "profit": 3386.48
+    },
+    {
+      "id": "1782229934556",
+      "name": "IAD → AGP",
+      "acLabel": "NRGB",
+      "minR": 2473,
+      "maxR": 5187,
+      "revenue": 4469.83,
+      "maintCost": 1225.49,
+      "profit": 3244.34
+    },
+    {
+      "id": "1782229982067",
+      "name": "IAD → GOT",
+      "acLabel": "NMMA",
+      "minR": 2507,
+      "maxR": 5289,
+      "revenue": 4561.969999999999,
+      "maintCost": 1248.975,
+      "profit": 3312.9949999999994
+    },
+    {
+      "id": "1782230017017",
+      "name": "IAD → ALG",
+      "acLabel": "NZDN",
+      "minR": 2585,
+      "maxR": 5505,
+      "revenue": 4755.35,
+      "maintCost": 1302.35,
+      "profit": 3453.0000000000005
+    },
+    {
+      "id": "1782230069114",
+      "name": "IAD → BEY",
+      "acLabel": "NYUQ",
+      "minR": 3664,
+      "maxR": 11248,
+      "revenue": 10185.44,
+      "maintCost": 3900.575,
+      "profit": 6284.865000000001
+    },
+    {
+      "id": "1782230116697",
+      "name": "IAD → OSL",
+      "acLabel": "NRYA",
+      "minR": 2475,
+      "maxR": 5199,
+      "revenue": 4481.25,
+      "maintCost": 1227.625,
+      "profit": 3253.625
+    },
+    {
+      "id": "1782230160747",
+      "name": "IAD → PRG",
+      "acLabel": "NUIT",
+      "minR": 2593,
+      "maxR": 5535,
+      "revenue": 4783.03,
+      "maintCost": 1310.8899999999999,
+      "profit": 3472.14
+    },
+    {
+      "id": "1782230209416",
+      "name": "IAD → CMN",
+      "acLabel": "NNWJ",
+      "minR": 2453,
+      "maxR": 5137,
+      "revenue": 4425.63,
+      "maintCost": 1214.815,
+      "profit": 3210.815
+    },
+    {
+      "id": "1782230265456",
+      "name": "IAD → CPH",
+      "acLabel": "NHFR",
+      "minR": 2531,
+      "maxR": 5347,
+      "revenue": 4613.01,
+      "maintCost": 1263.92,
+      "profit": 3349.09
+    },
+    {
+      "id": "1782230311915",
+      "name": "IAD → GRU",
+      "acLabel": "NLBN",
+      "minR": 2703,
+      "maxR": 5881,
+      "revenue": 5097.13,
+      "maintCost": 1406.9650000000001,
+      "profit": 3690.165
+    },
+    {
+      "id": "1782230373346",
+      "name": "IAD → MUN",
+      "acLabel": "NMRA",
+      "minR": 543,
+      "maxR": 1404,
+      "revenue": 1246.53,
+      "maintCost": 326.025,
+      "profit": 920.505
+    },
+    {
+      "id": "1782230416577",
+      "name": "IAD → MUN",
+      "acLabel": "NFAA",
+      "minR": 543,
+      "maxR": 1404,
+      "revenue": 1246.53,
+      "maintCost": 326.025,
+      "profit": 920.505
+    },
+    {
+      "id": "1782230456568",
+      "name": "IAD → FUE",
+      "acLabel": "NRLD",
+      "minR": 2399,
+      "maxR": 4989,
+      "revenue": 4293.29,
+      "maintCost": 1180.6550000000002,
+      "profit": 3112.6349999999998
+    },
+    {
+      "id": "1782230768357",
+      "name": "NGO → SYD",
+      "acLabel": "JAEJX",
+      "minR": 4010,
+      "maxR": 10265,
+      "revenue": 9102.1,
+      "maintCost": 3003.56,
+      "profit": 6098.540000000001
+    },
+    {
+      "id": "1782230899919",
+      "name": "NGO → HKG",
+      "acLabel": "JASJC",
+      "minR": 2397,
+      "maxR": 5297,
+      "revenue": 4601.87,
+      "maintCost": 1935.0187500000002,
+      "profit": 2666.8512499999997
+    },
+    {
+      "id": "1782230958778",
+      "name": "NGO → BKI",
+      "acLabel": "JAESR",
+      "minR": 718,
+      "maxR": 2021,
+      "revenue": 1812.78,
+      "maintCost": 692.3,
+      "profit": 1120.48
+    },
+    {
+      "id": "1782231018620",
+      "name": "NGO → BKK",
+      "acLabel": "JAYSZ",
+      "minR": 1465,
+      "maxR": 5295,
+      "revenue": 4870.15,
+      "maintCost": 1869.5774999999999,
+      "profit": 3000.5724999999998
+    },
+    {
+      "id": "1782231085509",
+      "name": "NGO → CNN",
+      "acLabel": "JABCY",
+      "minR": 2551,
+      "maxR": 5403,
+      "revenue": 4663.21,
+      "maintCost": 1276.73,
+      "profit": 3386.48
+    },
+    {
+      "id": "1782231124770",
+      "name": "NGO → SYD",
+      "acLabel": "JAQBG",
+      "minR": 4010,
+      "maxR": 10265,
+      "revenue": 9102.1,
+      "maintCost": 3003.56,
+      "profit": 6098.540000000001
+    },
+    {
+      "id": "1782231173450",
+      "name": "NGO → HKG",
+      "acLabel": "JALPX",
+      "minR": 2235,
+      "maxR": 4825,
+      "revenue": 4176.85,
+      "maintCost": 1642.2,
+      "profit": 2534.6500000000005
+    },
+    {
+      "id": "1782231221829",
+      "name": "NGO → BKK",
+      "acLabel": "JAFXO",
+      "minR": 697,
+      "maxR": 2194,
+      "revenue": 1991.87,
+      "maintCost": 735.7700000000001,
+      "profit": 1256.1
+    },
+    {
+      "id": "1782231263767",
+      "name": "NGO → HKG",
+      "acLabel": "JAXOC",
+      "minR": 463,
+      "maxR": 1136,
+      "revenue": 1001.73,
+      "maintCost": 282.7125,
+      "profit": 719.0175
+    },
+    {
+      "id": "1782231305507",
+      "name": "NGO → HKG",
+      "acLabel": "JAZVG",
+      "minR": 590,
+      "maxR": 1538,
+      "revenue": 1366.9,
+      "maintCost": 573.1600000000001,
+      "profit": 793.74
+    },
+    {
+      "id": "1782231380507",
+      "name": "SAN → SJC",
+      "acLabel": "NOEK",
+      "minR": 229,
+      "maxR": 472,
+      "revenue": 405.59000000000003,
+      "maintCost": 189.7875,
+      "profit": 215.80250000000004
+    },
+    {
+      "id": "1782231421380",
+      "name": "SAN → LAX",
+      "acLabel": "NBVM",
+      "minR": 155,
+      "maxR": 278,
+      "revenue": 233.05,
+      "maintCost": 166.1625,
+      "profit": 66.88750000000002
+    },
+    {
+      "id": "1782231464285",
+      "name": "SAN → MSY",
+      "acLabel": "NXJE",
+      "minR": 459,
+      "maxR": 1120,
+      "revenue": 986.89,
+      "maintCost": 279.5625,
+      "profit": 707.3275
+    },
+    {
+      "id": "1782231494495",
+      "name": "SAN → MSY",
+      "acLabel": "NLHM",
+      "minR": 459,
+      "maxR": 1120,
+      "revenue": 986.89,
+      "maintCost": 279.5625,
+      "profit": 707.3275
+    },
+    {
+      "id": "1782231529556",
+      "name": "SAN → MSY",
+      "acLabel": "NLAY",
+      "minR": 459,
+      "maxR": 1120,
+      "revenue": 986.89,
+      "maintCost": 279.5625,
+      "profit": 707.3275
+    },
+    {
+      "id": "1782231708254",
+      "name": "MCT → NGO",
+      "acLabel": "A4O-LEM",
+      "minR": 2420,
+      "maxR": 5539,
+      "revenue": 4837.2,
+      "maintCost": 1392.02,
+      "profit": 3445.18
+    },
+    {
+      "id": "1782231749810",
+      "name": "MCT → NGO",
+      "acLabel": "A4O-JOK",
+      "minR": 2689,
+      "maxR": 5831,
+      "revenue": 5051.19,
+      "maintCost": 1392.02,
+      "profit": 3659.1699999999996
+    },
+    {
+      "id": "1782231790698",
+      "name": "MCT → NGO",
+      "acLabel": "A4O-BWD",
+      "minR": 2420,
+      "maxR": 5539,
+      "revenue": 4837.2,
+      "maintCost": 1392.02,
+      "profit": 3445.18
+    },
+    {
+      "id": "1782231835493",
+      "name": "MCT → LHR",
+      "acLabel": "A4O-CKU",
+      "minR": 2194,
+      "maxR": 4755,
+      "revenue": 4118.74,
+      "maintCost": 1174.25,
+      "profit": 2944.49
+    },
+    {
+      "id": "1782231884129",
+      "name": "MCT → HKG",
+      "acLabel": "A4O-OVC",
+      "minR": 2158,
+      "maxR": 4661,
+      "revenue": 4035.18,
+      "maintCost": 1150.7649999999999,
+      "profit": 2884.415
+    },
+    {
+      "id": "1782231940188",
+      "name": "MCT → NGO",
+      "acLabel": "A4O-TAA",
+      "minR": 2689,
+      "maxR": 5831,
+      "revenue": 5051.19,
+      "maintCost": 1392.02,
+      "profit": 3659.1699999999996
+    },
+    {
+      "id": "1782235947813",
+      "name": "LHR → PEK",
+      "acLabel": "G-CWG",
+      "minR": 4353,
+      "maxR": 10994,
+      "revenue": 9731.63,
+      "maintCost": 3214.75,
+      "profit": 6516.879999999999
+    },
+    {
+      "id": "1782235999229",
+      "name": "LHR → DFW",
+      "acLabel": "G-TTE",
+      "minR": 4301,
+      "maxR": 10618,
+      "revenue": 9370.71,
+      "maintCost": 3070.375,
+      "profit": 6300.334999999999
+    },
+    {
+      "id": "1782236658467",
+      "name": "LHR → YVR",
+      "acLabel": "G-IYA",
+      "minR": 4295,
+      "maxR": 10580,
+      "revenue": 9334.45,
+      "maintCost": 3055.9375,
+      "profit": 6278.512500000001
+    },
+    {
+      "id": "1782236719435",
+      "name": "LHR → DXB",
+      "acLabel": "G-EPH",
+      "minR": 4829,
+      "maxR": 14488,
+      "revenue": 13087.59,
+      "maintCost": 4454.1,
+      "profit": 8633.49
+    },
+    {
+      "id": "1782236787453",
+      "name": "LHR → CMB",
+      "acLabel": "G-ZHX",
+      "minR": 4078,
+      "maxR": 10811,
+      "revenue": 9628.38,
+      "maintCost": 3246.32,
+      "profit": 6382.0599999999995
+    },
+    {
+      "id": "1782237347005",
+      "name": "LHR → KMG",
+      "acLabel": "G-ILG",
+      "minR": 4078,
+      "maxR": 10817,
+      "revenue": 9634.38,
+      "maintCost": 3246.32,
+      "profit": 6388.0599999999995
+    },
+    {
+      "id": "1782237493681",
+      "name": "LHR → HRB",
+      "acLabel": "G-QWZ",
+      "minR": 4064,
+      "maxR": 10437,
+      "revenue": 9258.44,
+      "maintCost": 3079.72,
+      "profit": 6178.720000000001
+    },
+    {
+      "id": "1782237554246",
+      "name": "LHR → CTU",
+      "acLabel": "G-PSH",
+      "minR": 4076,
+      "maxR": 10577,
+      "revenue": 9394.96,
+      "maintCost": 3136.84,
+      "profit": 6258.119999999999
+    },
+    {
+      "id": "1782237610079",
+      "name": "LHR → PKX",
+      "acLabel": "G-XBD",
+      "minR": 3965,
+      "maxR": 13751,
+      "revenue": 12601.15,
+      "maintCost": 4215.225,
+      "profit": 8385.925
+    },
+    {
+      "id": "1782237668494",
+      "name": "LHR → LAX",
+      "acLabel": "G-VEE",
+      "minR": 4299,
+      "maxR": 18156,
+      "revenue": 16909.29,
+      "maintCost": 6044.85,
+      "profit": 10864.44
+    },
+    {
+      "id": "1782237832244",
+      "name": "SYD → TSV",
+      "acLabel": "VH-SFF",
+      "minR": 182,
+      "maxR": 965,
+      "revenue": 912.22,
+      "maintCost": 627.9000000000001,
+      "profit": 284.31999999999994
+    },
+    {
+      "id": "1782238010656",
+      "name": "SYD → HKG",
+      "acLabel": "VH-LVG",
+      "minR": 4598,
+      "maxR": 16952,
+      "revenue": 15618.58,
+      "maintCost": 5382.0375,
+      "profit": 10236.5425
+    },
+    {
+      "id": "1782238110583",
+      "name": "SYD → NGO",
+      "acLabel": "VH-JLK",
+      "minR": 2721,
+      "maxR": 5945,
+      "revenue": 5155.91,
+      "maintCost": 1424.045,
+      "profit": 3731.865
+    },
+    {
+      "id": "1782238162911",
+      "name": "SYD → BKK",
+      "acLabel": "VH-TIE",
+      "minR": 2685,
+      "maxR": 5821,
+      "revenue": 5042.35,
+      "maintCost": 1389.885,
+      "profit": 3652.465
+    },
+    {
+      "id": "1782238224985",
+      "name": "SYD → HKG",
+      "acLabel": "VH-JYB",
+      "minR": 2669,
+      "maxR": 5767,
+      "revenue": 4992.99,
+      "maintCost": 1372.8049999999998,
+      "profit": 3620.185
+    },
+    {
+      "id": "1782238279492",
+      "name": "SYD → DPS",
+      "acLabel": "VH-TMR",
+      "minR": 760,
+      "maxR": 2279,
+      "revenue": 2058.6,
+      "maintCost": 766.3599999999999,
+      "profit": 1292.24
+    },
+    {
+      "id": "1782238547272",
+      "name": "BKK → NGO",
+      "acLabel": "HS-SSB",
+      "minR": 3103,
+      "maxR": 7041,
+      "revenue": 6141.13,
+      "maintCost": 2084.88,
+      "profit": 4056.25
+    },
+    {
+      "id": "1782238625247",
+      "name": "BKK → ADD",
+      "acLabel": "HS-TQQ",
+      "minR": 3904,
+      "maxR": 9459,
+      "revenue": 8326.84,
+      "maintCost": 2732.2400000000002,
+      "profit": 5594.6
+    },
+    {
+      "id": "1782238757844",
+      "name": "BKK → GYD",
+      "acLabel": "HS-WDF",
+      "minR": 3893,
+      "maxR": 9700,
+      "revenue": 8571.029999999999,
+      "maintCost": 3341.1,
+      "profit": 5229.9299999999985
+    },
+    {
+      "id": "1782238858253",
+      "name": "BKK → HEL",
+      "acLabel": "HS-OIZ",
+      "minR": 4018,
+      "maxR": 10339,
+      "revenue": 9173.779999999999,
+      "maintCost": 3032.1200000000003,
+      "profit": 6141.659999999998
+    },
+    {
+      "id": "1782238970181",
+      "name": "BKK → NGO",
+      "acLabel": "HS-MUL",
+      "minR": 2489,
+      "maxR": 5335,
+      "revenue": 4613.19,
+      "maintCost": 1838.2875,
+      "profit": 2774.9024999999997
+    },
+    {
+      "id": "1782239049995",
+      "name": "BKK → TLV",
+      "acLabel": "HS-MVH",
+      "minR": 3130,
+      "maxR": 8421,
+      "revenue": 7513.299999999999,
+      "maintCost": 2514.12,
+      "profit": 4999.179999999999
+    },
+    {
+      "id": "1782239097964",
+      "name": "BKK → ADL",
+      "acLabel": "HS-PRJ",
+      "minR": 2563,
+      "maxR": 5441,
+      "revenue": 4697.73,
+      "maintCost": 1287.4050000000002,
+      "profit": 3410.3249999999994
+    },
+    {
+      "id": "1782239246886",
+      "name": "BKK → SYD",
+      "acLabel": "HS-QFJ",
+      "minR": 4508,
+      "maxR": 16958,
+      "revenue": 15650.68,
+      "maintCost": 5435.0625,
+      "profit": 10215.6175
+    },
+    {
+      "id": "1782239320914",
+      "name": "BKK → SAW",
+      "acLabel": "HS-XZK",
+      "minR": 2681,
+      "maxR": 5801,
+      "revenue": 5023.51,
+      "maintCost": 1383.48,
+      "profit": 3640.03
+    },
+    {
+      "id": "1782239411196",
+      "name": "BKK → NGO",
+      "acLabel": "HS-BHT",
+      "minR": 4287,
+      "maxR": 12297,
+      "revenue": 11053.77,
+      "maintCost": 3870.825,
+      "profit": 7182.945000000001
+    },
+    {
+      "id": "1782239460565",
+      "name": "BKK → SAW",
+      "acLabel": "HS-ISK",
+      "minR": 2681,
+      "maxR": 5801,
+      "revenue": 5023.51,
+      "maintCost": 1383.48,
+      "profit": 3640.03
+    },
+    {
+      "id": "1782239527400",
+      "name": "BKK → HEL",
+      "acLabel": "HS-UWQ",
+      "minR": 4018,
+      "maxR": 10339,
+      "revenue": 9173.779999999999,
+      "maintCost": 3032.1200000000003,
+      "profit": 6141.659999999998
+    },
+    {
+      "id": "1782240096051",
+      "name": "MSY → GRU",
+      "acLabel": "NCZT",
+      "minR": 2691,
+      "maxR": 5841,
+      "revenue": 5060.61,
+      "maintCost": 1394.1550000000002,
+      "profit": 3666.4549999999995
+    },
+    {
+      "id": "1782240466036",
+      "name": "MSY → SXM",
+      "acLabel": "NBIM",
+      "minR": 2426,
+      "maxR": 5365,
+      "revenue": 4661.46,
+      "maintCost": 1756.4399999999998,
+      "profit": 2905.0200000000004
+    },
+    {
+      "id": "1782240635105",
+      "name": "MSY → SAN",
+      "acLabel": "NOXJ",
+      "minR": 1389,
+      "maxR": 2691,
+      "revenue": 2288.19,
+      "maintCost": 755.79,
+      "profit": 1532.4
+    },
+    {
+      "id": "1782240676564",
+      "name": "MSY → SAN",
+      "acLabel": "NFCH",
+      "minR": 1389,
+      "maxR": 2691,
+      "revenue": 2288.19,
+      "maintCost": 755.79,
+      "profit": 1532.4
+    },
+    {
+      "id": "1782241055172",
+      "name": "GRU → AEP",
+      "acLabel": "PP-ITT",
+      "minR": 649,
+      "maxR": 1376,
+      "revenue": 1187.79,
+      "maintCost": 502.32000000000005,
+      "profit": 685.4699999999999
+    },
+    {
+      "id": "1782241117335",
+      "name": "GRU → PUQ",
+      "acLabel": "PP-KOD",
+      "minR": 1021,
+      "maxR": 2452,
+      "revenue": 2155.91,
+      "maintCost": 717.3599999999999,
+      "profit": 1438.55
+    },
+    {
+      "id": "1782241197128",
+      "name": "GRU → HAV",
+      "acLabel": "PP-FPW",
+      "minR": 2105,
+      "maxR": 6228,
+      "revenue": 5617.55,
+      "maintCost": 2328.2349999999997,
+      "profit": 3289.3150000000005
+    },
+    {
+      "id": "1782241254932",
+      "name": "GRU → CPT",
+      "acLabel": "PP-GXI",
+      "minR": 2495,
+      "maxR": 5249,
+      "revenue": 4525.45,
+      "maintCost": 1240.435,
+      "profit": 3285.015
+    },
+    {
+      "id": "1782241539202",
+      "name": "GRU → SXM",
+      "acLabel": "PP-FEQ",
+      "minR": 1233,
+      "maxR": 3114,
+      "revenue": 2756.43,
+      "maintCost": 852.3549999999999,
+      "profit": 1904.0749999999998
+    },
+    {
+      "id": "1782241610914",
+      "name": "GRU → AGP",
+      "acLabel": "PP-DKY",
+      "minR": 3910,
+      "maxR": 10331,
+      "revenue": 9197.1,
+      "maintCost": 3055.92,
+      "profit": 6141.18
+    },
+    {
+      "id": "1782241660657",
+      "name": "GRU → LIS",
+      "acLabel": "PP-VAQ",
+      "minR": 4056,
+      "maxR": 10345,
+      "revenue": 9168.76,
+      "maintCost": 3041.64,
+      "profit": 6127.120000000001
+    },
+    {
+      "id": "1782241708063",
+      "name": "GRU → IAD",
+      "acLabel": "PP-BDS",
+      "minR": 4376,
+      "maxR": 16878,
+      "revenue": 15608.96,
+      "maintCost": 5505.762500000001,
+      "profit": 10103.197499999998
+    },
+    {
+      "id": "1782241753046",
+      "name": "GRU → IAD",
+      "acLabel": "PP-YIF",
+      "minR": 4030,
+      "maxR": 10145,
+      "revenue": 8976.3,
+      "maintCost": 2965.4800000000005,
+      "profit": 6010.819999999999
+    },
+    {
+      "id": "1782241821061",
+      "name": "GRU → LIM",
+      "acLabel": "PP-MKG",
+      "minR": 2205,
+      "maxR": 5377,
+      "revenue": 4737.55,
+      "maintCost": 1640.8875,
+      "profit": 3096.6625000000004
+    },
+    {
+      "id": "1782241878643",
+      "name": "GRU → SCL",
+      "acLabel": "PP-ITW",
+      "minR": 825,
+      "maxR": 1862,
+      "revenue": 1622.75,
+      "maintCost": 593.04,
+      "profit": 1029.71
+    },
+    {
+      "id": "1782241910455",
+      "name": "GRU → SCL",
+      "acLabel": "PP-XKJ",
+      "minR": 825,
+      "maxR": 1862,
+      "revenue": 1622.75,
+      "maintCost": 593.04,
+      "profit": 1029.71
+    },
+    {
+      "id": "1782241964315",
+      "name": "GRU → SCL",
+      "acLabel": "PP-JUX",
+      "minR": 825,
+      "maxR": 1862,
+      "revenue": 1622.75,
+      "maintCost": 593.04,
+      "profit": 1029.71
+    },
+    {
+      "id": "1782242109991",
+      "name": "SCL → NLU",
+      "acLabel": "CC-EEB",
+      "minR": 2314,
+      "maxR": 5145,
+      "revenue": 4473.94,
+      "maintCost": 1274.5949999999998,
+      "profit": 3199.345
+    },
+    {
+      "id": "1782242153947",
+      "name": "SCL → TPA",
+      "acLabel": "CC-ENB",
+      "minR": 2601,
+      "maxR": 5551,
+      "revenue": 4796.71,
+      "maintCost": 1315.1599999999999,
+      "profit": 3481.55
+    },
+    {
+      "id": "1782242190354",
+      "name": "SCL → TPA",
+      "acLabel": "CC-QXT",
+      "minR": 2601,
+      "maxR": 5551,
+      "revenue": 4796.71,
+      "maintCost": 1315.1599999999999,
+      "profit": 3481.55
+    },
+    {
+      "id": "1782242241667",
+      "name": "SCL → MDE",
+      "acLabel": "CC-YPG",
+      "minR": 902,
+      "maxR": 2560,
+      "revenue": 2298.42,
+      "maintCost": 772.8,
+      "profit": 1525.6200000000001
+    },
+    {
+      "id": "1782242326767",
+      "name": "SCL → MBJ",
+      "acLabel": "CC-TLN",
+      "minR": 2190,
+      "maxR": 4749,
+      "revenue": 4113.9,
+      "maintCost": 1172.115,
+      "profit": 2941.785
+    },
+    {
+      "id": "1782242373409",
+      "name": "SCL → SXM",
+      "acLabel": "CC-SLZ",
+      "minR": 3553,
+      "maxR": 8569,
+      "revenue": 7538.629999999999,
+      "maintCost": 2470.44,
+      "profit": 5068.189999999999
+    },
+    {
+      "id": "1782242505124",
+      "name": "SCL → PTY",
+      "acLabel": "CC-AZS",
+      "minR": 2561,
+      "maxR": 6049,
+      "revenue": 5306.3099999999995,
+      "maintCost": 1957.55,
+      "profit": 3348.7599999999993
+    },
+    {
+      "id": "1782242563309",
+      "name": "SCL → UIO",
+      "acLabel": "CC-YXK",
+      "minR": 1009,
+      "maxR": 2412,
+      "revenue": 2119.39,
+      "maintCost": 708.96,
+      "profit": 1410.4299999999998
+    },
+    {
+      "id": "1782242614682",
+      "name": "SCL → GYN",
+      "acLabel": "CC-WBS",
+      "minR": 1234,
+      "maxR": 2171,
+      "revenue": 1813.1399999999999,
+      "maintCost": 723.24,
+      "profit": 1089.8999999999999
+    },
+    {
+      "id": "1782242659131",
+      "name": "SCL → MTY",
+      "acLabel": "CC-MZY",
+      "minR": 2651,
+      "maxR": 5711,
+      "revenue": 4942.21,
+      "maintCost": 1357.8600000000001,
+      "profit": 3584.35
+    },
+    {
+      "id": "1782242718438",
+      "name": "SCL → SXM",
+      "acLabel": "CC-IVR",
+      "minR": 2377,
+      "maxR": 4931,
+      "revenue": 4241.67,
+      "maintCost": 1165.71,
+      "profit": 3075.96
+    },
+    {
+      "id": "1782242783377",
+      "name": "SCL → GRU",
+      "acLabel": "CC-DVA",
+      "minR": 835,
+      "maxR": 2027,
+      "revenue": 1784.85,
+      "maintCost": 708.225,
+      "profit": 1076.625
+    },
+    {
+      "id": "1782242830094",
+      "name": "SCL → MSY",
+      "acLabel": "CC-SYY",
+      "minR": 2661,
+      "maxR": 5743,
+      "revenue": 4971.3099999999995,
+      "maintCost": 1366.4,
+      "profit": 3604.9099999999994
+    },
+    {
+      "id": "1782242866323",
+      "name": "SCL → MSY",
+      "acLabel": "CC-KSA",
+      "minR": 2661,
+      "maxR": 5743,
+      "revenue": 4971.3099999999995,
+      "maintCost": 1366.4,
+      "profit": 3604.9099999999994
+    },
+    {
+      "id": "1782242905647",
+      "name": "SCL → IAD",
+      "acLabel": "CC-MVV",
+      "minR": 2751,
+      "maxR": 6061,
+      "revenue": 5263.21,
+      "maintCost": 1460.34,
+      "profit": 3802.87
+    },
+    {
+      "id": "1782242938491",
+      "name": "SCL → SXM",
+      "acLabel": "CC-RPC",
+      "minR": 2377,
+      "maxR": 4931,
+      "revenue": 4241.67,
+      "maintCost": 1165.71,
+      "profit": 3075.96
+    },
+    {
+      "id": "1782242981932",
+      "name": "SCL → MSY",
+      "acLabel": "CC-QUF",
+      "minR": 4000,
+      "maxR": 9923,
+      "revenue": 8763,
+      "maintCost": 2884.56,
+      "profit": 5878.4400000000005
+    },
+    {
+      "id": "1782243230239",
+      "name": "HKG → IST",
+      "acLabel": "B-HOFQ",
+      "minR": 4217,
+      "maxR": 16362,
+      "revenue": 15139.07,
+      "maintCost": 5682.5125,
+      "profit": 9456.557499999999
+    },
+    {
+      "id": "1782243327644",
+      "name": "HKG → ISB",
+      "acLabel": "B-HGGK",
+      "minR": 2265,
+      "maxR": 4773,
+      "revenue": 4116.15,
+      "maintCost": 1819.2999999999997,
+      "profit": 2296.85
+    },
+    {
+      "id": "1782243379194",
+      "name": "HKG → MED",
+      "acLabel": "B-HGLV",
+      "minR": 2679,
+      "maxR": 5805,
+      "revenue": 5028.09,
+      "maintCost": 1383.48,
+      "profit": 3644.61
+    },
+    {
+      "id": "1782243450468",
+      "name": "HKG → EVN",
+      "acLabel": "B-HMAE",
+      "minR": 3597,
+      "maxR": 9426,
+      "revenue": 8382.869999999999,
+      "maintCost": 2722.72,
+      "profit": 5660.15
+    },
+    {
+      "id": "1782243497198",
+      "name": "HKG → IST",
+      "acLabel": "B-HXFN",
+      "minR": 4217,
+      "maxR": 16362,
+      "revenue": 15139.07,
+      "maintCost": 5682.5125,
+      "profit": 9456.557499999999
+    },
+    {
+      "id": "1782243558983",
+      "name": "HKG → DME",
+      "acLabel": "B-HIXA",
+      "minR": 3647,
+      "maxR": 9732,
+      "revenue": 8674.369999999999,
+      "maintCost": 2822.68,
+      "profit": 5851.689999999999
+    },
+    {
+      "id": "1782243635057",
+      "name": "HKG → DEL",
+      "acLabel": "B-HXVG",
+      "minR": 3333,
+      "maxR": 7757,
+      "revenue": 6790.43,
+      "maintCost": 2628.8499999999995,
+      "profit": 4161.580000000001
+    },
+    {
+      "id": "1782277651913",
+      "name": "HKG → BEY",
+      "acLabel": "B-HQAQ",
+      "minR": 4036,
+      "maxR": 10135,
+      "revenue": 8964.56,
+      "maintCost": 2960.72,
+      "profit": 6003.84
+    },
+    {
+      "id": "1782277766353",
+      "name": "HKG → CNS",
+      "acLabel": "B-HNMV",
+      "minR": 2695,
+      "maxR": 6525,
+      "revenue": 5743.45,
+      "maintCost": 2138.5,
+      "profit": 3604.95
+    },
+    {
+      "id": "1782277939623",
+      "name": "HKG → MEL",
+      "acLabel": "B-HCHK",
+      "minR": 4010,
+      "maxR": 9981,
+      "revenue": 8818.1,
+      "maintCost": 2903.6,
+      "profit": 5914.5
+    },
+    {
+      "id": "1782278018023",
+      "name": "HKG → IST",
+      "acLabel": "B-HJJX",
+      "minR": 4037,
+      "maxR": 10471,
+      "revenue": 9300.27,
+      "maintCost": 3060.68,
+      "profit": 6239.59
+    },
+    {
+      "id": "1782278138231",
+      "name": "HKG → SCO",
+      "acLabel": "B-HRLU",
+      "minR": 2805,
+      "maxR": 7221,
+      "revenue": 6407.55,
+      "maintCost": 2278.325,
+      "profit": 4129.225
+    },
+    {
+      "id": "1782278213119",
+      "name": "HKG → KWI",
+      "acLabel": "B-HYFQ",
+      "minR": 3844,
+      "maxR": 9284,
+      "revenue": 8169.24,
+      "maintCost": 2679.88,
+      "profit": 5489.36
+    },
+    {
+      "id": "1782278310808",
+      "name": "HKG → NRT",
+      "acLabel": "B-HWTX",
+      "minR": 1555,
+      "maxR": 5142,
+      "revenue": 4691.05,
+      "maintCost": 2477.475,
+      "profit": 2213.5750000000003
+    },
+    {
+      "id": "1782278396006",
+      "name": "HKG → JED",
+      "acLabel": "B-HARQ",
+      "minR": 4011,
+      "maxR": 10207,
+      "revenue": 9043.81,
+      "maintCost": 2955.96,
+      "profit": 6087.849999999999
+    },
+    {
+      "id": "1782278549091",
+      "name": "HKG → GYD",
+      "acLabel": "B-HQQR",
+      "minR": 3919,
+      "maxR": 10810,
+      "revenue": 9673.49,
+      "maintCost": 3522.4,
+      "profit": 6151.09
+    },
+    {
+      "id": "1782278646764",
+      "name": "HKG → GDN",
+      "acLabel": "B-HTEA",
+      "minR": 3958,
+      "maxR": 10527,
+      "revenue": 9379.18,
+      "maintCost": 3151.1200000000003,
+      "profit": 6228.0599999999995
+    },
+    {
+      "id": "1782278803317",
+      "name": "HKG → CAI",
+      "acLabel": "B-HGLP",
+      "minR": 4137,
+      "maxR": 10810,
+      "revenue": 9610.27,
+      "maintCost": 3515.4,
+      "profit": 6094.870000000001
+    },
+    {
+      "id": "1782278865212",
+      "name": "HKG → SYD",
+      "acLabel": "B-HYQW",
+      "minR": 4053,
+      "maxR": 10894,
+      "revenue": 9718.63,
+      "maintCost": 3930.325,
+      "profit": 5788.304999999999
+    },
+    {
+      "id": "1782278929409",
+      "name": "HKG → PRG",
+      "acLabel": "B-HOIS",
+      "minR": 4040,
+      "maxR": 10865,
+      "revenue": 9693.4,
+      "maintCost": 3260.6,
+      "profit": 6432.799999999999
+    },
+    {
+      "id": "1782279016882",
+      "name": "HKG → NGO",
+      "acLabel": "B-HEQQ",
+      "minR": 606,
+      "maxR": 1553,
+      "revenue": 1377.26,
+      "maintCost": 573.1600000000001,
+      "profit": 804.0999999999999
+    },
+    {
+      "id": "1782279072578",
+      "name": "HKG → SYD",
+      "acLabel": "B-HZOV",
+      "minR": 4004,
+      "maxR": 9961,
+      "revenue": 8799.84,
+      "maintCost": 2898.84,
+      "profit": 5901
+    },
+    {
+      "id": "1782293641956",
+      "name": "ZRH → MCT",
+      "acLabel": "HB-IBR",
+      "minR": 3779,
+      "maxR": 9847,
+      "revenue": 8751.09,
+      "maintCost": 3114.475,
+      "profit": 5636.615
+    },
+    {
+      "id": "1782316659742",
+      "name": "ZRH → NBO",
+      "acLabel": "HB-FCP",
+      "minR": 2745,
+      "maxR": 6550,
+      "revenue": 5753.95,
+      "maintCost": 2257.7625,
+      "profit": 3496.1875
+    },
+    {
+      "id": "1783254915271",
+      "name": "HKG → ATH",
+      "acLabel": "B-HBPH",
+      "minR": 7456,
+      "maxR": 17113,
+      "revenue": 14950.759999999998,
+      "maintCost": 4296.6,
+      "profit": 10654.159999999998
+    },
+    {
+      "id": "1783255007257",
+      "name": "HKG → ZRH",
+      "acLabel": "B-HACN",
+      "minR": 7610,
+      "maxR": 17439,
+      "revenue": 15232.099999999999,
+      "maintCost": 4573.8,
+      "profit": 10658.3
+    },
+    {
+      "id": "1783255058188",
+      "name": "HKG → OSL",
+      "acLabel": "B-HRHS",
+      "minR": 7504,
+      "maxR": 17010,
+      "revenue": 14833.84,
+      "maintCost": 4309.2,
+      "profit": 10524.64
+    },
+    {
+      "id": "1783255109940",
+      "name": "HKG → HEL",
+      "acLabel": "B-HMAD",
+      "minR": 7210,
+      "maxR": 16214,
+      "revenue": 14123.099999999999,
+      "maintCost": 4050.8999999999996,
+      "profit": 10072.199999999999
+    },
+    {
+      "id": "1783255158349",
+      "name": "HKG → EBB",
+      "acLabel": "B-HYAJ",
+      "minR": 7498,
+      "maxR": 17643,
+      "revenue": 15468.58,
+      "maintCost": 4517.1,
+      "profit": 10951.48
+    },
+    {
+      "id": "1783255213472",
+      "name": "HKG → NBO",
+      "acLabel": "B-HYQO",
+      "minR": 7476,
+      "maxR": 16862,
+      "revenue": 14693.96,
+      "maintCost": 4378.5,
+      "profit": 10315.46
+    },
+    {
+      "id": "1783255258360",
+      "name": "HKG → SYD",
+      "acLabel": "B-HJUR",
+      "minR": 7024,
+      "maxR": 15553,
+      "revenue": 13516.04,
+      "maintCost": 3899.7,
+      "profit": 9616.34
+    },
+    {
+      "id": "1783255312863",
+      "name": "HKG → ATH",
+      "acLabel": "B-HZBV",
+      "minR": 7456,
+      "maxR": 17113,
+      "revenue": 14950.759999999998,
+      "maintCost": 4296.6,
+      "profit": 10654.159999999998
+    },
+    {
+      "id": "1783255364708",
+      "name": "HKG → HNL",
+      "acLabel": "B-HNMO",
+      "minR": 7526,
+      "maxR": 17538,
+      "revenue": 15355.46,
+      "maintCost": 4454.1,
+      "profit": 10901.359999999999
+    },
+    {
+      "id": "1783255409587",
+      "name": "HKG → LEJ",
+      "acLabel": "B-HTWT",
+      "minR": 7438,
+      "maxR": 16460,
+      "revenue": 14302.98,
+      "maintCost": 4422.6,
+      "profit": 9880.38
+    },
+    {
+      "id": "1783255476332",
+      "name": "HKG → LEJ",
+      "acLabel": "B-HGVM",
+      "minR": 7438,
+      "maxR": 16460,
+      "revenue": 14302.98,
+      "maintCost": 4422.6,
+      "profit": 9880.38
+    }
+  ]
+}
