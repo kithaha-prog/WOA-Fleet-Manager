@@ -562,6 +562,43 @@ tbody td { padding: 12px 10px; vertical-align: middle; white-space: nowrap; colo
 .rating-c { background: var(--green-glow); color: var(--green); border: 1px solid rgba(57,217,138,0.3); }
 .rating-d { background: var(--bg-input); color: var(--text2); border: 1px solid var(--border); }
 
+/* ── Airport Link + Hub Tag ── */
+.airport-link { cursor: pointer; transition: color 0.15s; border-radius: 3px; }
+.airport-link:hover { color: var(--cyan) !important; text-decoration: underline dotted; text-underline-offset: 3px; }
+.hub-tag { display:inline-flex; align-items:center; gap:4px; font-size:9px; font-weight:700; padding:2px 7px; border-radius:20px; font-family:var(--mono); letter-spacing:0.04em; text-transform:uppercase; white-space:nowrap; }
+.hub-mega  { background: var(--gold-glow); color: var(--gold); border:1px solid rgba(255,215,0,0.4); }
+.hub-focus { background: var(--cyan-glow); color: var(--cyan); border:1px solid rgba(0,229,255,0.3); }
+.hub-spoke { background: var(--bg-input); color: var(--text2); border:1px solid var(--border); }
+
+/* ── Airport Info Popup ── */
+.airport-popup-box { max-width: 460px; width:100%; }
+.airport-hero { padding: 26px 64px 18px 64px; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-input) 100%); border-bottom: 1px solid var(--glass-border); position: relative; overflow: hidden; }
+.airport-hero .bg-plane-ico { position:absolute; right:-14px; bottom:-24px; font-size:100px; color:var(--text1); opacity:0.04; transform:rotate(-15deg); }
+.airport-code-big { font-size:38px; font-weight:700; font-family:var(--mono); color:var(--text1); line-height:1; letter-spacing:0.02em; position:relative; z-index:1; }
+.airport-name-sub { font-size:13px; color:var(--text2); margin-top:8px; display:flex; align-items:center; gap:6px; position:relative; z-index:1; }
+.airport-stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:18px 26px 4px; }
+.airport-stat-box { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-sm); padding:12px 8px; text-align:center; }
+.airport-stat-num { font-size:19px; font-weight:700; font-family:var(--mono); color:var(--cyan); }
+.airport-stat-label { font-size:9px; color:var(--text3); margin-top:4px; text-transform:uppercase; letter-spacing:0.04em; }
+.airport-conn-head { padding:18px 26px 8px; font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.airport-conn-list { padding: 0 26px 24px; display:flex; flex-wrap:wrap; gap:8px; max-height:170px; overflow-y:auto; }
+.airport-conn-chip { display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px; font-weight:600; background:var(--bg-input); border:1px solid var(--border); color:var(--text1); padding:5px 10px; border-radius:20px; cursor:pointer; transition:all 0.15s; }
+.airport-conn-chip:hover { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-glow); transform:translateY(-1px); }
+
+/* ── Boarding Pass Style Fleet Card ── */
+.boarding-route { display:flex; align-items:center; gap:6px; margin-bottom:10px; }
+.bp-end { display:flex; flex-direction:column; min-width:0; }
+.bp-end.bp-dest { align-items:flex-end; text-align:right; }
+.bp-code { font-family:var(--mono); font-weight:700; font-size:16px; color:var(--text1); line-height:1; }
+.bp-city { font-size:9px; color:var(--text3); margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:76px; }
+.bp-line { flex:1; height:1px; background: repeating-linear-gradient(90deg, var(--border-lit) 0, var(--border-lit) 4px, transparent 4px, transparent 8px); position:relative; margin:0 2px; }
+.bp-line i { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; color:var(--cyan); background:var(--bg-card); padding:0 3px; }
+.fc-perforation { position:relative; height:0; margin: 4px -16px 12px; border-top:2px dashed var(--border-lit); }
+.fc-perforation::before, .fc-perforation::after { content:''; position:absolute; top:-7px; width:14px; height:14px; border-radius:50%; background:var(--bg-deep); }
+.fc-perforation::before { left:-7px; }
+.fc-perforation::after { right:-7px; }
+.fc-barcode { height:16px; margin-top:10px; opacity:0.32; border-radius:2px; background-image: repeating-linear-gradient(90deg, var(--text1) 0px, var(--text1) 1px, transparent 1px, transparent 3px, var(--text1) 3px, var(--text1) 4px, transparent 4px, transparent 7px, var(--text1) 7px, var(--text1) 9px, transparent 9px, transparent 10px, var(--text1) 10px, var(--text1) 11px, transparent 11px, transparent 15px); }
+
 .empty-state { text-align: center; padding: 48px 20px; color: var(--text3); }
 .empty-state .empty-icon { font-size: 42px; margin-bottom: 12px; display: block; opacity: 0.3; color: var(--cyan); }
 .empty-state p { font-size: 13px; margin-top: 6px; }
@@ -728,6 +765,16 @@ html.light-theme .popup-changelog { background: rgba(0,0,0,0.02); }
 .cl-time { font-size: 10px; color: var(--text3); font-family: var(--mono); margin-bottom: 6px; }
 .cl-change { font-size: 11px; color: var(--text2); line-height: 1.5; background: var(--bg-input); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); }
 .cl-change strong { color: var(--text1); font-weight: 500; }
+
+.popup-back-float {
+    position: absolute; top: 16px; left: 16px; z-index: 100;
+    background: var(--bg-input); border: 1px solid var(--border);
+    color: var(--text2); font-size: 16px; width: 36px; height: 36px;
+    border-radius: 50%; cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    backdrop-filter: blur(8px);
+}
+.popup-back-float:hover { background: var(--bg-hover); color: var(--cyan); border-color: var(--cyan); }
 
 /* Drawer, Toast & Misc */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 999; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
@@ -1230,7 +1277,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
           <div class="form-group">
             <label>基地 (Base Code) * <i id="lock-f-base" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-base', this)" title="锁定/解锁该项"></i></label>
             <input type="text" id="f-base" placeholder="e.g. WMKK" style="text-transform:uppercase;font-family:var(--mono)" onblur="autoFillRouteData()" oninput="updateCityName('f-base', 'lbl-base-name')" />
-            <div id="lbl-base-name" class="city-subtitle">请填入机场三字码</div>
+            <div id="lbl-base-name" class="city-subtitle airport-link" onclick="openAirportInfo(document.getElementById('f-base').value)" title="点击查看机场详情">请填入机场三字码</div>
           </div>
           
           <div class="form-group"><label>引进日期 (Induction Date) <i id="lock-f-induction" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-induction', this)" title="锁定/解锁该项"></i></label><input type="date" id="f-induction" style="font-family:var(--mono)" /></div>
@@ -1264,7 +1311,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
           <div class="form-group">
             <label>常用目的地 (Dest Code) <i id="lock-f-dest" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-dest', this)" title="锁定/解锁该项"></i></label>
             <input type="text" id="f-dest" placeholder="e.g. WSSS" style="text-transform:uppercase;font-family:var(--mono)" onblur="autoFillRouteData()" oninput="updateCityName('f-dest', 'lbl-dest-name')" />
-            <div id="lbl-dest-name" class="city-subtitle">请填入机场三字码</div>
+            <div id="lbl-dest-name" class="city-subtitle airport-link" onclick="openAirportInfo(document.getElementById('f-dest').value)" title="点击查看机场详情">请填入机场三字码</div>
           </div>
           <div class="form-group"><label>最低收益 (W) <i id="lock-f-min" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-min', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-min" placeholder="e.g. 50000" min="0" oninput="calcAddRoute()" /></div>
           <div class="form-group"><label>最高收益 (W) <i id="lock-f-max" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-max', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-max" placeholder="e.g. 120000" min="0" oninput="calcAddRoute()" /></div>
@@ -1363,6 +1410,31 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="cl-list" id="app-changelog-list">
         </div>
     </div>
+  </div>
+</div>
+
+<!-- 机场详情弹窗 -->
+<div class="popup-overlay" id="airport-popup" onclick="if(event.target===this) closeAirportInfo()">
+  <div class="popup-box airport-popup-box">
+    <button class="popup-close-float" onclick="closeAirportInfo()"><i class="fa-solid fa-xmark"></i></button>
+    <button class="popup-back-float" id="btn-airport-back" onclick="goBackAirport()" style="display:none;" title="返回上一级"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="airport-hero">
+      <i class="fa-solid fa-tower-broadcast bg-plane-ico"></i>
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+        <div>
+          <div class="airport-code-big" id="ap-code">—</div>
+          <div class="airport-name-sub"><span id="ap-flag"></span><span id="ap-name">未知机场</span></div>
+        </div>
+        <span class="hub-tag" id="ap-hub-tag" style="margin-top:4px;">SPOKE</span>
+      </div>
+    </div>
+    <div class="airport-stats-row">
+      <div class="airport-stat-box"><div class="airport-stat-num" id="ap-stat-base">0</div><div class="airport-stat-label"><i class="fa-solid fa-plane-departure"></i> 作为基地</div></div>
+      <div class="airport-stat-box"><div class="airport-stat-num" id="ap-stat-dest">0</div><div class="airport-stat-label"><i class="fa-solid fa-plane-arrival"></i> 作为目的地</div></div>
+      <div class="airport-stat-box"><div class="airport-stat-num" id="ap-stat-conn">0</div><div class="airport-stat-label"><i class="fa-solid fa-route"></i> 通航机场数</div></div>
+    </div>
+    <div class="airport-conn-head"><i class="fa-solid fa-diagram-project"></i> 通航连接（点击跳转）</div>
+    <div class="airport-conn-list" id="ap-conn-list"></div>
   </div>
 </div>
 
@@ -1578,11 +1650,105 @@ function updateCityName(inputId, labelId) {
 }
 
 // ═══════════════════════════════════════════════
+// AIRPORT INFO / HUB STATS
+// ═══════════════════════════════════════════════
+function getAirportStats(code) {
+    if (!code) return null;
+    const clean = code.trim().toUpperCase();
+    let asBase = 0, asDest = 0;
+    const connections = new Set();
+    fleet.forEach(a => {
+        if (a.base === clean) { asBase++; if (a.dest) connections.add(a.dest); }
+        if (a.dest === clean) { asDest++; if (a.base) connections.add(a.base); }
+    });
+    connections.delete(clean);
+    const total = asBase + asDest;
+    let tier = 'spoke', tierLabel = '普通航点';
+    if (asBase > 0) { tier = 'mega'; tierLabel = '枢纽'; }
+    else if (total > 10) { tier = 'focus'; tierLabel = '重点机场'; }
+    return { code: clean, asBase, asDest, total, connections: [...connections], tier, tierLabel };
+}
+
+// ── 机场弹窗导航历史引擎 ──
+let airportHistoryStack = [];
+let currentViewedAirport = null;
+
+function openAirportInfo(code, isBack = false) {
+    if (!code) return;
+    const clean = code.trim().toUpperCase();
+    const info = getCityInfo(clean);
+    const stats = getAirportStats(clean);
+    if (!stats) return;
+
+    // 如果弹窗已经开着，且这不是通过“返回”按钮触发的，说明是在深度探索，把当前机场压入历史栈
+    const popup = document.getElementById('airport-popup');
+    const isAlreadyOpen = popup.classList.contains('show');
+    if (isAlreadyOpen && !isBack && currentViewedAirport && currentViewedAirport !== clean) {
+        airportHistoryStack.push(currentViewedAirport);
+    }
+    currentViewedAirport = clean;
+
+    // 渲染数据
+    document.getElementById('ap-code').textContent = clean;
+    document.getElementById('ap-name').textContent = info ? `${info.name} · ${info.country}` : '未匹配到机场全名';
+    document.getElementById('ap-flag').innerHTML = info ? getFlagImg(info) : '';
+    const tagEl = document.getElementById('ap-hub-tag');
+    tagEl.className = `hub-tag hub-${stats.tier}`;
+    tagEl.textContent = stats.tierLabel;
+
+    document.getElementById('ap-stat-base').textContent = stats.asBase;
+    document.getElementById('ap-stat-dest').textContent = stats.asDest;
+    document.getElementById('ap-stat-conn').textContent = stats.connections.length;
+
+    const connList = document.getElementById('ap-conn-list');
+    if (stats.connections.length) {
+        connList.innerHTML = stats.connections.map(c => {
+            const cInfo = getCityInfo(c);
+            const flag = cInfo ? getFlagImg(cInfo) : '';
+            return `<span class="airport-conn-chip" onclick="openAirportInfo('${c}')">${flag}${c}</span>`;
+        }).join('');
+    } else {
+        connList.innerHTML = `<div style="font-size:12px; color:var(--text3); padding:8px 0;">暂无关联航线记录</div>`;
+    }
+
+    // 控制返回按钮的显示与隐藏
+    const backBtn = document.getElementById('btn-airport-back');
+    if (backBtn) {
+        backBtn.style.display = airportHistoryStack.length > 0 ? 'flex' : 'none';
+    }
+
+    popup.classList.add('show');
+}
+
+function goBackAirport() {
+    if (airportHistoryStack.length === 0) return;
+    // 弹出历史栈中的上一个机场，并标记 isBack = true 防止它再次被压入历史栈
+    const prevCode = airportHistoryStack.pop();
+    openAirportInfo(prevCode, true);
+}
+
+function closeAirportInfo() { 
+    document.getElementById('airport-popup').classList.remove('show'); 
+    // 关闭弹窗时，彻底清空历史记忆
+    airportHistoryStack = [];
+    currentViewedAirport = null;
+}
+
+// ═══════════════════════════════════════════════
 // SYSTEM CHANGELOG LOGIC
 // ═══════════════════════════════════════════════
 
 // 在这里维护你的系统更新记录
 const APP_CHANGELOG = [
+    {
+        version: "v4.7.0",
+        date: "2026-07-17",
+        changes: [
+            "<b>[新增]</b> 机场详情弹窗：点击任意机场三字码可查看枢纽等级、通航航线数与关联机场列表",
+            "<b>[新增]</b> Global Route Map 机场分级：按航线数量自动划分 Mega-Hub / Focus City / Spoke，标记大小与颜色随之变化",
+            "<b>[优化]</b> Active Fleet 缩略图卡片改为登机牌风格，新增撕票孔分隔线与条形码装饰"
+        ]
+    },
     {
         version: "v4.6.0",
         date: "2026-07-16",
@@ -1687,7 +1853,15 @@ function showHoverMap(e, baseCode, destCode) {
     hoverMapInstance.invalidateSize();
     hoverRouteLayer.clearLayers();
 
-    const trackPoints = generateFlightAwareTrack([base.lat, base.lon], [dest.lat, dest.lon]);
+    // 【新增逻辑】跨太平洋悬浮航线修正
+    let startLon = base.lon;
+    let endLon = dest.lon;
+    if (Math.abs(startLon - endLon) > 180) {
+        if (startLon > endLon) { endLon += 360; }
+        else { startLon += 360; }
+    }
+
+    const trackPoints = generateFlightAwareTrack([base.lat, startLon], [dest.lat, endLon]);
     
     // 背景阴影和虚线流光动画
     L.polyline(trackPoints, { color: '#000', weight: 4, opacity: 0.4 }).addTo(hoverRouteLayer);
@@ -2414,29 +2588,32 @@ function renderMap() {
         }
     });
 
-    const drawnRoutes = new Set();
-    const baseIcon = L.divIcon({ html: '<i class="fa-solid fa-location-dot" style="color:var(--cyan); font-size:18px; filter:drop-shadow(0 0 5px var(--cyan-glow));"></i>', className: 'custom-icon', iconSize: [20, 20], iconAnchor: [10, 20] });
-    const destIcon = L.divIcon({ html: '<i class="fa-solid fa-location-dot" style="color:var(--amber); font-size:14px; filter:drop-shadow(0 0 5px var(--amber-glow));"></i>', className: 'custom-icon', iconSize: [16, 16], iconAnchor: [8, 16] });
+    // ── 聚合每个机场的枢纽数据（基地次数 / 目的地次数），避免同机场重复画点 ──
+    const airportAgg = {};
+    fleet.forEach(ac => {
+        if (ac.base) { if (!airportAgg[ac.base]) airportAgg[ac.base] = { asBase: 0, asDest: 0 }; airportAgg[ac.base].asBase++; }
+        if (ac.dest) { if (!airportAgg[ac.dest]) airportAgg[ac.dest] = { asBase: 0, asDest: 0 }; airportAgg[ac.dest].asDest++; }
+    });
 
+    // ── 绘制航线连线（去重）──
+    const drawnRoutes = new Set();
     fleet.forEach(ac => {
         const bInfo = getCityInfo(ac.base);
         const dInfo = getCityInfo(ac.dest);
-
-        if (bInfo && bInfo.lat) {
-            L.marker([bInfo.lat, bInfo.lon], {icon: baseIcon}).addTo(mapInstance)
-             .bindPopup(`<b>Base Hub: ${ac.base}</b><br/>${bInfo.name}<br/>${bInfo.country}`);
-        }
-        
-        if (dInfo && dInfo.lat) {
-            L.marker([dInfo.lat, dInfo.lon], {icon: destIcon}).addTo(mapInstance)
-             .bindPopup(`<b>Destination: ${ac.dest}</b><br/>${dInfo.name}<br/>${dInfo.country}`);
-        }
-
         if (bInfo && bInfo.lat && dInfo && dInfo.lat) {
             const routeKey = `${ac.base}-${ac.dest}`;
             const reverseKey = `${ac.dest}-${ac.base}`;
+            
+            // 【新增逻辑】跨太平洋航线修正 (国际日期变更线)
+            let startLon = bInfo.lon;
+            let endLon = dInfo.lon;
+            if (Math.abs(startLon - endLon) > 180) {
+                if (startLon > endLon) { endLon += 360; }
+                else { startLon += 360; }
+            }
+
             if (!drawnRoutes.has(routeKey) && !drawnRoutes.has(reverseKey)) {
-                L.polyline([[bInfo.lat, bInfo.lon], [dInfo.lat, dInfo.lon]], {
+                L.polyline([[bInfo.lat, startLon], [dInfo.lat, endLon]], {
                     color: '#00e5ff',
                     weight: 2,
                     opacity: 0.5,
@@ -2445,6 +2622,38 @@ function renderMap() {
                 drawnRoutes.add(routeKey);
             }
         }
+    });
+
+    // ── 按枢纽等级绘制机场标记（大小/颜色随航线总数分级）──
+    Object.keys(airportAgg).forEach(code => {
+        const info = getCityInfo(code);
+        if (!info || !info.lat) return;
+        const stat = airportAgg[code];
+        const total = stat.asBase + stat.asDest;
+
+        let tierColor = 'var(--amber)', tierGlow = 'var(--amber-glow)', tierLabel = '普通航点', dotSize = 9;
+        // 只要作为基地触发过，就是枢纽 (金色大圆点)
+        if (stat.asBase > 0) { tierColor = 'var(--gold)'; tierGlow = 'var(--gold-glow)'; tierLabel = '枢纽'; dotSize = 22; }
+        // 否则，如果总通航次数大于 10，就是重点机场 (青色中圆点)
+        else if (total > 10) { tierColor = 'var(--cyan)'; tierGlow = 'var(--cyan-glow)'; tierLabel = '重点机场'; dotSize = 15; }
+
+        const icon = L.divIcon({
+            html: `<div style="display:flex; align-items:center; justify-content:center; width:${dotSize}px; height:${dotSize}px; border-radius:50%; background:${tierGlow}; border:2px solid ${tierColor}; box-shadow:0 0 ${Math.round(dotSize*0.7)}px ${tierGlow};"><div style="width:${Math.max(3,Math.round(dotSize*0.28))}px; height:${Math.max(3,Math.round(dotSize*0.28))}px; border-radius:50%; background:${tierColor};"></div></div>`,
+            className: 'custom-icon',
+            iconSize: [dotSize, dotSize],
+            iconAnchor: [dotSize/2, dotSize/2]
+        });
+
+        const marker = L.marker([info.lat, info.lon], { icon, zIndexOffset: total * 10 }).addTo(mapInstance);
+        marker.bindTooltip(
+            `<b>${code}</b> · ${tierLabel}<br/>${info.name}<br/>基地 ${stat.asBase} · 目的地 ${stat.asDest}`,
+            { direction: 'top', offset: [0, -dotSize/2] }
+        );
+        marker.bindPopup(
+            `<b>${code}</b> ${tierLabel}<br/>${info.name}<br/>${info.country}<br/>
+             <div style="margin-top:6px; font-size:12px;">作为基地 <b>${stat.asBase}</b> 次 · 作为目的地 <b>${stat.asDest}</b> 次</div>
+             <button onclick="openAirportInfo('${code}')" style="margin-top:8px; width:100%; padding:6px; border:none; border-radius:6px; background:#00e5ff; color:#08131a; font-weight:600; cursor:pointer;">查看完整详情</button>`
+        );
     });
 }
 
@@ -2900,7 +3109,7 @@ const COL_RENDERERS = {
         const name = c ? c.name : '';
         const flag = getFlagImg(c);
         return `<div style="display:flex; flex-direction:column; justify-content:center; max-width:140px;">
-                  <span style="font-family:var(--mono);font-size:12px; line-height:1.2; display:flex; align-items:center;">
+                  <span class="airport-link" onclick="openAirportInfo('${a.base}')" title="点击查看机场详情" style="font-family:var(--mono);font-size:12px; line-height:1.2; display:flex; align-items:center;">
                     ${flag}${a.base||'—'}
                   </span>
                   <span style="font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;margin-top:2px;" title="${name}">${name}</span>
@@ -2916,7 +3125,7 @@ const COL_RENDERERS = {
                   onmouseenter="showHoverMap(event, '${a.base}', '${a.dest}')"
                   onmouseleave="hideHoverMap()"
                   onmousemove="moveHoverMap(event)">
-                  <span style="font-family:var(--mono);font-size:12px;color:var(--text2); line-height:1.2; display:flex; align-items:center;">
+                  <span class="airport-link" onclick="event.stopPropagation(); openAirportInfo('${a.dest}')" title="点击查看机场详情" style="font-family:var(--mono);font-size:12px;color:var(--text2); line-height:1.2; display:flex; align-items:center;">
                     ${flag}${a.dest||'—'} <i class="fa-solid fa-satellite-dish" style="font-size:10px; color:var(--green); opacity:0.8; margin-left:6px;"></i>
                   </span>
                   <span style="font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;margin-top:2px;" title="${name}">${name}</span>
@@ -3073,6 +3282,7 @@ function renderFleet() {
 
           const bInfo = getCityInfo(a.base); const bFlag = getFlagImg(bInfo);
           const dInfo = getCityInfo(a.dest); const dFlag = getFlagImg(dInfo);
+          const bName = bInfo ? bInfo.name : ''; const dName = dInfo ? dInfo.name : '';
 
           return `<div class="fleet-card ${isChecked ? 'selected' : ''}" id="card-${a.id}">
              <div class="fc-checkbox"><input type="checkbox" onchange="toggleRow('${a.id}', this.checked)" ${isChecked ? 'checked' : ''}></div>
@@ -3080,16 +3290,22 @@ function renderFleet() {
              <div class="fc-img" onclick="openPopup('${a.id}')">${fallback}${hiddenImgLoader}</div>
              <div class="fc-body">
                 <div class="fc-head"><div><span class="reg-badge" onclick="openPopup('${a.id}')">${a.reg||'—'}</span></div><div style="font-family:var(--mono); font-weight:600; font-size:14px; color:var(--text1)">${a.icao}</div></div>
+                <div class="boarding-route">
+                   <div class="bp-end"><span class="bp-code airport-link" onclick="openAirportInfo('${a.base}')" title="点击查看机场详情">${bFlag}${a.base||'—'}</span><span class="bp-city" title="${bName}">${bName||'&nbsp;'}</span></div>
+                   <div class="bp-line"><i class="fa-solid fa-plane"></i></div>
+                   <div class="bp-end bp-dest"><span class="bp-code airport-link" onclick="openAirportInfo('${a.dest}')" title="点击查看机场详情">${a.dest||'—'}${dFlag}</span><span class="bp-city" title="${dName}">${dName||'&nbsp;'}</span></div>
+                </div>
                 <div class="fc-stats">
-                   <div>Base: <span class="fc-stat-val">${bFlag}${a.base||'—'}</span></div><div>Dest: <span class="fc-stat-val">${dFlag}${a.dest||'—'}</span></div>
                    <div>Profit: <span class="fc-stat-val" style="color:${a.acProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${a.acProfit !== 0 ? fmt(Math.round(a.acProfit)) + ' W' : '—'}</span></div>
                    <div>P/Hr: <span class="fc-stat-val" style="color:var(--cyan)">${a.profitHr !== 0 ? fmt(Math.round(a.profitHr)) : '—'}</span></div>
                 </div>
-                <div style="display:flex; justify-content:flex-end; gap:4px; margin-top:auto; padding-top:12px; border-top:1px solid var(--border)">
+                <div class="fc-perforation"></div>
+                <div style="display:flex; justify-content:flex-end; gap:4px;">
                    <button class="btn btn-icon btn-ghost" onclick="openImageDrawer('${a.id}')" title="照片管理" style="color:var(--cyan)"><i class="fa-solid fa-image"></i></button>
                    <button class="btn btn-icon btn-ghost" onclick="editAircraft('${a.id}')" title="编辑"><i class="fa-solid fa-pen"></i></button>
                    <button class="btn btn-danger btn-icon" onclick="askDelete('${a.id}')" title="删除"><i class="fa-solid fa-trash"></i></button>
                 </div>
+                <div class="fc-barcode"></div>
              </div>
           </div>`;
       }).join('');
@@ -3616,7 +3832,7 @@ document.addEventListener('keydown', function(e) {
   const isInputFocused = ['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag);
 
   if (e.key === 'Escape') {
-    closePopup(); closeImageDrawer(); closeConfirm();
+    closePopup(); closeImageDrawer(); closeConfirm(); closeAirportInfo();
     if (isInputFocused) document.activeElement.blur();
     const panelEl = document.getElementById('col-settings-panel'); if(panelEl) panelEl.classList.remove('show');
     return;
