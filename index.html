@@ -311,8 +311,8 @@ input[type="checkbox"] { accent-color: var(--amber); width: 14px; height: 14px; 
 }
 .dashboard-top-row .page-header {
   margin-bottom: 0; 
-  flex: 1;
-  min-width: 250px; /* 防止标题区域被过度挤压 */
+  flex: 0 0 200px; /* 【修改】取消自适应拉伸，固定给 200px，防止它抢占右侧空间 */
+  min-width: 160px; /* 【修改】允许进一步缩小 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -323,12 +323,12 @@ input[type="checkbox"] { accent-color: var(--amber); width: 14px; height: 14px; 
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 12px;
-  flex: 3; /* 给予统计区域更多可用宽度 */
+  flex: 1; /* 【修改】让数据网格接管剩下的全部横向空间 */
 }
 .dashboard-top-row .stat-card {
-  flex: 1; /* 让每个格子自动均分剩余宽度 */
-  min-width: 140px; /* 屏幕缩小时的最小宽度，小于此值会自动换行 */
-  padding: 14px 16px;
+  flex: 1; 
+  min-width: 120px; /* 【修改】降低一点换行阈值，让 7 个格子更容易同时挤进一排 */
+  padding: 14px 12px; /* 【修改】稍微缩减内边距 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -555,12 +555,44 @@ tbody td { padding: 12px 10px; vertical-align: middle; white-space: nowrap; colo
 .diff-neu { background: var(--bg-input); color: var(--text3); border: 1px solid var(--border); }
 
 /* Rating System Badges */
-.rating-badge { font-family: var(--mono); font-size: 12px; font-weight: bold; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-.rating-s { background: var(--gold-glow); color: var(--gold); border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 10px rgba(255,215,0,0.2); }
-.rating-a { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(179,136,255,0.4); }
-.rating-b { background: var(--cyan-glow); color: var(--cyan); border: 1px solid rgba(0,229,255,0.3); }
-.rating-c { background: var(--green-glow); color: var(--green); border: 1px solid rgba(57,217,138,0.3); }
-.rating-d { background: var(--bg-input); color: var(--text2); border: 1px solid var(--border); }
+/* 替换原有的 .rating-badge */
+.rating-badge {
+    position: relative;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 800;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transform: skewX(-15deg); /* 斜切让它看起来更酷 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+/* 添加一个轻微的流光扫过效果 */
+.rating-badge::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-50%) rotate(45deg); }
+    100% { transform: translateX(50%) rotate(45deg); }
+}
+
+/* 针对不同等级的炫酷配色 */
+.rating-s { background: linear-gradient(135deg, #ffd700, #b8860b); color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5); border-color: rgba(255,215,0,0.5); box-shadow: 0 0 15px rgba(218,165,32,0.4); }
+.rating-a { background: linear-gradient(135deg, #b388ff, #7c3aed); color: #fff; border-color: rgba(179,136,255,0.5); }
+.rating-b { background: linear-gradient(135deg, #00e5ff, #00a3b8); color: #fff; border-color: rgba(0,229,255,0.5); }
+.rating-c { background: linear-gradient(135deg, #39d98a, #059669); color: #fff; }
+.rating-d { background: linear-gradient(135deg, #4a5568, #2d3748); color: #a0aec0; }
 
 /* ── Airport Link + Hub Tag ── */
 .airport-link { cursor: pointer; transition: color 0.15s; border-radius: 3px; }
@@ -708,7 +740,7 @@ html.light-theme .btn-primary { color: #fff; }
 .popup-overlay.show { opacity: 1; pointer-events: all; }
 .popup-box { 
     background: var(--bg-card); border: 1px solid var(--glass-border-lit); border-radius: var(--r-lg); 
-    max-width: 900px; width: 95%; transform: scale(0.95) translateY(10px); 
+    max-width: 1150px; width: 95%; transform: scale(0.95) translateY(10px); 
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition); 
     box-shadow: 0 24px 60px rgba(0,0,0,0.4), var(--glass-highlight); 
     display: flex; flex-direction: column; max-height: 90vh; position: relative;
@@ -747,7 +779,11 @@ html.light-theme .popup-changelog { background: rgba(0,0,0,0.02); }
   .popup-details { margin-right: 0; padding: 20px; overflow: visible; flex: none; height: auto; }
   .popup-changelog { position: relative; width: 100%; bottom: auto; border-left: none; border-top: 1px solid var(--glass-border); padding: 20px; overflow: visible; flex: none; }
 }
-.popup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.popup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 900px) { 
+  .popup-grid { grid-template-columns: 1fr 1fr; } 
+  .popup-grid > div[style*="span 2"] { grid-row: auto !important; grid-column: 1 / -1; }
+}
 .popup-item { background: var(--bg-input); padding: 14px 18px; border-radius: var(--r-md); border: 1px solid var(--border); transition: border-color var(--transition); }
 .popup-item:hover { border-color: var(--border-lit); background: var(--bg-hover); }
 .popup-item label { display: block; font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
@@ -926,7 +962,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="dashboard-top-row">
         <div class="page-header">
           <h1><i class="fa-solid fa-satellite-dish"></i> Fleet Analytics</h1>
-          <p id="analytics-desc">Real-time overview of your operational fleet</p>
+          <p id="analytics-desc">Real-time overview of your<br>operational fleet</p>
         </div>
         
         <div class="stat-grid" id="stat-grid"></div>
@@ -1329,10 +1365,11 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
           <div class="form-group"><label>累计总距离 (Total nm) <i id="lock-f-totalDist" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-totalDist', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-totalDist" placeholder="e.g. 37248" min="0" /></div>
         </div>
 
-        <div class="form-grid cols4" style="margin-bottom:16px">
+        <div class="form-grid cols5" style="margin-bottom:16px">
           <div class="form-group"><label>头等舱 (First) <i id="lock-f-first" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-first', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-first" placeholder="e.g. 8" min="0" /></div>
           <div class="form-group"><label>商务舱 (Business) <i id="lock-f-biz" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-biz', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-biz" placeholder="e.g. 24" min="0" /></div>
           <div class="form-group"><label>经济舱 (Economy) <i id="lock-f-eco" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-eco', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-eco" placeholder="e.g. 150" min="0" /><span class="form-hint">货机请留空</span></div>
+          <div class="form-group"><label>载货量 (Capacity kg) <i id="lock-f-cargoCap" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-cargoCap', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-cargoCap" placeholder="e.g. 112000" min="0" /><span class="form-hint">客机请留空</span></div>
           <div class="form-group"><label>单次维保点数消耗 <i id="lock-f-maint" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-maint', this)" title="锁定/解锁该项"></i></label><input type="number" id="f-maint" placeholder="e.g. 120" min="0" step="0.01" oninput="calcAddRoute()" /></div>
         </div>
 
@@ -1390,7 +1427,16 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <button class="btn btn-ghost btn-edit-cover" id="btn-edit-cover" onclick="enableImageEdit(event)" style="position:absolute; top:16px; left:16px; background:rgba(0,0,0,0.6); color:white; border-color:transparent; z-index:5;"><i class="fa-solid fa-crop"></i> 调整封面</button>
     </div>
     <div class="popup-main-content">
-      <div class="popup-header"><div style="display: flex; align-items: center; gap: 14px;"><div><div class="popup-title"><span id="popup-reg-text"></span> <div id="popup-rating-badge" class="rating-badge rating-s" style="font-size:16px; width:34px; height:34px; transform:translateY(-2px);">S</div></div><div class="popup-subtitle" id="popup-type-text"></div></div></div></div>
+      <div class="popup-header" style="padding-right: 64px; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 14px; flex: 1;">
+          <div>
+            <div class="popup-title"><span id="popup-reg-text"></span> <div id="popup-rating-badge" class="rating-badge rating-s" style="font-size:16px; width:34px; height:34px; transform:translateY(-2px);">S</div></div>
+            <div class="popup-subtitle" id="popup-type-text"></div>
+          </div>
+        </div>
+        <!-- 预留给 JS 注入净利与时薪的区域 -->
+        <div id="popup-header-stats" style="display: flex; gap: 24px; text-align: right; align-items: center;"></div>
+      </div>
       <div class="popup-body">
         <div class="popup-details"><div class="popup-grid" id="popup-grid"></div></div>
         <div class="popup-changelog"><div class="cl-header"><i class="fa-solid fa-clock-rotate-left"></i> 修改日志 (CHANGELOG)</div><div class="cl-list" id="popup-changelog-list"></div></div>
@@ -1445,87 +1491,87 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 // GLOBAL AIRCRAFT DATABASE (原系统机型数据库)
 // ═══════════════════════════════════════════════
 const DB = [
-  {icao:'A124',mfr:'Antonov',size:'F',load:'Cargo',small:40000,large:400000,price:800000},
+  {icao:'A124',mfr:'Antonov',size:'F',load:'Cargo',small:40000,large:400000,price:800000, loadamt:120000},
   {icao:'A19N',mfr:'Airbus',size:'C',load:'Passenger',small:4550,large:45500,price:101000},
   {icao:'A20N',mfr:'Airbus',size:'C',load:'Passenger',small:4900,large:49000,price:112000},
   {icao:'A21N',mfr:'Airbus',size:'C',load:'Passenger',small:5800,large:58000,price:130000},
   {icao:'A21NX',mfr:'Airbus',size:'C',load:'Passenger',small:5900,large:59000,price:140000},
   {icao:'A21NY',mfr:'Airbus',size:'C',load:'Passenger',small:6100,large:61000,price:160000},
-  {icao:'A225',mfr:'Antonov',size:'G',load:'Cargo',small:45000,large:450000,price:900000},
+  {icao:'A225',mfr:'Antonov',size:'G',load:'Cargo',small:45000,large:450000,price:900000, loadamt:130000},
   {icao:'A306',mfr:'Airbus',size:'D',load:'Passenger',small:11500,large:115000,price:195000},
-  {icao:'A306F',mfr:'Airbus',size:'D',load:'Cargo',small:11500,large:115000,price:190000},
-  {icao:'A30BF',mfr:'Airbus',size:'D',load:'Cargo',small:13000,large:130000,price:175000},
+  {icao:'A306F',mfr:'Airbus',size:'D',load:'Cargo',small:11500,large:115000,price:190000, loadamt:48800},
+  {icao:'A30BF',mfr:'Airbus',size:'D',load:'Cargo',small:13000,large:130000,price:175000, loadamt:37500},
   {icao:'A318',mfr:'Airbus',size:'C',load:'Passenger',small:4250,large:42500,price:85000},
   {icao:'A319',mfr:'Airbus',size:'C',load:'Passenger',small:2550,large:25500,price:89000},
   {icao:'A320',mfr:'Airbus',size:'C',load:'Passenger',small:4800,large:48000,price:96000},
   {icao:'A321',mfr:'Airbus',size:'C',load:'Passenger',small:5700,large:57000,price:114000},
-  {icao:'A321F',mfr:'Airbus',size:'C',load:'Cargo',small:5600,large:56000,price:109000},
+  {icao:'A321F',mfr:'Airbus',size:'C',load:'Cargo',small:5600,large:56000,price:109000, loadamt:26000},
   {icao:'A332',mfr:'Airbus',size:'E',load:'Passenger',small:11950,large:119500,price:239000},
-  {icao:'A332F',mfr:'Airbus',size:'E',load:'Cargo',small:11750,large:117500,price:235000},
+  {icao:'A332F',mfr:'Airbus',size:'E',load:'Cargo',small:11750,large:117500,price:235000, loadamt:60600},
   {icao:'A333',mfr:'Airbus',size:'E',load:'Passenger',small:13750,large:137500,price:275000},
-  {icao:'A333P2F',mfr:'Airbus',size:'E',load:'Cargo',small:13750,large:137500,price:240000},
+  {icao:'A333P2F',mfr:'Airbus',size:'E',load:'Cargo',small:13750,large:137500,price:240000, loadamt:51000},
   {icao:'A338',mfr:'Airbus',size:'E',load:'Passenger',small:13000,large:130000,price:310000},
   {icao:'A339',mfr:'Airbus',size:'E',load:'Passenger',small:13750,large:137500,price:315000},
   {icao:'A342',mfr:'Airbus',size:'E',load:'Passenger',small:14650,large:156400,price:293000},
   {icao:'A343',mfr:'Airbus',size:'E',load:'Passenger',small:15650,large:156500,price:313000},
   {icao:'A345',mfr:'Airbus',size:'E',load:'Passenger',small:17250,large:172500,price:345000},
   {icao:'A346',mfr:'Airbus',size:'E',load:'Passenger',small:18000,large:180000,price:360000},
-  {icao:'A346F',mfr:'Airbus',size:'E',load:'Cargo',small:18000,large:180000,price:360000},
+  {icao:'A346F',mfr:'Airbus',size:'E',load:'Cargo',small:18000,large:180000,price:360000, loadamt:73900},
   {icao:'A359',mfr:'Airbus',size:'E',load:'Passenger',small:15500,large:155000,price:350000},
   {icao:'A35K',mfr:'Airbus',size:'E',load:'Passenger',small:16025,large:160250,price:366500},
   {icao:'A388',mfr:'Airbus',size:'F',load:'Passenger',small:25250,large:252500,price:465000},
-  {icao:'A3ST',mfr:'Airbus',size:'D',load:'Cargo',small:23500,large:235000,price:0},
-  {icao:'AN12',mfr:'Antonov',size:'D',load:'Cargo',small:5550,large:55500,price:0},
-  {icao:'AN22',mfr:'Antonov',size:'E',load:'Cargo',small:28000,large:280000,price:0},
-  {icao:'AT43',mfr:'ATR',size:'B',load:'Passenger',small:950,large:9500,price:0},
-  {icao:'AT43F',mfr:'ATR',size:'B',load:'Cargo',small:950,large:9500,price:0},
-  {icao:'AT46',mfr:'ATR',size:'B',load:'Passenger',small:950,large:9500,price:0},
-  {icao:'AT75F',mfr:'ATR',size:'B',load:'Cargo',small:1050,large:10500,price:0},
-  {icao:'AT76',mfr:'ATR',size:'B',load:'Passenger',small:1100,large:11000,price:0},
-  {icao:'B38M',mfr:'Boeing',size:'C',load:'Passenger',small:5580,large:55800,price:0},
-  {icao:'B463',mfr:'British Aerospace',size:'B',load:'Passenger',small:2600,large:26000,price:0},
-  {icao:'B463F',mfr:'British Aerospace',size:'B',load:'Cargo',small:2600,large:26000,price:0},
+  {icao:'A3ST',mfr:'Airbus',size:'D',load:'Cargo',small:23500,large:235000,price: 700000, loadamt:47000},
+  {icao:'AN12',mfr:'Antonov',size:'D',load:'Cargo',small:5550,large:55500,price: 65000, loadamt:20000},
+  {icao:'AN22',mfr:'Antonov',size:'E',load:'Cargo',small:28000,large:280000,price: 450000, loadamt:80000},
+  {icao:'AT43',mfr:'ATR',size:'B',load:'Passenger',small:950,large:9500,price: 17000},
+  {icao:'AT43F',mfr:'ATR',size:'B',load:'Cargo',small:950,large:9500,price: 16500, loadamt:4900},
+  {icao:'AT46',mfr:'ATR',size:'B',load:'Passenger',small:950,large:9500,price: 19000},
+  {icao:'AT75F',mfr:'ATR',size:'B',load:'Cargo',small:1050,large:10500,price: 20500, loadamt:7300},
+  {icao:'AT76',mfr:'ATR',size:'B',load:'Passenger',small:1100,large:11000,price: 22000},
+  {icao:'B38M',mfr:'Boeing',size:'C',load:'Passenger',small:5580,large:55800,price: 121600},
+  {icao:'B463',mfr:'British Aerospace',size:'B',load:'Passenger',small:2600,large:26000,price: 44000},
+  {icao:'B463F',mfr:'British Aerospace',size:'B',load:'Cargo',small:2600,large:26000,price: 44000, loadamt:11800},
   {icao:'B734',mfr:'Boeing',size:'C',load:'Passenger',small:3750,large:37500,price:69000},
-  {icao:'B734F',mfr:'Boeing',size:'C',load:'Cargo',small:3750,large:37500,price:68500},
+  {icao:'B734F',mfr:'Boeing',size:'C',load:'Cargo',small:3750,large:37500,price:68500, loadamt:16200},
   {icao:'B738',mfr:'Boeing',size:'C',load:'Passenger',small:4800,large:48000,price:96000},
-  {icao:'B738F',mfr:'Boeing',size:'C',load:'Cargo',small:4800,large:48000,price:95500},
+  {icao:'B738F',mfr:'Boeing',size:'C',load:'Cargo',small:4800,large:48000,price:95500, loadamt:20550},
   {icao:'B741',mfr:'Boeing',size:'E',load:'Passenger',small:20280,large:202800,price:312500},
   {icao:'B742',mfr:'Boeing',size:'E',load:'Passenger',small:20500,large:205000,price:328000},
-  {icao:'B742F',mfr:'Boeing',size:'E',load:'Cargo',small:20300,large:203000,price:325000},
+  {icao:'B742F',mfr:'Boeing',size:'E',load:'Cargo',small:20300,large:203000,price:325000, loadamt:81320},
   {icao:'B743',mfr:'Boeing',size:'E',load:'Passenger',small:20100,large:201000,price:355000},
-  {icao:'B743F',mfr:'Boeing',size:'E',load:'Cargo',small:20100,large:201000,price:350000},
+  {icao:'B743F',mfr:'Boeing',size:'E',load:'Cargo',small:20100,large:201000,price:350000, loadamt:81570},
   {icao:'B744',mfr:'Boeing',size:'E',load:'Passenger',small:19500,large:195000,price:380000},
-  {icao:'B744F',mfr:'Boeing',size:'E',load:'Cargo',small:19500,large:195000,price:381200},
+  {icao:'B744F',mfr:'Boeing',size:'E',load:'Cargo',small:19500,large:195000,price:381200, loadamt:113000},
   {icao:'B748',mfr:'Boeing',size:'F',load:'Passenger',small:20900,large:209000,price:435000},
-  {icao:'B748F',mfr:'Boeing',size:'F',load:'Cargo',small:20960,large:209600,price:430000},
+  {icao:'B748F',mfr:'Boeing',size:'F',load:'Cargo',small:20960,large:209600,price:430000, loadamt:132600},
   {icao:'B74S',mfr:'Boeing',size:'E',load:'Passenger',small:20117,large:201170,price:309500},
   {icao:'B752',mfr:'Boeing',size:'D',load:'Passenger',small:6000,large:60000,price:110000},
-  {icao:'B752F',mfr:'Boeing',size:'D',load:'Cargo',small:6000,large:60000,price:108000},
+  {icao:'B752F',mfr:'Boeing',size:'D',load:'Cargo',small:6000,large:60000,price:108000, loadamt:36320},
   {icao:'B753',mfr:'Boeing',size:'D',load:'Passenger',small:7700,large:77000,price:140000},
   {icao:'B762',mfr:'Boeing',size:'D',load:'Passenger',small:15000,large:150000,price:225000},
-  {icao:'B762F',mfr:'Boeing',size:'D',load:'Cargo',small:14500,large:145000,price:220000},
+  {icao:'B762F',mfr:'Boeing',size:'D',load:'Cargo',small:14500,large:145000,price:220000, loadamt:35600},
   {icao:'B763',mfr:'Boeing',size:'D',load:'Passenger',small:12000,large:120000,price:239000},
-  {icao:'B763F',mfr:'Boeing',size:'D',load:'Cargo',small:11900,large:119000,price:239000},
+  {icao:'B763F',mfr:'Boeing',size:'D',load:'Cargo',small:11900,large:119000,price:239000, loadamt:54000},
   {icao:'B764',mfr:'Boeing',size:'D',load:'Passenger',small:13750,large:137500,price:275000},
   {icao:'B772',mfr:'Boeing',size:'E',load:'Passenger',small:17000,large:170000,price:355000},
   {icao:'B773',mfr:'Boeing',size:'E',load:'Passenger',small:17750,large:177500,price:350000},
   {icao:'B77L',mfr:'Boeing',size:'E',load:'Passenger',small:18500,large:185000,price:370000},
-  {icao:'B77LF',mfr:'Boeing',size:'E',load:'Cargo',small:18500,large:185000,price:370000},
+  {icao:'B77LF',mfr:'Boeing',size:'E',load:'Cargo',small:18500,large:185000,price:370000, loadamt:104500},
   {icao:'B77W',mfr:'Boeing',size:'E',load:'Passenger',small:18750,large:187500,price:375000},
-  {icao:'B77WF',mfr:'Boeing',size:'E',load:'Cargo',small:18000,large:180000,price:360000},
+  {icao:'B77WF',mfr:'Boeing',size:'E',load:'Cargo',small:18000,large:180000,price:360000, loadamt:99700},
   {icao:'B788',mfr:'Boeing',size:'E',load:'Passenger',small:12300,large:123000,price:285000},
   {icao:'B789',mfr:'Boeing',size:'E',load:'Passenger',small:13600,large:136000,price:315000},
   {icao:'B78X',mfr:'Boeing',size:'E',load:'Passenger',small:15750,large:157500,price:365000},
   {icao:'BCS1',mfr:'Airbus',size:'C',load:'Passenger',small:3350,large:33500,price:81000},
   {icao:'BCS3',mfr:'Airbus',size:'C',load:'Passenger',small:3900,large:39000,price:91500},
-  {icao:'C17',mfr:'McDonnell Douglas',size:'D',load:'Cargo',small:11900,large:119000,price:285000},
-  {icao:'C30J',mfr:'Lockheed',size:'C',load:'Cargo',small:5050,large:50500,price:75000},
+  {icao:'C17',mfr:'McDonnell Douglas',size:'D',load:'Cargo',small:11900,large:119000,price:285000, loadamt:77500},
+  {icao:'C30J',mfr:'Lockheed',size:'C',load:'Cargo',small:5050,large:50500,price:75000, loadamt:19500},
   {icao:'C909',mfr:'COMAC',size:'B',load:'Passenger',small:1800,large:18000,price:38000},
-  {icao:'C909F',mfr:'COMAC',size:'B',load:'Cargo',small:2500,large:25000,price:38000},
+  {icao:'C909F',mfr:'COMAC',size:'B',load:'Cargo',small:2500,large:25000,price:38000, loadamt:9467},
   {icao:'C919',mfr:'COMAC',size:'C',load:'Passenger',small:4600,large:46000,price:96000},
   {icao:'CONC',mfr:'Aerospatiale',size:'E',load:'Passenger',small:100500,large:1005000,price:1570000},
   {icao:'CRJ2',mfr:'Bombardier',size:'B',load:'Passenger',small:1250,large:12500,price:25000},
-  {icao:'CRJ2F',mfr:'Bombardier',size:'B',load:'Cargo',small:1250,large:12500,price:25000},
+  {icao:'CRJ2F',mfr:'Bombardier',size:'B',load:'Cargo',small:1250,large:12500,price:25000, loadamt:6150},
   {icao:'CRJ7',mfr:'Bombardier',size:'B',load:'Passenger',small:1750,large:17500,price:35000},
   {icao:'CRJ9',mfr:'Bombardier',size:'B',load:'Passenger',small:2100,large:21000,price:42000},
   {icao:'CRJX',mfr:'Bombardier',size:'B',load:'Passenger',small:2250,large:22500,price:45000},
@@ -1540,16 +1586,16 @@ const DB = [
   {icao:'E170',mfr:'Embraer',size:'B',load:'Passenger',small:1900,large:19000,price:38000},
   {icao:'E175',mfr:'Embraer',size:'B',load:'Passenger',small:2100,large:21000,price:42000},
   {icao:'E190',mfr:'Embraer',size:'C',load:'Passenger',small:2500,large:25000,price:50000},
-  {icao:'E190F',mfr:'Embraer',size:'C',load:'Cargo',small:2500,large:25000,price:50000},
+  {icao:'E190F',mfr:'Embraer',size:'C',load:'Cargo',small:2500,large:25000,price:50000, loadamt:13500},
   {icao:'E195',mfr:'Embraer',size:'C',load:'Passenger',small:3400,large:34000,price:54000},
   {icao:'E290',mfr:'Embraer',size:'C',load:'Passenger',small:3120,large:31200,price:75000},
   {icao:'E295',mfr:'Embraer',size:'C',load:'Passenger',small:3520,large:35200,price:85000},
   {icao:'F100',mfr:'Fokker',size:'C',load:'Passenger',small:2650,large:26500,price:48000},
   {icao:'F70',mfr:'Fokker',size:'B',load:'Passenger',small:2500,large:25000,price:38000},
   {icao:'MD11',mfr:'McDonnell Douglas',size:'D',load:'Passenger',small:19000,large:190000,price:295000},
-  {icao:'MD11F',mfr:'McDonnell Douglas',size:'D',load:'Cargo',small:19000,large:190000,price:295000},
+  {icao:'MD11F',mfr:'McDonnell Douglas',size:'D',load:'Cargo',small:19000,large:190000,price:295000, loadamt:91185},
   {icao:'SF34',mfr:'Saab',size:'B',load:'Passenger',small:750,large:7500,price:15000},
-  {icao:'SF34F',mfr:'Saab',size:'B',load:'Cargo',small:750,large:7500,price:14500}
+  {icao:'SF34F',mfr:'Saab',size:'B',load:'Cargo',small:750,large:7500,price:14500, loadamt:3450}
 ];
 
 const SIZE_LABELS = {A:'A-Mini',B:'B-Small',C:'C-Medium',D:'D-Large',E:'E-Heavy',F:'F-Super',G:'G-Mega'};
@@ -2453,6 +2499,19 @@ function renderCountries() {
 function fmt(n) { return n != null ? n.toLocaleString() : '—'; }
 function fmtW(n) { return n != null ? n.toLocaleString() + ' W' : 'N/A'; }
 
+// 【新增】智能大数格式化函数
+// 【新增】智能大数格式化函数（强制保留两位小数）
+function formatLargeNum(num) {
+    if (num == null || isNaN(num)) return '—';
+    const absNum = Math.abs(num);
+    if (absNum >= 1000000000) {
+        return (num / 1000000000).toFixed(2) + 'B'; // 十亿，强制2位小数
+    } else if (absNum >= 1000000) {
+        return (num / 1000000).toFixed(2) + 'M'; // 百万，强制2位小数
+    }
+    return Math.round(num).toLocaleString(); // 百万以下保留常规千分位
+}
+
 // ═══════════════════════════════════════════════
 // UI & THEME LOGIC
 // ═══════════════════════════════════════════════
@@ -2736,6 +2795,24 @@ function renderAnalytics() {
   
   const total = data.length; const pax = data.filter(a=>a.load==='Passenger').length; const cargo = data.filter(a=>a.load==='Cargo').length;
   
+  let totalPaxTransported = 0;
+  let totalCargoTransportedTon = 0;
+
+  data.forEach(a => {
+      const oneWayDist = parseInt(a.dist) || 0;
+      const totalDist = parseInt(a.totalDist) || 0;
+      let flightCount = 0;
+      if (oneWayDist > 0) flightCount = Math.floor(totalDist / (oneWayDist * 2));
+
+      if (a.load === 'Passenger') {
+          const seats = (parseInt(a.first) || 0) + (parseInt(a.biz) || 0) + (parseInt(a.eco) || 0);
+          totalPaxTransported += flightCount * 0.95 * seats;
+      } else if (a.load === 'Cargo') {
+          const cap = parseInt(a.cargoCap) || 0;
+          totalCargoTransportedTon += (flightCount * 0.95 * cap) / 1000;
+      }
+  });
+
   const filteredRegs = new Set(data.map(a => a.reg || a.icao));
   const fleetRoutes = routes.filter(r => filteredRegs.has(r.acLabel));
   const totalRev = fleetRoutes.reduce((sum, r) => sum + r.revenue, 0);
@@ -2743,12 +2820,19 @@ function renderAnalytics() {
   const totalProfit = fleetRoutes.reduce((sum, r) => sum + r.profit, 0);
   const totalMargin = totalRev > 0 ? ((totalProfit / totalRev) * 100).toFixed(1) : 0;
 
+  // 【新增】应用大数缩写
+  const paxDisplay = formatLargeNum(totalPaxTransported);
+  const cargoDisplay = formatLargeNum(totalCargoTransportedTon);
+  const profitDisplay = formatLargeNum(totalProfit);
+
   document.getElementById('stat-grid').innerHTML = `
     <div class="stat-card"><div class="stat-label">编队总数</div><div class="stat-value">${total}</div><i class="fa-solid fa-plane stat-icon"></i></div>
     <div class="stat-card cyan"><div class="stat-label">客机数量</div><div class="stat-value">${pax}</div><i class="fa-solid fa-person-seat stat-icon"></i></div>
     <div class="stat-card amber"><div class="stat-label">货机数量</div><div class="stat-value">${cargo}</div><i class="fa-solid fa-box stat-icon"></i></div>
-    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${Math.round(totalProfit).toLocaleString()}</div><div class="stat-sub">Wollars</div><i class="fa-solid fa-money-bill-wave stat-icon"></i></div>
-    <div class="stat-card ${totalMargin >= 0 ? 'cyan' : 'red'}"><div class="stat-label">整体净利率 (Margin)</div><div class="stat-value" style="font-size:24px">${totalMargin}%</div><div class="stat-sub">基于预期毛利</div><i class="fa-solid fa-percent stat-icon"></i></div>`;
+    <div class="stat-card cyan"><div class="stat-label">总运送旅客 (Pax)</div><div class="stat-value">${paxDisplay}</div><div class="stat-sub">基于 95% 客座率</div><i class="fa-solid fa-users stat-icon"></i></div>
+    <div class="stat-card amber"><div class="stat-label">总运送货物 (Ton)</div><div class="stat-value">${cargoDisplay}</div><div class="stat-sub">基于 95% 载货率</div><i class="fa-solid fa-boxes-stacked stat-icon"></i></div>
+    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${profitDisplay}</div><div class="stat-sub">Wollars</div><i class="fa-solid fa-money-bill-wave stat-icon"></i></div>
+    <div class="stat-card ${totalMargin >= 0 ? 'cyan' : 'red'}"><div class="stat-label">整体净利率</div><div class="stat-value" style="font-size:24px">${totalMargin}%</div><div class="stat-sub">基于预期毛利</div><i class="fa-solid fa-percent stat-icon"></i></div>`;
 
   const typeTop = countBy(data,'icao'); 
   const maxBar = typeTop.length ? typeTop[0][1] : 1;
@@ -3369,7 +3453,18 @@ function openPopup(id) {
   let profitText = acProfit !== 0 ? Math.round(acProfit).toLocaleString() + ' W' : '暂无数据';
 
   const totalSeats = (parseInt(a.first) || 0) + (parseInt(a.biz) || 0) + (parseInt(a.eco) || 0);
-  const seatDisplay = a.load === 'Passenger' ? `${seatLabel(a)} (共 ${totalSeats} 座)` : `${seatLabel(a)} (货运机)`;
+  const seatDisplay = a.load === 'Passenger' 
+      ? `<span style="font-family: var(--sans);">排布:</span> ${seatLabel(a)} (共 ${totalSeats} 座)` 
+      : `<span style="font-family: var(--sans);">最大载货量:</span> ${(a.cargoCap || 0).toLocaleString()} kg`;
+
+  let transportedHtml = '';
+  if (a.load === 'Passenger') {
+      const paxTrans = Math.round(flightCount * 0.95 * totalSeats);
+      transportedHtml = `${formatLargeNum(paxTrans)} Pax`;
+  } else {
+      const tonTrans = (flightCount * 0.95 * (a.cargoCap || 0)) / 1000;
+      transportedHtml = `${formatLargeNum(tonTrans)} Ton`;
+  }
 
   const dbInfo = DB.find(x => x.icao === a.icao); const price = dbInfo ? dbInfo.price : 0;
   let breakEvenHtml = '';
@@ -3386,6 +3481,19 @@ function openPopup(id) {
   const bFlag = getFlagImg(baseInfo);
   const dFlag = getFlagImg(destInfo);
 
+  // 1. 将单趟净利和时薪注入到头部右上角
+  document.getElementById('popup-header-stats').innerHTML = `
+      <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center;">
+          <label style="font-size:10px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">单趟净利</label>
+          <div class="val ${profitClass}" style="font-size:18px; font-family:var(--mono); font-weight:600; line-height:1;">${profitText}</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center;">
+          <label style="font-size:10px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">时薪 (Profit/Hr)</label>
+          <div class="val" style="color:var(--cyan); font-size:18px; font-family:var(--mono); font-weight:600; line-height:1;">${profitHr > 0 ? Math.round(profitHr).toLocaleString() + ' W/h' : '—'}</div>
+      </div>
+  `;
+
+  // 2. 重新排列下方数据，变为 3列×2行 的布局
   document.getElementById('popup-grid').innerHTML = `
     <div class="popup-item" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; padding: 24px 32px; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-input) 100%); border: 1px solid var(--glass-border-lit); border-radius: var(--r-md); position: relative; overflow: hidden; margin-bottom: 8px;">
         <div style="text-align: left; width: 35%; z-index: 1;">
@@ -3419,14 +3527,23 @@ function openPopup(id) {
         <i class="fa-solid fa-plane-departure" style="position: absolute; right: -20px; bottom: -30px; font-size: 120px; color: var(--text1); opacity: 0.03; z-index: 0; transform: rotate(-15deg);"></i>
     </div>
 
+    <!-- 1. 左上：服役机龄 -->
     <div class="popup-item"><label>服役机龄</label><div class="val highlight">${age}</div></div>
+    
+    <!-- 2. 中上：客舱/载荷 -->
     <div class="popup-item"><label>客舱 / 载荷</label><div class="val">${seatDisplay}</div></div>
-    <div class="popup-item" style="background:var(--cyan-glow); border-color:rgba(0,229,255,0.3)"><label style="color:var(--cyan)">预估执飞次数 (Flight Count)</label><div class="val highlight" style="font-size:18px; display:flex; align-items:center;">${flightCount} 趟 ${breakEvenHtml}</div></div>
-    <div class="popup-item" style="background:var(--cyan-glow); border-color:rgba(0,229,255,0.3)"><label style="color:var(--cyan)">当前总收益 (Total Earned)</label><div class="val highlight" style="font-size:18px;">${Math.round(currentTotalRev).toLocaleString()} W</div></div>
-    <div class="popup-item" style="grid-column: 1 / -1; display:flex; justify-content:space-between; align-items:center;">
-        <div><label>单趟净利</label><div class="val ${profitClass}" style="font-size:18px;">${profitText}</div></div>
-        <div style="text-align:right;"><label>时薪 (Profit/Hr)</label><div class="val" style="color:var(--cyan); font-size:18px;">${profitHr > 0 ? Math.round(profitHr).toLocaleString() + ' W/h' : '—'}</div></div>
+    
+    <!-- 3. 右上和右下合并：总收益 (span 2 会让它横跨两行) -->
+    <div class="popup-item" style="grid-row: span 2; display: flex; flex-direction: column; justify-content: center; background:var(--cyan-glow); border-color:rgba(0,229,255,0.3);">
+        <label style="color:var(--cyan)">当前总收益 (TOTAL EARNED)</label>
+        <div class="val highlight" style="font-size:24px; margin-top:10px;">${Math.round(currentTotalRev).toLocaleString()} W</div>
     </div>
+
+    <!-- 4. 左下：累计运送 -->
+    <div class="popup-item"><label>累计运送 (95% 负载率)</label><div class="val highlight">${transportedHtml}</div></div>
+    
+    <!-- 5. 中下：飞行次数 (已移除特殊高亮，恢复普通颜色) -->
+    <div class="popup-item"><label>预估执飞次数 (FLIGHT COUNT)</label><div class="val highlight" style="display:flex; align-items:center;">${flightCount} 趟 ${breakEvenHtml}</div></div>
   `;
 
   const clContainer = document.getElementById('popup-changelog-list');
@@ -3665,6 +3782,9 @@ function onTypeSelect() {
   const icao = document.getElementById('f-icao').value; const ac = DB.find(a=>a.icao===icao);
   if (!ac) { ['f-mfr','f-size','f-load','f-small','f-large','f-price'].forEach(id => document.getElementById(id).value=''); return; }
   document.getElementById('f-mfr').value = ac.mfr; document.getElementById('f-size').value = ac.size; document.getElementById('f-load').value = ac.load; document.getElementById('f-price').value = fmtW(ac.price); document.getElementById('f-small').value = fmtW(ac.small); document.getElementById('f-large').value = fmtW(ac.large);
+  if (!lockedFields.has('f-cargoCap')) {
+    document.getElementById('f-cargoCap').value = (ac.load === 'Cargo') ? (ac.loadamt || '') : '';
+  }
   calcAddRoute(); autoFillRouteData();
 }
 
@@ -3692,7 +3812,8 @@ function calcAddRoute() {
 function clearForm() { 
   editingId = null; lastAutoFillKey = ''; 
   document.getElementById('form-heading').innerHTML = '<i class="fa-solid fa-file-signature"></i> Register Aircraft'; document.getElementById('save-label').textContent = '确认入列'; 
-  const fieldsToClear = ['f-reg','f-base','f-dest','f-dist','f-totalDist','f-maint','f-first','f-biz','f-eco','f-icao','f-min','f-max'];
+  // 替换原有的 fieldsToClear
+  const fieldsToClear = ['f-reg','f-base','f-dest','f-dist','f-totalDist','f-maint','f-first','f-biz','f-eco','f-cargoCap','f-icao','f-min','f-max'];
   fieldsToClear.forEach(id => { if (!lockedFields.has(id)) { document.getElementById(id).value = ''; } });
   if (!lockedFields.has('f-time')) { document.getElementById('f-hrs').value = ''; document.getElementById('f-mins').value = ''; }
   if (!lockedFields.has('f-induction')) {
@@ -3725,6 +3846,7 @@ function saveAircraft() {
       first: parseInt(document.getElementById('f-first').value)||0, 
       biz: parseInt(document.getElementById('f-biz').value)||0, 
       eco: parseInt(document.getElementById('f-eco').value)||0, 
+      cargoCap: parseInt(document.getElementById('f-cargoCap').value)||0,
       imageStr: editingId ? (fleet.find(f=>f.id===editingId)?.imageStr) : undefined,
       imagePos: editingId ? (fleet.find(f=>f.id===editingId)?.imagePos) : undefined,
       updatedAt: new Date().toISOString() 
@@ -3734,7 +3856,8 @@ function saveAircraft() {
       { key: 'reg', name: '注册号' }, { key: 'icao', name: '机型' }, { key: 'base', name: '基地' },
       { key: 'dest', name: '目的地' }, { key: 'dist', name: '航程距离' }, { key: 'totalDist', name: '累计总距离' },
       { key: 'flightHrs', name: '耗时(小时)' }, { key: 'flightMins', name: '耗时(分钟)' },
-      { key: 'first', name: '头等舱' }, { key: 'biz', name: '商务舱' }, { key: 'eco', name: '经济舱' }
+      { key: 'first', name: '头等舱' }, { key: 'biz', name: '商务舱' }, { key: 'eco', name: '经济舱' },
+      { key: 'cargoCap', name: '载货量(kg)' }
   ];
   
   if (wasEditing) { 
@@ -3784,7 +3907,7 @@ function editAircraft(id) {
   const a = fleet.find(x=>x.id===id); if (!a) return;
   editingId = id; document.getElementById('form-heading').innerHTML = `<i class="fa-solid fa-pen"></i> Edit ${a.reg}`; document.getElementById('save-label').textContent = '保存修改';
   lastAutoFillKey = '';
-  ['reg','base','icao','dest','dist','totalDist','maint','first','biz','eco'].forEach(k => document.getElementById(`f-${k}`).value = a[k]||'');
+  ['reg','base','icao','dest','dist','totalDist','maint','first','biz','eco','cargoCap'].forEach(k => document.getElementById(`f-${k}`).value = a[k]||'');
   document.getElementById('f-hrs').value = a.flightHrs || ''; document.getElementById('f-mins').value = a.flightMins || ''; document.getElementById('f-induction').value = a.inductionDate || '';
   const rt = routes.find(r => r.acLabel === a.reg);
   if(rt) { document.getElementById('f-min').value = rt.minR || ''; document.getElementById('f-max').value = rt.maxR || ''; } else { document.getElementById('f-min').value = ''; document.getElementById('f-max').value = ''; }
