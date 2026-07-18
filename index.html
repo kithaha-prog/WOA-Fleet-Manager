@@ -1178,24 +1178,24 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="sidebar-logo"><div class="logo-icon"><i class="fa-solid fa-plane-up"></i></div><div><div class="logo-text">WoA Fleet</div><div class="logo-sub">Command Center</div></div></div>
     </div>
     <nav class="sidebar-nav">
-      <div class="nav-item active" data-view="analytics" onclick="showView('analytics',this)" title="快捷键: 1"><i class="fa-solid fa-chart-pie"></i><span>Analytics Dashboard</span></div>
+      <div class="nav-item active" data-view="analytics" onclick="showView('analytics',this)" title="快捷键: 1"><i class="fa-solid fa-chart-pie"></i><span>分析仪表板</span></div>
       
       <!-- 航线地图入口 -->
-      <div class="nav-item" data-view="routemap" onclick="showView('routemap',this)" title="快捷键: M"><i class="fa-solid fa-earth-americas"></i><span>Global Route Map</span></div>
-      <div class="nav-item" data-view="countries" onclick="showView('countries',this)" title="快捷键: C"><i class="fa-solid fa-flag"></i><span>Country Routes</span></div>
+      <div class="nav-item" data-view="routemap" onclick="showView('routemap',this)" title="快捷键: M"><i class="fa-solid fa-earth-americas"></i><span>全球航线图</span></div>
+      <div class="nav-item" data-view="countries" onclick="showView('countries',this)" title="快捷键: C"><i class="fa-solid fa-flag"></i><span>国家排名</span></div>
       
-      <div class="nav-item" data-view="profitchart" onclick="showView('profitchart',this)" title="快捷键: 2"><i class="fa-solid fa-chart-line"></i><span>Profit Curve</span></div>
+      <div class="nav-item" data-view="profitchart" onclick="showView('profitchart',this)" title="快捷键: 2"><i class="fa-solid fa-chart-line"></i><span>利润曲线表</span></div>
       <div class="nav-item" data-view="roi" onclick="showView('roi',this)" title="快捷键: R">
-  <i class="fa-solid fa-money-bill-trend-up"></i><span>ROI & Break-Even</span>
+  <i class="fa-solid fa-money-bill-trend-up"></i><span>资产回本进度</span>
 </div>
-      <div class="nav-item" data-view="timeline" onclick="showView('timeline',this)" title="快捷键: 3"><i class="fa-solid fa-timeline"></i><span>Fleet Timeline</span></div>
-      <div class="nav-item" data-view="fleet" onclick="showView('fleet',this)" title="快捷键: 4"><i class="fa-solid fa-list-check"></i><span>Active Fleet</span><span class="fleet-count-badge" id="fleet-badge">0</span></div>
-      <div class="nav-item" data-view="add" onclick="showView('add',this)" title="快捷键: 5 / N"><i class="fa-solid fa-plane-circle-check"></i><span>Register Aircraft</span></div>
+      <div class="nav-item" data-view="timeline" onclick="showView('timeline',this)" title="快捷键: 3"><i class="fa-solid fa-timeline"></i><span>扩张时间轴</span></div>
+      <div class="nav-item" data-view="fleet" onclick="showView('fleet',this)" title="快捷键: 4"><i class="fa-solid fa-list-check"></i><span>管理机队</span><span class="fleet-count-badge" id="fleet-badge">0</span></div>
+      <div class="nav-item" data-view="add" onclick="showView('add',this)" title="快捷键: 5 / N"><i class="fa-solid fa-plane-circle-check"></i><span>注册新飞机</span></div>
       <div class="nav-item" data-view="wollars" onclick="showView('wollars',this)" title="快捷键: W">
-  <i class="fa-solid fa-sack-dollar"></i><span>Airport Wollars</span>
+  <i class="fa-solid fa-sack-dollar"></i><span>机场Wollars情况</span>
 </div>
-      <div class="nav-item" data-view="routes" onclick="showView('routes',this)" title="快捷键: 6"><i class="fa-solid fa-route"></i><span>Route Records</span></div>
-      <div class="nav-item" data-view="logic" onclick="showView('logic',this)" title="快捷键: 7"><i class="fa-solid fa-code-branch"></i><span>System Logic</span></div>
+      <div class="nav-item" data-view="routes" onclick="showView('routes',this)" title="快捷键: 6"><i class="fa-solid fa-route"></i><span>记录</span></div>
+      <div class="nav-item" data-view="logic" onclick="showView('logic',this)" title="快捷键: 7"><i class="fa-solid fa-code-branch"></i><span>逻辑说明</span></div>
     </nav>
     <div class="sidebar-footer">
       <div class="footer-version" 
@@ -1219,8 +1219,8 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <section class="view active" id="view-analytics">
       <div class="dashboard-top-row">
         <div class="page-header">
-          <h1><i class="fa-solid fa-satellite-dish"></i> Fleet Analytics</h1>
-          <p id="analytics-desc">Real-time overview of your<br>operational fleet</p>
+          <h1><i class="fa-solid fa-satellite-dish"></i>机队分析</h1>
+          <p id="analytics-desc">实时概览您的运营机队</p>
         </div>
         
         <div class="stat-grid" id="stat-grid"></div>
@@ -1262,7 +1262,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <!-- 航线地图面板 -->
     <section class="view" id="view-routemap">
       <div class="page-header">
-        <h1><i class="fa-solid fa-earth-americas"></i> Global Route Map</h1>
+        <h1><i class="fa-solid fa-earth-americas"></i> 全球航线图</h1>
         <p>全球机队航线网络实时动态监控。依据您登记的活跃基地与目的地自动渲染。</p>
       </div>
       <div class="runway-stripe"></div>
@@ -1274,7 +1274,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <section class="view" id="view-roi">
       <div class="dashboard-top-row">
         <div class="page-header">
-          <h1><i class="fa-solid fa-money-bill-trend-up"></i> Asset ROI Status</h1>
+          <h1><i class="fa-solid fa-money-bill-trend-up"></i> 资产回本进度</h1>
           <p>追踪全机队的资产回本进度。直观分辨已实现盈利的资产与尚在回本周期中的飞机。</p>
         </div>
         <div class="stat-grid" id="roi-stat-grid"></div>
@@ -1301,7 +1301,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <section class="view" id="view-countries">
       <div class="dashboard-top-row">
         <div class="page-header">
-          <h1><i class="fa-solid fa-flag"></i> Country Routes</h1>
+          <h1><i class="fa-solid fa-flag"></i> 国家排名</h1>
           <p>按国家统计基地与目的地航线覆盖数量，采用排名榜单，每日一期，展示排名升降变化。</p>
         </div>
         
@@ -1398,7 +1398,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <!-- 一级界面：Wollars 管理卡片网格 -->
     <section class="view" id="view-wollars">
       <div class="page-header">
-        <h1><i class="fa-solid fa-sack-dollar"></i> Airport Wollars Tracking</h1>
+        <h1><i class="fa-solid fa-sack-dollar"></i> 机场Wollars情况</h1>
         <p>追踪可操作机场的 Wollars 资产累积，监控每日收益升降趋势。</p>
       </div>
       <div class="runway-stripe"></div>
@@ -1446,7 +1446,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     </div>
 
     <section class="view" id="view-profitchart">
-      <div class="page-header"><h1><i class="fa-solid fa-chart-line"></i> Profit Curve</h1><p>多机型航程收益效率对比图 (自动根据选定机型划分对比曲线)</p></div>
+      <div class="page-header"><h1><i class="fa-solid fa-chart-line"></i> 利润曲线表</h1><p>多机型航程收益效率对比图 (自动根据选定机型划分对比曲线)</p></div>
       <div class="runway-stripe"></div>
       <div class="filter-bar">
         <select id="pc-airport" onchange="renderProfitCurve()"><option value="">All airports</option></select>
@@ -1462,7 +1462,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 
     <section class="view" id="view-timeline">
       <div class="page-header">
-        <h1><i class="fa-solid fa-timeline"></i> Fleet Timeline</h1>
+        <h1><i class="fa-solid fa-timeline"></i> 扩张时间轴</h1>
         <p>机队扩张时间轴：按时间线追踪您的航空帝国成长历程</p>
       </div>
       <div class="runway-stripe"></div>
@@ -1486,7 +1486,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     </section>
 
     <section class="view" id="view-routes">
-      <div class="page-header"><h1><i class="fa-solid fa-book-journal-whills"></i> Route Financial Records</h1><p>全局航线收益记录薄。入列飞机时输入的收益数据将自动同步于此。</p></div>
+      <div class="page-header"><h1><i class="fa-solid fa-book-journal-whills"></i> 记录</h1><p>全局航线收益记录薄。入列飞机时输入的收益数据将自动同步于此。</p></div>
       <div class="runway-stripe"></div>
       <div class="table-wrap">
         <table>
@@ -1497,7 +1497,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     </section>
 
     <section class="view" id="view-fleet">
-      <div class="page-header"><h1><i class="fa-solid fa-plane"></i> Active Fleet</h1><p>管理您的机队序列，直观对比全机盈利效能与时薪效率，内置 S-D 智能评级算法</p></div>
+      <div class="page-header"><h1><i class="fa-solid fa-plane"></i> 管理机队</h1><p>管理您的机队序列，直观对比全机盈利效能与时薪效率，内置 S-D 智能评级算法</p></div>
       <div class="runway-stripe"></div>
 
       <div class="filter-bar">
@@ -1587,7 +1587,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 
     <section class="view" id="view-logic">
       <div class="page-header">
-        <h1><i class="fa-solid fa-code-branch"></i> System Internal Logic</h1>
+        <h1><i class="fa-solid fa-code-branch"></i> 逻辑说明</h1>
         <p>洞察指挥中心背后运转的预测公式与评级算法</p>
       </div>
       <div class="runway-stripe"></div>
@@ -1637,7 +1637,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     </section>
 
     <section class="view" id="view-add">
-      <div class="page-header"><h1 id="form-heading"><i class="fa-solid fa-file-signature"></i> Register Aircraft</h1><p>入列新飞机，一站式输入机型与预期收益数据。</p></div>
+      <div class="page-header"><h1 id="form-heading"><i class="fa-solid fa-file-signature"></i> 注册新飞机</h1><p>入列新飞机，一站式输入机型与预期收益数据。</p></div>
       <div class="runway-stripe"></div>
       <div class="form-section">
         <div class="form-section-header"><div class="form-section-icon"><i class="fa-solid fa-id-card"></i></div><div><div class="form-section-title">身份标识</div><div class="form-section-sub">注册号、驻扎基地与引进时间</div></div></div>
@@ -2038,7 +2038,7 @@ const APP_CHANGELOG = [
         changes: [
             "<b>[新增]</b> 机场详情弹窗：点击任意机场三字码可查看枢纽等级、通航航线数与关联机场列表",
             "<b>[新增]</b> Global Route Map 机场分级：按航线数量自动划分 Mega-Hub / Focus City / Spoke，标记大小与颜色随之变化",
-            "<b>[优化]</b> Active Fleet 缩略图卡片改为登机牌风格，新增撕票孔分隔线与条形码装饰"
+            "<b>[优化]</b> 管理机队 缩略图卡片改为登机牌风格，新增撕票孔分隔线与条形码装饰"
         ]
     },
     {
@@ -4404,7 +4404,7 @@ function calcAddRoute() {
 
 function clearForm() { 
   editingId = null; lastAutoFillKey = ''; 
-  document.getElementById('form-heading').innerHTML = '<i class="fa-solid fa-file-signature"></i> Register Aircraft'; document.getElementById('save-label').textContent = '确认入列'; 
+  document.getElementById('form-heading').innerHTML = '<i class="fa-solid fa-file-signature"></i> 注册新飞机'; document.getElementById('save-label').textContent = '确认入列'; 
   // 替换原有的 fieldsToClear
   const fieldsToClear = ['f-reg','f-base','f-dest','f-dist','f-totalDist','f-maint','f-first','f-biz','f-eco','f-cargoCap','f-icao','f-min','f-max'];
   fieldsToClear.forEach(id => { if (!lockedFields.has(id)) { document.getElementById(id).value = ''; } });
