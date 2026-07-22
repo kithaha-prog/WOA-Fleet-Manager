@@ -1650,7 +1650,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="runway-stripe"></div>
       <div class="ocr-section" style="margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 20px;">
             <button type="button" class="btn" id="toggle-ocr-btn" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1); border: 1px dashed var(--primary); color: var(--primary);">
-                <i class="fa-solid fa-camera-viewfinder"></i> <span id="ocr-btn-text">展开 OCR 智能多图录入</span>
+                <i class="fa-solid fa-camera-viewfinder"></i> <span id="ocr-btn-text">展开 OCR 智能多图录入 (测试版)</span>
             </button>
             
             <div id="ocr-dropzone" style="display: none; border: 2px dashed var(--border); padding: 30px 20px; text-align: center; margin-top: 15px; border-radius: 12px; cursor: pointer; background: var(--surface); transition: all 0.3s;">
@@ -3580,7 +3580,7 @@ function renderMap() {
 // ═══════════════════════════════════════════════
 function exportData() {
   const countryPeriods = loadCountryPeriods();
-  const data = { fleet, routes, countryPeriods };
+  const data = { fleet, routes, countryPeriods, wollarsHistory };
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
   const dl = document.createElement('a'); dl.setAttribute("href", dataStr); dl.setAttribute("download", `woa_command_backup_${new Date().toISOString().slice(0, 10)}.json`);
   document.body.appendChild(dl); dl.click(); dl.remove(); toast('系统数据已导出存档');
@@ -3591,7 +3591,7 @@ function importData(event) {
   reader.onload = function(e) {
     try {
       const data = JSON.parse(e.target.result);
-      let addedFleet = 0; let addedRoutes = 0; let addedPeriods = 0;
+      let addedFleet = 0; let addedRoutes = 0; let addedPeriods = 0; let addedWollarsDays = 0;
 
       if (data.fleet && Array.isArray(data.fleet)) {
         data.fleet.forEach(newAc => {
@@ -3611,12 +3611,28 @@ function importData(event) {
         existingPeriods.sort((a, b) => (a.ts || 0) - (b.ts || 0));
         persistCountryPeriods(existingPeriods);
       }
+      if (data.wollarsHistory && Array.isArray(data.wollarsHistory)) {
+        data.wollarsHistory.forEach(newRec => {
+          if (!newRec || !newRec.date) return;
+          const existingRec = wollarsHistory.find(r => r.date === newRec.date);
+          if (existingRec) {
+            // 合并同一天的机场数据，新数据优先覆盖同字段
+            Object.assign(existingRec.data, newRec.data || {});
+          } else {
+            wollarsHistory.push({ date: newRec.date, data: { ...(newRec.data || {}) } });
+            addedWollarsDays++;
+          }
+        });
+        wollarsHistory.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+        persistWollars();
+      }
       syncFilters(); 
       if(document.getElementById('view-fleet').classList.contains('active')) renderFleet();
       if(document.getElementById('view-routes').classList.contains('active')) renderRoutes();
       if(document.getElementById('view-timeline').classList.contains('active')) renderTimeline();
       if(document.getElementById('view-countries').classList.contains('active')) renderCountries();
-      toast(`增量导入成功：新增 ${addedFleet} 架飞机，${addedRoutes} 条记录，${addedPeriods} 期国家快照`);
+      if(document.getElementById('view-wollars').classList.contains('active')) renderWollarsGrid();
+      toast(`增量导入成功：新增 ${addedFleet} 架飞机，${addedRoutes} 条记录，${addedPeriods} 期国家快照，${addedWollarsDays} 天 Wollars 数据`);
     } catch (err) { toast('导入失败：数据格式不匹配', true); }
   };
   reader.readAsText(file); event.target.value = '';
