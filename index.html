@@ -936,6 +936,9 @@ html.light-theme .form-group input, html.light-theme .form-group select { color-
 html.light-theme .btn-primary { color: #fff; } 
 .btn-ghost { background: var(--bg-input); color: var(--text1); border-color: var(--border); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
 .btn-ghost:hover { background: var(--bg-hover); border-color: var(--border-lit); }
+.reg-dup-hint { display: none; align-items: center; gap: 6px; margin-top: 6px; font-size: 12px; color: var(--amber); }
+.reg-dup-hint.show { display: flex; }
+.reg-dup-hint i { font-size: 11px; }
 .btn-danger { background: rgba(255,92,92,0.1); color: var(--red); border-color: rgba(255,92,92,0.3); padding: 8px 14px; font-size: 12px; }
 .btn-danger:hover { background: var(--red-glow); border-color: var(--red); box-shadow: 0 4px 10px var(--red-glow); }
 .btn-icon { padding: 8px 12px; }
@@ -1665,7 +1668,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="form-section">
         <div class="form-section-header"><div class="form-section-icon"><i class="fa-solid fa-id-card"></i></div><div><div class="form-section-title">身份标识</div><div class="form-section-sub">注册号、驻扎基地与引进时间</div></div></div>
         <div class="form-grid cols3">
-          <div class="form-group"><label>注册号 (Registration) * <i id="lock-f-reg" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-reg', this)" title="锁定/解锁该项"></i></label><input type="text" id="f-reg" placeholder="e.g. 9M-ABC" style="text-transform:uppercase;font-family:var(--mono);font-weight:600;letter-spacing:0.05em;color:var(--cyan)" /></div>
+          <div class="form-group"><label>注册号 (Registration) * <i id="lock-f-reg" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-reg', this)" title="锁定/解锁该项"></i></label><input type="text" id="f-reg" placeholder="e.g. 9M-ABC" style="text-transform:uppercase;font-family:var(--mono);font-weight:600;letter-spacing:0.05em;color:var(--cyan)" oninput="checkRegDuplicate()" /><div id="f-reg-dup-hint" class="reg-dup-hint"><i class="fa-solid fa-triangle-exclamation"></i> <span id="f-reg-dup-hint-text"></span></div></div>
           
           <div class="form-group">
             <label>基地 (Base Code) * <i id="lock-f-base" class="fa-solid fa-lock-open lock-icon" onclick="toggleLock('f-base', this)" title="锁定/解锁该项"></i></label>
@@ -1797,6 +1800,22 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="popup-body">
         <div class="popup-details"><div class="popup-grid" id="popup-grid"></div></div>
         <div class="popup-changelog"><div class="cl-header"><i class="fa-solid fa-clock-rotate-left"></i> 修改日志 (CHANGELOG)</div><div class="cl-list" id="popup-changelog-list"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup-overlay" id="dup-reg-modal" onclick="if(event.target===this) cancelDupSave()">
+  <div class="popup-box" style="max-width: 440px;">
+    <button class="popup-close-float" onclick="cancelDupSave()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="popup-header" style="padding: 24px 28px 16px 28px;">
+      <div class="popup-title" style="color: var(--amber); display:flex; align-items:center; gap:10px;"><i class="fa-solid fa-triangle-exclamation"></i> 注册号重复</div>
+    </div>
+    <div class="popup-body" style="display:block; padding: 0 28px 24px 28px;">
+      <div id="dup-reg-modal-text" style="font-size: 13px; color: var(--text2); line-height: 1.6;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:22px;">
+        <button class="btn btn-ghost" onclick="cancelDupSave()">取消</button>
+        <button class="btn btn-primary" onclick="confirmDupSave()">仍然确认录入</button>
       </div>
     </div>
   </div>
@@ -3204,7 +3223,7 @@ function renderRoi() {
     roiCurrentPage = 1; // 打开或刷新模块时重置页码
 
     cachedRoiData = fleet.map(a => {
-        const singleTripProfit = getAcProfit(a.reg || a.icao);
+        const singleTripProfit = getAcProfit(a.reg || a.icao, a.icao);
         const dbInfo = DB.find(d => d.icao === a.icao);
         const price = dbInfo ? dbInfo.price : 0;
 
@@ -3600,7 +3619,7 @@ function importData(event) {
       }
       if (data.routes && Array.isArray(data.routes)) {
         data.routes.forEach(newRt => {
-          if (!routes.some(existingRt => existingRt.id === newRt.id || existingRt.acLabel === newRt.acLabel)) { routes.push(newRt); addedRoutes++; }
+          if (!routes.some(existingRt => existingRt.id === newRt.id || routeMatchesAc(existingRt, newRt.acLabel, newRt.icao))) { routes.push(newRt); addedRoutes++; }
         }); persistRoutes();
       }
       if (data.countryPeriods && Array.isArray(data.countryPeriods)) {
@@ -3641,7 +3660,15 @@ function importData(event) {
 // ═══════════════════════════════════════════════
 // PROFIT STATS ENGINE & RATING SYSTEM
 // ═══════════════════════════════════════════════
-function getAcProfit(acLabel) { return routes.filter(r => r.acLabel === acLabel).reduce((sum, r) => sum + r.profit, 0); }
+// 【修复】收益记录现在按 "注册号 + 机型" 复合键匹配，而不是只按注册号。
+// 兼容旧数据：若某条 route 记录没有 icao 字段（历史数据），仍退化为按注册号匹配。
+function routeMatchesAc(r, reg, icao) {
+  if (!r) return false;
+  if (r.acLabel !== reg) return false;
+  if (r.icao == null || r.icao === '') return true; // 旧数据兼容
+  return r.icao === icao;
+}
+function getAcProfit(reg, icao) { return routes.filter(r => routeMatchesAc(r, reg, icao)).reduce((sum, r) => sum + r.profit, 0); }
 function countBy(arr, key) {
   const m = {}; arr.forEach(a => { const v = a[key]||'?'; m[v]=(m[v]||0)+1; });
   return Object.entries(m).sort((a,b)=>b[1]-a[1]);
@@ -3688,8 +3715,7 @@ function renderAnalytics() {
       }
   });
 
-  const filteredRegs = new Set(data.map(a => a.reg || a.icao));
-  const fleetRoutes = routes.filter(r => filteredRegs.has(r.acLabel));
+  const fleetRoutes = routes.filter(r => data.some(a => routeMatchesAc(r, a.reg || a.icao, a.icao)));
   const totalRev = fleetRoutes.reduce((sum, r) => sum + r.revenue, 0);
   const totalCost = fleetRoutes.reduce((sum, r) => sum + r.maintCost, 0);
   const totalProfit = fleetRoutes.reduce((sum, r) => sum + r.profit, 0);
@@ -3718,7 +3744,7 @@ function renderAnalytics() {
 
   const roiMap = {};
   data.forEach(a => {
-    const p = getAcProfit(a.reg || a.icao);
+    const p = getAcProfit(a.reg || a.icao, a.icao);
     if(p > 0) { 
       if(!roiMap[a.icao]) roiMap[a.icao] = { sum: 0, count: 0 };
       roiMap[a.icao].sum += p; roiMap[a.icao].count++;
@@ -3774,7 +3800,7 @@ function renderAnalytics() {
   document.getElementById('mfr-grid').innerHTML = countBy(data,'mfr').map(([k,v])=>`<div class="breakdown-card" title="占比: ${total ? ((v/total)*100).toFixed(1) : 0}%"><div><div class="breakdown-name">${k}</div></div><div class="breakdown-count">${v}</div></div>`).join('');
   document.getElementById('size-grid').innerHTML = countBy(data,'size').sort((a,b)=>a[0].localeCompare(b[0])).map(([k,v])=>`<div class="breakdown-card" title="占比: ${total ? ((v/total)*100).toFixed(1) : 0}%"><div><div class="breakdown-name">${SIZE_LABELS[k]||k}</div></div><div class="breakdown-count">${v}</div></div>`).join('');
 
-  const acProfits = data.map(a => ({ ...a, profit: getAcProfit(a.reg || a.icao) })).filter(a => a.profit !== 0).sort((a,b) => b.profit - a.profit).slice(0,10);
+  const acProfits = data.map(a => ({ ...a, profit: getAcProfit(a.reg || a.icao, a.icao) })).filter(a => a.profit !== 0).sort((a,b) => b.profit - a.profit).slice(0,10);
   const topProfitVal = acProfits.length ? acProfits[0].profit : 1;
   document.getElementById('maint-cost-grid').innerHTML = acProfits.length ? acProfits.map(a => `
     <div class="stat-card" style="padding:16px;">
@@ -3812,7 +3838,7 @@ function renderProfitCurve() {
 
   const groupedData = {};
   filteredData.forEach(a => {
-      const profit = getAcProfit(a.reg || a.icao); const dist = parseFloat(a.dist);
+      const profit = getAcProfit(a.reg || a.icao, a.icao); const dist = parseFloat(a.dist);
       if (dist > 0 && profit !== 0) {
           if (!groupedData[a.icao]) groupedData[a.icao] = [];
           groupedData[a.icao].push({ x: dist, y: profit, label: a.reg || a.icao });
@@ -4130,13 +4156,13 @@ function renderFleet() {
   const ratingFilter = document.getElementById('ff-rating').value;
 
   const globalAverages = {};
-  fleet.forEach(a => { const p = getAcProfit(a.reg || a.icao); if(p !== 0) { if(!globalAverages[a.size]) globalAverages[a.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[a.size].sum += p; globalAverages[a.size].count++; } });
+  fleet.forEach(a => { const p = getAcProfit(a.reg || a.icao, a.icao); if(p !== 0) { if(!globalAverages[a.size]) globalAverages[a.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[a.size].sum += p; globalAverages[a.size].count++; } });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
 
   const seqMap = {}; [...fleet].sort((a, b) => Number(a.id) - Number(b.id)).forEach((ac, idx) => { seqMap[ac.id] = idx + 1; });
 
   let data = fleet.map(a => {
-    const acProfit = getAcProfit(a.reg || a.icao); const avgProfit = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
+    const acProfit = getAcProfit(a.reg || a.icao, a.icao); const avgProfit = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
     let vsAvgPct = 0; if(avgProfit > 0) vsAvgPct = ((acProfit - avgProfit) / avgProfit) * 100;
     const ratingData = getAircraftRating(acProfit, vsAvgPct);
     const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
@@ -4325,10 +4351,10 @@ function openPopup(id) {
   tempImg.onerror = () => { imgWrap.style.display = 'none'; };
   tempImg.src = photoUrl;
   
-  const acProfit = getAcProfit(a.reg || a.icao);
+  const acProfit = getAcProfit(a.reg || a.icao, a.icao);
   
   const globalAverages = {};
-  fleet.forEach(f => { const p = getAcProfit(f.reg || f.icao); if(p !== 0) { if(!globalAverages[f.size]) globalAverages[f.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[f.size].sum += p; globalAverages[f.size].count++; } });
+  fleet.forEach(f => { const p = getAcProfit(f.reg || f.icao, f.icao); if(p !== 0) { if(!globalAverages[f.size]) globalAverages[f.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[f.size].sum += p; globalAverages[f.size].count++; } });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
   const avgProfit = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
   let vsAvgPct = 0; if(avgProfit > 0) vsAvgPct = ((acProfit - avgProfit) / avgProfit) * 100;
@@ -4550,8 +4576,8 @@ function confirmDelete() {
   selectedFleetIds.delete(pendingDeleteId);
   
   if(a && a.reg) { 
-    deletedRoutes = routes.filter(r => r.acLabel === a.reg);
-    routes = routes.filter(r => r.acLabel !== a.reg); 
+    deletedRoutes = routes.filter(r => routeMatchesAc(r, a.reg, a.icao));
+    routes = routes.filter(r => !routeMatchesAc(r, a.reg, a.icao)); 
   }
   lastDeleted = { fleet: deletedFleet, routes: deletedRoutes };
   persistRoutes(); persistFleet(); syncFilters(); closeConfirm(); renderFleet(); renderRoutes(); updateBulkBar(); 
@@ -4566,9 +4592,9 @@ function bulkDelete() {
   let deletedRoutes = [];
   fleet.forEach(a => {
     if (selectedFleetIds.has(a.id) && a.reg) {
-      const acRoutes = routes.filter(r => r.acLabel === a.reg);
+      const acRoutes = routes.filter(r => routeMatchesAc(r, a.reg, a.icao));
       deletedRoutes.push(...acRoutes);
-      routes = routes.filter(r => r.acLabel !== a.reg); 
+      routes = routes.filter(r => !routeMatchesAc(r, a.reg, a.icao)); 
     }
   });
   fleet = fleet.filter(a => !selectedFleetIds.has(a.id)); selectedFleetIds.clear();
@@ -4662,7 +4688,7 @@ function autoFillRouteData() {
         const fullMatch = fleet.find(a => ((a.base === base && a.dest === dest) || (a.base === dest && a.dest === base)) && a.icao === icao);
         if (fullMatch) {
             if (fullMatch.maint && document.getElementById('f-maint').value !== String(fullMatch.maint)) { document.getElementById('f-maint').value = fullMatch.maint; flashField('f-maint'); filled = true; }
-            const rt = routes.find(r => r.acLabel === fullMatch.reg);
+            const rt = routes.find(r => routeMatchesAc(r, fullMatch.reg, fullMatch.icao));
             if (rt) {
                 if (rt.minR && document.getElementById('f-min').value !== String(rt.minR)) { document.getElementById('f-min').value = rt.minR; flashField('f-min'); filled = true; }
                 if (rt.maxR && document.getElementById('f-max').value !== String(rt.maxR)) { document.getElementById('f-max').value = rt.maxR; flashField('f-max'); filled = true; }
@@ -4696,7 +4722,7 @@ function recalcAllRoutes() {
   if (routes.length === 0) { toast('暂无记录可供重算', true); return; }
   let updated = 0, skipped = 0;
   routes.forEach(r => {
-    const acEntry = fleet.find(a => a.reg === r.acLabel);
+    const acEntry = fleet.find(a => routeMatchesAc(r, a.reg, a.icao));
     if (!acEntry) { skipped++; return; }
     const ac = DB.find(a => a.icao === acEntry.icao);
     const small = ac ? (ac.small || 0) : 0;
@@ -4756,15 +4782,44 @@ function clearForm() {
   }
   document.getElementById('add-route-result').style.display='none'; onTypeSelect(); 
   updateCityName('f-base', 'lbl-base-name'); updateCityName('f-dest', 'lbl-dest-name');
+  document.getElementById('f-reg-dup-hint').classList.remove('show');
 }
 
 function cancelForm() { clearForm(); showView('fleet', document.querySelector('[data-view="fleet"]')); }
+
+// 实时检测注册号是否与机队中其他飞机重复，并在输入框下方给出提示（不阻断输入）
+function checkRegDuplicate() {
+  const hint = document.getElementById('f-reg-dup-hint');
+  const hintText = document.getElementById('f-reg-dup-hint-text');
+  const reg = document.getElementById('f-reg').value.trim().toUpperCase();
+  if (!reg) { hint.classList.remove('show'); return; }
+  const dupAc = fleet.find(a => a.reg === reg && a.id !== editingId);
+  if (dupAc) {
+    hintText.textContent = `已有相同注册号的飞机（机型: ${dupAc.icao}）`;
+    hint.classList.add('show');
+  } else {
+    hint.classList.remove('show');
+  }
+}
 
 function saveAircraft() {
   const icao = document.getElementById('f-icao').value; const reg = document.getElementById('f-reg').value.trim().toUpperCase();
   if (!icao || !reg) { toast('注册号与机型为必填项', true); return; }
   const dupAc = fleet.find(a => a.reg === reg && a.id !== editingId);
-  if (dupAc) { toast(`注册号 ${reg} 已存在（机型: ${dupAc.icao}），不能重复录入`, true); return; }
+  if (dupAc) {
+    document.getElementById('dup-reg-modal-text').innerHTML = `注册号 <strong style="color:var(--cyan)">${reg}</strong> 已存在相同注册号的飞机（机型: <strong>${dupAc.icao}</strong>）。<br><br>是否仍然确认录入？`;
+    document.getElementById('dup-reg-modal').classList.add('show');
+    return;
+  }
+  proceedSaveAircraft();
+}
+
+function cancelDupSave() { document.getElementById('dup-reg-modal').classList.remove('show'); }
+
+function confirmDupSave() { document.getElementById('dup-reg-modal').classList.remove('show'); proceedSaveAircraft(); }
+
+function proceedSaveAircraft() {
+  const icao = document.getElementById('f-icao').value; const reg = document.getElementById('f-reg').value.trim().toUpperCase();
   const ac = DB.find(a=>a.icao===icao); const wasEditing = !!editingId; 
   
   const entry = { 
@@ -4815,7 +4870,7 @@ function saveAircraft() {
   persistFleet(); 
   
   const minR = parseFloat(document.getElementById('f-min').value) || 0; const maxR = parseFloat(document.getElementById('f-max').value) || 0;
-  const existingRouteIdx = routes.findIndex(r => r.acLabel === reg);
+  const existingRouteIdx = routes.findIndex(r => routeMatchesAc(r, reg, icao));
   
   if (minR > 0 || maxR > 0) {
     const maint = parseFloat(document.getElementById('f-maint').value) || 0;
@@ -4824,7 +4879,7 @@ function saveAircraft() {
     const baseEstimate = minR + (maxR - minR) * (FIXED_LOAD_PCT / 100);
     const rev = baseEstimate * multiplier; const cost = (small / 100 * maint) + (large / 400 * maint);
     const routeName = `${document.getElementById('f-base').value.trim().toUpperCase()||'?'} → ${document.getElementById('f-dest').value.trim().toUpperCase()||'?'}`;
-    const routeEntry = { id: existingRouteIdx >= 0 ? routes[existingRouteIdx].id : Date.now().toString(), name: routeName, acLabel: reg, minR, maxR, revenue: rev, maintCost: cost, profit: rev - cost };
+    const routeEntry = { id: existingRouteIdx >= 0 ? routes[existingRouteIdx].id : Date.now().toString(), name: routeName, acLabel: reg, icao, minR, maxR, revenue: rev, maintCost: cost, profit: rev - cost };
     if (existingRouteIdx >= 0) { routes[existingRouteIdx] = routeEntry; } else { routes.push(routeEntry); }
   } else { if (existingRouteIdx >= 0) routes.splice(existingRouteIdx, 1); }
   
@@ -4846,13 +4901,14 @@ function editAircraft(id) {
   lastAutoFillKey = '';
   ['reg','base','icao','dest','dist','totalDist','maint','first','biz','eco','cargoCap'].forEach(k => document.getElementById(`f-${k}`).value = a[k]||'');
   document.getElementById('f-hrs').value = a.flightHrs || ''; document.getElementById('f-mins').value = a.flightMins || ''; document.getElementById('f-induction').value = a.inductionDate || '';
-  const rt = routes.find(r => r.acLabel === a.reg);
+  const rt = routes.find(r => routeMatchesAc(r, a.reg, a.icao));
   if(rt) {
     document.getElementById('f-min').value = rt.minR || ''; document.getElementById('f-max').value = rt.maxR || '';
   } else {
     document.getElementById('f-min').value = ''; document.getElementById('f-max').value = '';
   }
   onTypeSelect(); updateCityName('f-base', 'lbl-base-name'); updateCityName('f-dest', 'lbl-dest-name');
+  checkRegDuplicate();
   showView('add', document.querySelector('[data-view="add"]'));
 }
 
@@ -4861,7 +4917,7 @@ function editAircraft(id) {
 // ═══════════════════════════════════════════════
 function renderRoutes() {
   const tbody = document.getElementById('routes-tbody');
-  tbody.innerHTML = routes.map(r => `<tr><td style="font-family:var(--mono);font-weight:600">${r.name}</td><td>${r.acLabel}</td><td>${r.minR.toLocaleString()}W</td><td>${r.maxR.toLocaleString()}W</td><td style="color:var(--cyan)">${Math.round(r.revenue).toLocaleString()}W</td><td style="color:var(--amber)">${Math.round(r.maintCost).toLocaleString()}W</td><td style="font-weight:600;color:${r.profit>=0?'var(--green)':'var(--red)'}">${Math.round(r.profit).toLocaleString()}W</td><td><button class="btn btn-danger btn-icon" onclick="deleteRoute('${r.id}')" title="删除记录"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="8"><div class="empty-state"><p>全局暂无预测存档，在录入飞机时填入收益范围即可自动生成。</p></div></td></tr>`;
+  tbody.innerHTML = routes.map(r => `<tr><td style="font-family:var(--mono);font-weight:600">${r.name}</td><td>${r.acLabel}${r.icao ? ` <span style="color:var(--text3);font-size:11px;">(${r.icao})</span>` : ''}</td><td>${r.minR.toLocaleString()}W</td><td>${r.maxR.toLocaleString()}W</td><td style="color:var(--cyan)">${Math.round(r.revenue).toLocaleString()}W</td><td style="color:var(--amber)">${Math.round(r.maintCost).toLocaleString()}W</td><td style="font-weight:600;color:${r.profit>=0?'var(--green)':'var(--red)'}">${Math.round(r.profit).toLocaleString()}W</td><td><button class="btn btn-danger btn-icon" onclick="deleteRoute('${r.id}')" title="删除记录"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="8"><div class="empty-state"><p>全局暂无预测存档，在录入飞机时填入收益范围即可自动生成。</p></div></td></tr>`;
 }
 
 function deleteRoute(id) {
