@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/tesseract.js@5.0.5/dist/tesseract.min.js"></script>
 
 <!-- 引入外置的机场坐标数据库 -->
 <script src="机场.js"></script>
@@ -1432,7 +1433,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
               <div id="wp-latest-val" style="font-size:28px; font-weight:700; color:var(--amber); font-family:var(--mono); line-height:1; margin-top:4px;">0 W</div>
             </div>
             <div style="display:flex; gap:10px; align-items:center;">
-              <input type="number" id="wp-input" class="page-jump-input" style="width:140px; text-align:left; padding:8px 12px; font-size:14px;" placeholder="录入今日余额...">
+              <input type="number" id="wp-input" class="page-jump-input" style="width:140px; text-align:left; padding:8px 12px; font-size:14px;" placeholder="录入今日余额..." onkeydown="if(event.key==='Enter') saveSingleWollars()">
               <button class="btn btn-primary" onclick="saveSingleWollars()">保存</button>
             </div>
           </div>
@@ -1486,7 +1487,13 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     </section>
 
     <section class="view" id="view-routes">
-      <div class="page-header"><h1><i class="fa-solid fa-book-journal-whills"></i> 记录</h1><p>全局航线收益记录薄。入列飞机时输入的收益数据将自动同步于此。</p></div>
+      <div class="page-header" style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div>
+          <h1><i class="fa-solid fa-book-journal-whills"></i> 记录</h1>
+          <p>全局航线收益记录薄。入列飞机时输入的收益数据将自动同步于此。</p>
+        </div>
+        <button class="btn btn-primary" onclick="recalcAllRoutes()" title="按当前收益算法重新计算全部记录" style="white-space:nowrap;"><i class="fa-solid fa-arrows-rotate"></i> 全部重算</button>
+      </div>
       <div class="runway-stripe"></div>
       <div class="table-wrap">
         <table>
@@ -1594,10 +1601,12 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       
       <div class="logic-card">
         <h3><i class="fa-solid fa-calculator"></i> 1. 航班净利润算法 (Net Profit Algorithm)</h3>
-        <p class="logic-desc">系统的财务核心，用于计算单趟飞行的理论毛利与折旧成本。数据取自用户录入的预估范围及系统数据库内的维保系数。</p>
+        <p class="logic-desc">系统的财务核心，用于计算单趟飞行的理论毛利与折旧成本。载荷/上座率固定按 94% 计算，客机/货机/A346F 系数根据机型自动识别，无需手动录入。</p>
         
         <div class="logic-formula">
-          <div><span class="var">Gross Revenue (毛收益)</span> <span class="op">=</span> (Min_Reward <span class="op">×</span> 0.71) <span class="op">+</span> (Max_Reward <span class="op">-</span> Min_Reward)</div>
+          <div><span class="var">Base Estimate (基础估算)</span> <span class="op">=</span> Min_Reward <span class="op">+</span> (Max_Reward <span class="op">-</span> Min_Reward) <span class="op">×</span> 94%</div>
+          <div style="margin-top:8px;"><span class="var">Gross Revenue (毛收益)</span> <span class="op">=</span> Base Estimate <span class="op">×</span> Flight_Type_Multiplier</div>
+          <div style="margin-top:8px;font-size:12px;color:var(--text3);">Flight_Type_Multiplier（按机型自动判定）: 客机 0.909 ｜ 货机 0.91 ｜ A346F（ICAO=A346F）1.098</div>
           <div style="margin-top:8px;"><span class="var">Maintenance Cost (维修折旧)</span> <span class="op">=</span> (A_Check_Price <span class="op">/</span> 100 <span class="op">×</span> Maint_Points) <span class="op">+</span> (CD_Check_Price <span class="op">/</span> 400 <span class="op">×</span> Maint_Points)</div>
           <div style="margin-top:8px;"><span class="var">Net Profit (单趟净利润)</span> <span class="op">=</span> Gross Revenue <span class="op">-</span> Maintenance Cost</div>
         </div>
@@ -1639,6 +1648,20 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <section class="view" id="view-add">
       <div class="page-header"><h1 id="form-heading"><i class="fa-solid fa-file-signature"></i> 注册新飞机</h1><p>入列新飞机，一站式输入机型与预期收益数据。</p></div>
       <div class="runway-stripe"></div>
+      <div class="ocr-section" style="margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 20px;">
+            <button type="button" class="btn" id="toggle-ocr-btn" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1); border: 1px dashed var(--primary); color: var(--primary);">
+                <i class="fa-solid fa-camera-viewfinder"></i> <span id="ocr-btn-text">展开 OCR 智能多图录入</span>
+            </button>
+            
+            <div id="ocr-dropzone" style="display: none; border: 2px dashed var(--border); padding: 30px 20px; text-align: center; margin-top: 15px; border-radius: 12px; cursor: pointer; background: var(--surface); transition: all 0.3s;">
+                <i class="fa-solid fa-cloud-arrow-up" style="font-size: 32px; margin-bottom: 12px; color: var(--text-secondary);"></i>
+                <h4 style="margin: 0 0 8px 0; color: var(--text);">一次性上传 4 张截图</h4>
+                <p style="margin: 0; font-size: 12px; color: var(--text-secondary);">无须排序，支持点击或拖拽至此 (自动提取注册号、航程、收益等)</p>
+                <input type="file" id="ocr-file-input" multiple accept="image/*" style="display: none;">
+                
+                <div id="ocr-status-panel" style="margin-top: 15px; font-size: 13px; font-weight: 500; font-family: 'JetBrains Mono', monospace;"></div>
+            </div>
+        </div>
       <div class="form-section">
         <div class="form-section-header"><div class="form-section-icon"><i class="fa-solid fa-id-card"></i></div><div><div class="form-section-title">身份标识</div><div class="form-section-sub">注册号、驻扎基地与引进时间</div></div></div>
         <div class="form-grid cols3">
@@ -2230,6 +2253,259 @@ const DEFAULT_COLS = HEADERS.map(h => h.id);
 let visibleColumns = [];
 try { visibleColumns = JSON.parse(localStorage.getItem('woa_visible_cols')); if (!Array.isArray(visibleColumns) || visibleColumns.length === 0) visibleColumns = DEFAULT_COLS; } 
 catch(e) { visibleColumns = DEFAULT_COLS; }
+
+// ==========================================
+// WOA Command Center - 智能 OCR 多图录入引擎 (最终修复版)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const ocrToggleBtn = document.getElementById('toggle-ocr-btn');
+    const ocrDropzone = document.getElementById('ocr-dropzone');
+    const ocrFileInput = document.getElementById('ocr-file-input');
+    const ocrStatusPanel = document.getElementById('ocr-status-panel');
+    const ocrBtnText = document.getElementById('ocr-btn-text');
+
+    if(!ocrToggleBtn) return; // 如果当前页面没有 OCR 模块则跳过
+
+    // 1. 面板展开与收起交互
+    ocrToggleBtn.addEventListener('click', () => {
+        const isHidden = ocrDropzone.style.display === 'none';
+        ocrDropzone.style.display = isHidden ? 'block' : 'none';
+        ocrBtnText.innerText = isHidden ? '收起 OCR 智能录入舱' : '展开 OCR 智能多图录入 (一次性传4张)';
+    });
+
+    // 2. 点击上传舱触发文件选择
+    ocrDropzone.addEventListener('click', (e) => {
+        if (e.target.id !== 'ocr-status-panel' && !ocrStatusPanel.contains(e.target)) {
+            ocrFileInput.click();
+        }
+    });
+
+    // 3. 拖拽文件进入上传舱的支持
+    ocrDropzone.addEventListener('dragover', (e) => { e.preventDefault(); ocrDropzone.style.borderColor = 'var(--primary)'; });
+    ocrDropzone.addEventListener('dragleave', () => { ocrDropzone.style.borderColor = 'var(--border)'; });
+    ocrDropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        ocrDropzone.style.borderColor = 'var(--border)';
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleOcrProcessing(e.dataTransfer.files);
+        }
+    });
+
+    // 4. 文件选择变更监听
+    ocrFileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) handleOcrProcessing(e.target.files);
+    });
+
+    // 5. 核心流式解析与队列控制
+    async function handleOcrProcessing(files) {
+        ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-gear fa-spin"></i> 正在初始化 Tesseract 识别矩阵 (首次加载中文语言包稍慢，请耐心等待)...</span>`;
+        
+        try {
+            let combinedText = "";
+            for (let i = 0; i < files.length; i++) {
+                ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-radar fa-spin"></i> 正在深度解析第 ${i + 1}/${files.length} 张截图... 请勿关闭页面</span>`;
+                // 使用中文简体 + 英文混合识别，游戏界面标签为中文，纯英文模型会把中文标签识别成乱码干扰数字定位
+                const result = await Tesseract.recognize(files[i], 'chi_sim+eng');
+                combinedText += "\n" + result.data.text;
+            }
+
+            ocrStatusPanel.innerHTML = `<span style="color: #10b981"><i class="fa-solid fa-circle-check"></i> 识图成功！正在执行数据归类和表单自动录入...</span>`;
+            
+            console.log("=== OCR COMBINED RAW TEXT ===");
+            console.log(combinedText);
+
+            // 【关键修复点】：这里呼叫的名字必须和下面定义的名字完全一致！
+            executeDataExtractionAndFill(combinedText);
+
+            setTimeout(() => {
+                ocrStatusPanel.innerHTML = "";
+                ocrDropzone.style.display = 'none';
+                ocrBtnText.innerText = '展开 OCR 智能多图录入 (一次性传4张)';
+            }, 2500);
+
+        } catch (error) {
+            console.error("OCR Error: ", error);
+            ocrStatusPanel.innerHTML = `<span style="color: #ef4444"><i class="fa-solid fa-triangle-exclamation"></i> 识别中止: ${error.message}</span>`;
+        }
+    }
+
+    // 6. 数据雷达：真实 ID 洗脱填充引擎 (关键词锚定版)
+    // 锁定字段判断：f-hrs/f-mins 共用同一把"f-time"锁（和 clearForm 的锁定约定保持一致）
+    function isLocked(id) {
+        const lockKey = (id === 'f-hrs' || id === 'f-mins') ? 'f-time' : id;
+        return lockedFields.has(lockKey);
+    }
+    function setFieldValue(id, val) {
+        if (isLocked(id)) return; // 锁定的字段本次识别结果一律不覆盖，保留用户手动锁定的值
+        const el = document.getElementById(id);
+        if (el && val !== null && val !== undefined && val !== '') el.value = val;
+    }
+
+    // 极简编辑距离，用于机型代码的模糊比对 (容忍 OCR 把 1/I、0/O 等认错)
+    function editDistance(a, b) {
+        a = a.toUpperCase(); b = b.toUpperCase();
+        const dp = Array.from({length: a.length + 1}, (_, i) => [i, ...Array(b.length).fill(0)]);
+        for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+        for (let i = 1; i <= a.length; i++) {
+            for (let j = 1; j <= b.length; j++) {
+                dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+            }
+        }
+        return dp[a.length][b.length];
+    }
+
+    // Tesseract 的 chi_sim 模型经常把连续中文关键词拆成带空格的独立字/词块识别，
+    // 比如"往返维护"实际输出成"往返 维护"、"对飞机场"输出成"对 飞机 场"。
+    // 用这个函数把中文关键词的每个字之间插入 \s*，生成对空格容错的正则片段，
+    // 而不是假设关键词一定原样连续出现。
+    function kw(str) {
+        return str.split('').map(ch => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\s*');
+    }
+
+    function executeDataExtractionAndFill(text) {
+        // 每次 OCR 识图前，先把本引擎接管的字段清空（锁定字段除外）。
+        // 这样"这次没识别到"的字段会真正变回空白，而不是继续显示上一次识别/手填的旧值；
+        // 上锁的字段完全跳过，既不清空也不会被下面的识别结果覆盖。
+        const ocrManagedFields = ['f-hrs', 'f-mins', 'f-dist', 'f-totalDist', 'f-maint', 'f-eco', 'f-biz', 'f-first', 'f-min', 'f-max', 'f-icao', 'f-reg', 'f-base', 'f-dest'];
+        ocrManagedFields.forEach(id => {
+            if (isLocked(id)) return;
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+        });
+
+        // --- A. 运转周期 (优先定位"运转周期"关键词后紧跟的时长，避免和侧栏"周期剩余"混淆) ---
+        let timeMatch = text.match(new RegExp(kw('运转周期') + '\\D{0,6}(\\d{1,2})\\s*h\\s*(\\d{2})\\s*m', 'i'));
+        if (!timeMatch) timeMatch = text.match(/(\d{1,2})\s*h\s*(\d{2})\s*m/i); // 兜底：识别失败时退回旧逻辑
+        if (timeMatch) {
+            setFieldValue('f-hrs', parseInt(timeMatch[1]));
+            setFieldValue('f-mins', parseInt(timeMatch[2]));
+        }
+
+        // --- B. 单程航程与累计总距离 ---
+        let distMatch = text.match(new RegExp(kw('单程航程') + '\\D{0,6}(\\d[\\d,\\s]*)\\s*NM', 'i'));
+        let totalMatch = text.match(new RegExp(kw('飞行距离') + '\\D{0,6}(\\d[\\d,\\s]*)\\s*NM', 'i'));
+        if (distMatch) setFieldValue('f-dist', parseInt(distMatch[1].replace(/[\s,]/g, '')));
+        if (totalMatch) setFieldValue('f-totalDist', parseInt(totalMatch[1].replace(/[\s,]/g, '')));
+        if (!distMatch || !totalMatch) {
+            // 兜底：关键词没识别到时，取所有 NM 数值中最小的当单程、最大的当累计总距离
+            const nmMatches = [...text.matchAll(/(\d+(?:[\s,]\d{3})*)\s*NM/gi)];
+            if (nmMatches.length > 0) {
+                const sorted = nmMatches.map(m => parseInt(m[1].replace(/[\s,]/g, ''))).sort((a, b) => a - b);
+                if (!distMatch) setFieldValue('f-dist', sorted[0]);
+                if (!totalMatch && sorted.length >= 2) setFieldValue('f-totalDist', sorted[sorted.length - 1]);
+            }
+        }
+
+        // --- C. 单次维保点数消耗 (往返维护，界面上唯一带负号的小数) ---
+        let maintMatch = text.match(new RegExp(kw('往返维护') + '\\D{0,6}-?\\s*[^\\d.\\n]{0,3}(\\d+\\.\\d{1,2})', 'i'));
+        if (!maintMatch) maintMatch = text.match(/-\s*[^\d.\n]{0,3}(\d+\.\d{1,2})\b/);
+        if (maintMatch) {
+            setFieldValue('f-maint', maintMatch[1]);
+        } else {
+            // 兜底：Tesseract 经常把小数点直接吞掉，"3.54" 会被认成整串数字 "354"。
+            // 该字段固定为两位小数格式，因此关键词后只抓到纯整数时，倒数第2位前补回小数点。
+            let intMatch = text.match(new RegExp(kw('往返维护') + '\\D{0,8}(\\d{3,5})\\b', 'i'));
+            if (intMatch) {
+                const raw = intMatch[1];
+                setFieldValue('f-maint', raw.slice(0, -2) + '.' + raw.slice(-2));
+            }
+        }
+
+        // --- D. 经济/商务/头等座位 ---
+        // 界面里"旅客 当前/总数"之后紧跟着的3个数字就是经济/商务/头等舱人数，逐个"当前/总数"候选往后找一小段窗口，
+        // 只要窗口内连续3个数字求和等于总数就认定命中；这样既不用依赖中文标签，也不会跨行误抓到不相关的数字。
+        const paxMatches = [...text.matchAll(/(\d{1,3})\s*\/\s*(\d{1,3})/g)];
+        for (const pm of paxMatches) {
+            const totalSeats = parseInt(pm[2]);
+            const tailStart = pm.index + pm[0].length;
+            const nums = [...text.slice(tailStart, tailStart + 25).matchAll(/\d{1,3}/g)].map(n => parseInt(n[0]));
+            let hit = null;
+            for (let i = 0; i + 2 < nums.length; i++) {
+                if (nums[i] + nums[i+1] + nums[i+2] === totalSeats) { hit = [nums[i], nums[i+1], nums[i+2]]; break; }
+            }
+            if (hit) {
+                setFieldValue('f-eco', hit[0]);
+                setFieldValue('f-biz', hit[1]);
+                setFieldValue('f-first', hit[2]);
+                break;
+            }
+        }
+
+        // --- E. 最低/最高收益 (往返航班利润 "1389-2691" 这种唯一的一对连字符数字) ---
+        const revenueMatch = text.match(/(\d{3,6})\s*-\s*(\d{3,6})/);
+        if (revenueMatch) {
+            setFieldValue('f-min', parseInt(revenueMatch[1]));
+            setFieldValue('f-max', parseInt(revenueMatch[2]));
+        }
+
+        // --- F. 机型 (拿候选token去和 飞机.js 里真实存在的机型代码做模糊比对；一次上传4张图，同一架飞机的
+        // 机型代码会在多张截图/多个位置反复出现，用"频次加权投票"代替"全局最小编辑距离"，
+        // 这样偶发的一次背景噪声干扰（比如残影卡片里露出的别的机型码）不会盖过反复出现的正确读数) ---
+        if (typeof DB !== 'undefined' && Array.isArray(DB)) {
+            const tokens = [...text.matchAll(/\b[A-Za-z][A-Za-z0-9]{2,5}\b/g)].map(m => m[0].toUpperCase());
+            const scoreMap = {};
+            for (const t of tokens) {
+                for (const a of DB) {
+                    if (!a.icao) continue;
+                    const d = editDistance(a.icao, t);
+                    if (d <= 1) { // 最多容忍1个字符的OCR误差
+                        scoreMap[a.icao] = (scoreMap[a.icao] || 0) + (d === 0 ? 1 : 0.5);
+                    }
+                }
+            }
+            let best = null, bestScore = 0;
+            for (const [icaoCode, score] of Object.entries(scoreMap)) {
+                if (score > bestScore) { bestScore = score; best = icaoCode; }
+            }
+            if (best) {
+                setFieldValue('f-icao', best);
+            }
+        }
+
+        // --- G. 注册号 (优先定位"航空器注册"关键词；同一架飞机的注册号在4张截图里会反复出现，
+        // 用出现频次投票取多数，避免单次 J/I、0/O 这类形近字符误读把结果带偏) ---
+        {
+            const regCandidates = [...text.matchAll(new RegExp(kw('航空器注册') + '[^A-Za-z\\n]{0,8}([A-Z0-9]{3,6})\\b', 'gi'))].map(m => m[1].toUpperCase());
+            let regVal = null;
+            if (regCandidates.length) {
+                const freq = {};
+                regCandidates.forEach(v => freq[v] = (freq[v] || 0) + 1);
+                regVal = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+            } else {
+                const fallback = text.match(/\b([A-Z0-9]{4,6}|[A-Z0-9]{1,3}-[A-Z0-9]{2,5})\b/i);
+                if (fallback) regVal = fallback[1].toUpperCase();
+            }
+            if (regVal) {
+                const excludeList = ['B789', 'A320', 'B77W', 'A35K', 'B757'];
+                if (!excludeList.includes(regVal)) setFieldValue('f-reg', regVal);
+            }
+        }
+
+        // --- H. 目的地 (优先定位"对飞机场"关键词后紧跟的三字码；这个锚点比找"三字码｜城市名"的竖线格式更稳，
+        // 因为竖线"|"在中英混合识别下经常被吞掉或认成别的符号，导致原来的纯格式匹配整体失效) ---
+        let destMatch = text.match(new RegExp(kw('对飞机场') + '[^A-Za-z\\n]{0,10}([A-Za-z]{3})\\b', 'i'));
+        if (!destMatch) {
+            // 兜底：退回"三字码 | 城市英文名"格式匹配（竖线后至少连续3个字母才算真的城市名，排除残影误判）
+            destMatch = text.match(/\b([A-Za-z]{3})\b\s*\|\s*[A-Za-z]{3,}/);
+        }
+        if (destMatch) setFieldValue('f-dest', destMatch[1].toUpperCase());
+
+        // --- I. 基地 (定位"在 XXX"这种飞机当前所在地表述；识别不到就留空，不瞎填) ---
+        const baseMatch = text.match(/在\s*([A-Za-z]{3})\b/) || text.match(new RegExp('([A-Za-z]{3})\\D{0,3}' + kw('等级'), 'i'));
+        if (baseMatch) setFieldValue('f-base', baseMatch[1].toUpperCase());
+
+        // f-icao 是 <select onchange="onTypeSelect()">，脚本赋值不会触发原生 change 事件。
+        // 不管本次是识别到新机型、维持锁定值、还是被清空成空白，这里统一调用一次，
+        // 让制造商/尺寸/指导价/A检/C检费用这些联动字段跟着 f-icao 的最终状态同步刷新。
+        if (typeof onTypeSelect === 'function') onTypeSelect();
+
+        // 统一触发原生 input 事件激活你的计算逻辑
+        ['f-hrs', 'f-mins', 'f-dist', 'f-totalDist', 'f-maint', 'f-eco', 'f-biz', 'f-first', 'f-min', 'f-max', 'f-icao', 'f-reg', 'f-base', 'f-dest'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    }
+});
 
 function loadFleet() { try { fleet = JSON.parse(localStorage.getItem('woa_fleet') || '[]'); } catch(e) { fleet=[]; } }
 function persistFleet() { localStorage.setItem('woa_fleet', JSON.stringify(fleet)); }
@@ -2852,18 +3128,28 @@ function syncFilters() {
   const apts = [...new Set(fleet.map(a=>a.base).filter(Boolean))].sort();
   ['fa-airport','ff-airport','pc-airport'].forEach(id => {
     const s = document.getElementById(id); 
-    if(s) s.innerHTML = '<option value="">All Bases</option>' + apts.map(a=>`<option value="${a}">${a}</option>`).join('');
+    if(!s) return;
+    const prevVal = s.value;
+    s.innerHTML = '<option value="">All Bases</option>' + apts.map(a=>`<option value="${a}">${a}</option>`).join('');
+    if (prevVal && apts.includes(prevVal)) s.value = prevVal;
   });
   
   const types = [...new Set(fleet.map(a=>a.icao).filter(Boolean))].sort();
   ['fa-type','ff-type','pc-type'].forEach(id => {
     const s = document.getElementById(id); 
-    if(s) s.innerHTML = '<option value="">All Types</option>' + types.map(t=>`<option value="${t}">${t}</option>`).join('');
+    if(!s) return;
+    const prevVal = s.value;
+    s.innerHTML = '<option value="">All Types</option>' + types.map(t=>`<option value="${t}">${t}</option>`).join('');
+    if (prevVal && types.includes(prevVal)) s.value = prevVal;
   });
 
   const configs = [...new Set(fleet.map(seatLabel).filter(l => l !== '—' && l !== 'Cargo'))].sort();
   const sSeats = document.getElementById('ff-seats');
-  if (sSeats) sSeats.innerHTML = '<option value="">所有客舱布局</option>' + configs.map(c=>`<option value="${c}">${c}</option>`).join('');
+  if (sSeats) {
+    const prevVal = sSeats.value;
+    sSeats.innerHTML = '<option value="">所有客舱布局</option>' + configs.map(c=>`<option value="${c}">${c}</option>`).join('');
+    if (prevVal && configs.includes(prevVal)) sSeats.value = prevVal;
+  }
   
   document.getElementById('fleet-badge').textContent = fleet.length;
 }
@@ -4381,14 +4667,52 @@ function onTypeSelect() {
   calcAddRoute(); autoFillRouteData();
 }
 
+// 固定载荷/上座率，以及客机/货机收益系数 (与独立版 WOA 收益财务预算器保持一致)
+const FIXED_LOAD_PCT = 94;
+const FLIGHT_TYPE_MULTIPLIER = { pax: 0.909, cargo: 0.91, a346f: 1.098 };
+function getFlightTypeMultiplier(ac) {
+  if (!ac) return FLIGHT_TYPE_MULTIPLIER.pax;
+  if (ac.icao === 'A346F') return FLIGHT_TYPE_MULTIPLIER.a346f;
+  return (ac.load === 'Cargo') ? FLIGHT_TYPE_MULTIPLIER.cargo : FLIGHT_TYPE_MULTIPLIER.pax;
+}
+
+function recalcAllRoutes() {
+  if (routes.length === 0) { toast('暂无记录可供重算', true); return; }
+  let updated = 0, skipped = 0;
+  routes.forEach(r => {
+    const acEntry = fleet.find(a => a.reg === r.acLabel);
+    if (!acEntry) { skipped++; return; }
+    const ac = DB.find(a => a.icao === acEntry.icao);
+    const small = ac ? (ac.small || 0) : 0;
+    const large = ac ? (ac.large || 0) : 0;
+    const maint = parseFloat(acEntry.maint) || 0;
+    const multiplier = getFlightTypeMultiplier(ac);
+    const baseEstimate = r.minR + (r.maxR - r.minR) * (FIXED_LOAD_PCT / 100);
+    const rev = baseEstimate * multiplier;
+    const cost = (small / 100 * maint) + (large / 400 * maint);
+    r.revenue = rev; r.maintCost = cost; r.profit = rev - cost;
+    updated++;
+  });
+  persistRoutes();
+  if (document.getElementById('view-routes').classList.contains('active')) renderRoutes();
+  if (document.getElementById('view-fleet').classList.contains('active')) renderFleet();
+  if (document.getElementById('view-analytics').classList.contains('active')) renderAnalytics();
+  if (document.getElementById('view-roi').classList.contains('active')) renderRoi();
+  if (document.getElementById('view-profitchart').classList.contains('active')) renderProfitCurve();
+  if (document.getElementById('view-timeline').classList.contains('active')) renderTimeline();
+  toast(skipped > 0 ? `已按最新算法重算 ${updated} 条记录（${skipped} 条因飞机已删除被跳过）` : `已按最新算法重算全部 ${updated} 条记录`);
+}
+
 function calcAddRoute() {
   const minR = parseFloat(document.getElementById('f-min').value) || 0; const maxR = parseFloat(document.getElementById('f-max').value) || 0; const maint = parseFloat(document.getElementById('f-maint').value) || 0;
   const icao = document.getElementById('f-icao').value; const ac = DB.find(a => a.icao === icao);
   const small = ac ? (ac.small || 0) : 0; const large = ac ? (ac.large || 0) : 0;
+  const multiplier = getFlightTypeMultiplier(ac);
 
   if (!minR && !maxR) { document.getElementById('add-route-result').style.display='none'; return; }
   
-  const rev = (minR * 0.71) + (maxR - minR); const cost = (small / 100 * maint) + (large / 400 * maint); const profit = rev - cost;
+  const baseEstimate = minR + (maxR - minR) * (FIXED_LOAD_PCT / 100);
+  const rev = baseEstimate * multiplier; const cost = (small / 100 * maint) + (large / 400 * maint); const profit = rev - cost;
   const hrs = parseInt(document.getElementById('f-hrs').value) || 0; const mins = parseInt(document.getElementById('f-mins').value) || 0;
   const totalHrs = hrs + (mins / 60); let profitPerHour = 0; if (totalHrs > 0) profitPerHour = profit / totalHrs;
 
@@ -4399,7 +4723,7 @@ function calcAddRoute() {
   profEl.textContent = Math.round(profit).toLocaleString() + ' W';
   profEl.style.color = profit >= 0 ? 'var(--green)' : 'var(--red)';
   document.getElementById('f-res-ph').textContent = totalHrs > 0 ? Math.round(profitPerHour).toLocaleString() + ' W/h' : '—';
-  document.getElementById('f-res-formula').textContent = `收益 = (${minR.toLocaleString()} × 0.71) + (${maxR.toLocaleString()} − ${minR.toLocaleString()}) = ${Math.round(rev).toLocaleString()} W  |  磨损 = (${small.toLocaleString()}/100 × ${maint}) + (${large.toLocaleString()}/400 × ${maint}) = ${Math.round(cost).toLocaleString()} W`;
+  document.getElementById('f-res-formula').textContent = `收益 = [${minR.toLocaleString()} + (${maxR.toLocaleString()} − ${minR.toLocaleString()}) × ${FIXED_LOAD_PCT}%] × ${multiplier} = ${Math.round(rev).toLocaleString()} W  |  磨损 = (${small.toLocaleString()}/100 × ${maint}) + (${large.toLocaleString()}/400 × ${maint}) = ${Math.round(cost).toLocaleString()} W`;
 }
 
 function clearForm() { 
@@ -4423,6 +4747,8 @@ function cancelForm() { clearForm(); showView('fleet', document.querySelector('[
 function saveAircraft() {
   const icao = document.getElementById('f-icao').value; const reg = document.getElementById('f-reg').value.trim().toUpperCase();
   if (!icao || !reg) { toast('注册号与机型为必填项', true); return; }
+  const dupAc = fleet.find(a => a.reg === reg && a.id !== editingId);
+  if (dupAc) { toast(`注册号 ${reg} 已存在（机型: ${dupAc.icao}），不能重复录入`, true); return; }
   const ac = DB.find(a=>a.icao===icao); const wasEditing = !!editingId; 
   
   const entry = { 
@@ -4478,7 +4804,9 @@ function saveAircraft() {
   if (minR > 0 || maxR > 0) {
     const maint = parseFloat(document.getElementById('f-maint').value) || 0;
     const small = ac ? (ac.small || 0) : 0; const large = ac ? (ac.large || 0) : 0;
-    const rev = (minR * 0.71) + (maxR - minR); const cost = (small / 100 * maint) + (large / 400 * maint);
+    const multiplier = getFlightTypeMultiplier(ac);
+    const baseEstimate = minR + (maxR - minR) * (FIXED_LOAD_PCT / 100);
+    const rev = baseEstimate * multiplier; const cost = (small / 100 * maint) + (large / 400 * maint);
     const routeName = `${document.getElementById('f-base').value.trim().toUpperCase()||'?'} → ${document.getElementById('f-dest').value.trim().toUpperCase()||'?'}`;
     const routeEntry = { id: existingRouteIdx >= 0 ? routes[existingRouteIdx].id : Date.now().toString(), name: routeName, acLabel: reg, minR, maxR, revenue: rev, maintCost: cost, profit: rev - cost };
     if (existingRouteIdx >= 0) { routes[existingRouteIdx] = routeEntry; } else { routes.push(routeEntry); }
@@ -4503,7 +4831,11 @@ function editAircraft(id) {
   ['reg','base','icao','dest','dist','totalDist','maint','first','biz','eco','cargoCap'].forEach(k => document.getElementById(`f-${k}`).value = a[k]||'');
   document.getElementById('f-hrs').value = a.flightHrs || ''; document.getElementById('f-mins').value = a.flightMins || ''; document.getElementById('f-induction').value = a.inductionDate || '';
   const rt = routes.find(r => r.acLabel === a.reg);
-  if(rt) { document.getElementById('f-min').value = rt.minR || ''; document.getElementById('f-max').value = rt.maxR || ''; } else { document.getElementById('f-min').value = ''; document.getElementById('f-max').value = ''; }
+  if(rt) {
+    document.getElementById('f-min').value = rt.minR || ''; document.getElementById('f-max').value = rt.maxR || '';
+  } else {
+    document.getElementById('f-min').value = ''; document.getElementById('f-max').value = '';
+  }
   onTypeSelect(); updateCityName('f-base', 'lbl-base-name'); updateCityName('f-dest', 'lbl-dest-name');
   showView('add', document.querySelector('[data-view="add"]'));
 }
