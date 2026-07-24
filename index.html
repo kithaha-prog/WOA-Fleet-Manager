@@ -153,6 +153,7 @@ html.light-theme body::before {
 .logo-icon { width: 34px; height: 34px; background: var(--cyan-glow); border: 1px solid var(--cyan-dim); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--cyan); font-size: 16px; box-shadow: 0 0 10px var(--cyan-glow); }
 .logo-text { font-size: 15px; font-weight: 600; color: var(--text1); letter-spacing: 0.02em; }
 .logo-sub { font-size: 11px; color: var(--cyan); font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.wollars-icon { width: 0.85em; height: 0.85em; border-radius: 50%; object-fit: cover; vertical-align: -0.12em; margin: 0 0.15em; display: inline-block; }
 .sidebar-nav { flex: 1; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto; }
 .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--r-md); cursor: pointer; color: var(--text2); font-size: 13px; font-weight: 500; transition: all var(--transition); border: 1px solid transparent; user-select: none; }
 .nav-item:hover { background: var(--bg-hover); color: var(--text1); border-color: var(--glass-border); }
@@ -333,16 +334,15 @@ html.light-theme body::before {
     margin-bottom: 28px;
 }
 .roi-model-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    background: rgba(15, 19, 28, 0.88);
     border: 1px solid var(--glass-border);
     border-radius: var(--r-md);
     padding: 16px;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
     box-shadow: var(--glass-shadow);
 }
+html.light-theme .roi-model-card { background: rgba(255, 255, 255, 0.92); }
 .roi-model-card:hover {
     border-color: var(--cyan-dim);
     transform: translateY(-2px);
@@ -567,7 +567,8 @@ input[type="checkbox"] { accent-color: var(--amber); width: 14px; height: 14px; 
 .coin-tracker-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .coin-card { position: relative; display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--r-md); padding: 10px 16px; cursor: pointer; transition: all var(--transition); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); box-shadow: var(--glass-shadow); }
 .coin-card:hover { border-color: var(--glass-border-lit); transform: translateY(-2px); }
-.coin-card-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.coin-card-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; overflow: hidden; }
+.coin-card-icon img, .coin-popup-icon-img, .coin-refresh-badge-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .coin-card.gold .coin-card-icon { background: var(--gold-glow); color: var(--gold); box-shadow: 0 0 10px var(--gold-glow); }
 .coin-card.silver .coin-card-icon { background: rgba(192,197,206,0.15); color: #c7ccd6; box-shadow: 0 0 10px rgba(192,197,206,0.15); }
 html.light-theme .coin-card.silver .coin-card-icon { color: #6b7280; background: rgba(107,114,128,0.12); }
@@ -813,7 +814,8 @@ tbody td { padding: 12px 10px; vertical-align: middle; white-space: nowrap; colo
 /* Grid View */
 .fleet-grid-wrap { display: none; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; animation: fade-in 0.3s; }
 .fleet-grid-wrap.active { display: grid; }
-.fleet-card { background: var(--bg-card); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); border: 1px solid var(--glass-border); border-radius: var(--r-md); overflow: hidden; position: relative; transition: all var(--transition); box-shadow: var(--glass-shadow); display:flex; flex-direction:column;}
+.fleet-card { background: rgba(15, 19, 28, 0.88); border: 1px solid var(--glass-border); border-radius: var(--r-md); overflow: hidden; position: relative; transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition); box-shadow: var(--glass-shadow); display:flex; flex-direction:column;}
+html.light-theme .fleet-card { background: rgba(255, 255, 255, 0.92); }
 .fleet-card:hover { transform: translateY(-3px); border-color: var(--cyan-dim); box-shadow: 0 12px 30px rgba(0,0,0,0.15), var(--glass-highlight); }
 .fleet-card.selected { border-color: var(--amber); box-shadow: 0 0 0 2px var(--amber-glow); background: var(--amber-glow); }
 .fc-img { height: 130px; background-color: rgba(0,0,0,0.3); background-size: cover; background-position: center; position:relative; cursor:pointer; border-bottom:1px solid var(--border); transition: background-position 0.2s ease;}
@@ -824,7 +826,7 @@ tbody td { padding: 12px 10px; vertical-align: middle; white-space: nowrap; colo
 .fc-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
 .fc-stats { display:grid; grid-template-columns: 1fr 1fr; gap:8px 12px; font-size:11px; color:var(--text2); margin-bottom:12px; }
 .fc-stat-val { color: var(--text1); font-family: var(--mono); font-weight:600; display:flex; align-items:center; margin-top:2px; font-size:12px;}
-.fc-checkbox { position: absolute; top:12px; left:12px; z-index:10; background:rgba(0,0,0,0.4); border-radius:4px; padding:2px; backdrop-filter:blur(4px);}
+.fc-checkbox { position: absolute; top:12px; left:12px; z-index:10; background:rgba(0,0,0,0.55); border-radius:4px; padding:2px; }
 .fc-rating { position: absolute; top:12px; right:12px; z-index:10; }
 
 .btn-view-toggle { background:transparent; border:none; color:var(--text3); padding:8px 12px; cursor:pointer; transition:all 0.2s; font-size:14px; outline:none; }
@@ -834,7 +836,7 @@ tbody td { padding: 12px 10px; vertical-align: middle; white-space: nowrap; colo
 .dropdown-panel { display:none; position:absolute; right:0; top:calc(100% + 8px); background:var(--bg-card); border:1px solid var(--glass-border-lit); padding:14px; border-radius:var(--r-md); z-index:100; box-shadow:var(--glass-shadow); width:220px; backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); }
 .dropdown-panel.show { display:block; animation: fade-in 0.2s; }
 
-.reg-badge { font-family: var(--mono); font-size: 12px; font-weight: 600; background: var(--amber-glow); border: 1px solid rgba(245,166,35,0.3); color: var(--amber); padding: 4px 8px; border-radius: 6px; display: inline-block; letter-spacing: 0.05em; transition: all 0.2s; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.reg-badge { font-family: var(--mono); font-size: 12px; font-weight: 600; background: var(--amber-glow); border: 1px solid rgba(245,166,35,0.3); color: var(--amber); padding: 4px 8px; border-radius: 6px; display: inline-block; letter-spacing: 0.05em; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
 .reg-badge:hover { transform: scale(1.05); box-shadow: 0 0 12px rgba(245,166,35,0.3); border-color: var(--amber); }
 .type-pill { font-size: 10px; font-weight: 600; padding: 4px 8px; border-radius: 20px; display: inline-block; letter-spacing: 0.05em; text-transform: uppercase; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
 .type-pax   { background: var(--cyan-glow); color: var(--cyan);  border: 1px solid rgba(0,229,255,0.3); }
@@ -1175,9 +1177,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     position: absolute;
     z-index: 999999;
     pointer-events: none;
-    background: var(--bg-card);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: rgba(15, 19, 28, 0.96);
     border: 1px solid var(--glass-border-lit);
     color: var(--text1);
     padding: 10px 14px;
@@ -1192,6 +1192,8 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     max-width: 320px;
     line-height: 1.5;
 }
+
+html.light-theme #woa-custom-tooltip { background: rgba(255, 255, 255, 0.97); }
 
 #woa-custom-tooltip.show {
     opacity: 1;
@@ -1236,7 +1238,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
       <div class="nav-item" data-view="fleet" onclick="showView('fleet',this)" title="快捷键: 4"><i class="fa-solid fa-list-check"></i><span>管理机队</span><span class="fleet-count-badge" id="fleet-badge">0</span></div>
       <div class="nav-item" data-view="add" onclick="showView('add',this)" title="快捷键: 5 / N"><i class="fa-solid fa-plane-circle-check"></i><span>注册新飞机</span></div>
       <div class="nav-item" data-view="wollars" onclick="showView('wollars',this)" title="快捷键: W">
-  <i class="fa-solid fa-sack-dollar"></i><span>机场Wollars情况</span>
+  <img src="logo/Wollars.png" alt="Wollars" style="width:16px; height:16px; border-radius:50%; object-fit:cover; vertical-align:middle;"><span>机场Wollars情况</span>
 </div>
       <div class="nav-item" data-view="routes" onclick="showView('routes',this)" title="快捷键: 6"><i class="fa-solid fa-route"></i><span>记录</span></div>
       <div class="nav-item" data-view="logic" onclick="showView('logic',this)" title="快捷键: 7"><i class="fa-solid fa-code-branch"></i><span>逻辑说明</span></div>
@@ -1443,12 +1445,12 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
     <section class="view" id="view-wollars">
       <div class="page-header page-header-with-coins">
         <div>
-          <h1><i class="fa-solid fa-sack-dollar"></i> 机场Wollars情况</h1>
+          <h1><img src="logo/Wollars.png" alt="Wollars" style="width:22px; height:22px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:4px;"> 机场Wollars情况</h1>
           <p>追踪可操作机场的 Wollars 资产累积，监控每日收益升降趋势。</p>
         </div>
         <div class="coin-tracker-row">
           <div class="coin-card gold" id="gold-coin-card" onclick="openCoinPopup('gold')" data-tooltip="点击查看金币详情与每日/每周刷新计时">
-            <div class="coin-card-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="coin-card-icon"><img src="logo/Gold_planes.png" alt="金币"></div>
             <div class="coin-card-info">
               <div class="coin-card-label">金币</div>
               <div class="coin-card-value-row">
@@ -1458,7 +1460,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
             </div>
           </div>
           <div class="coin-card silver" id="silver-coin-card" onclick="openCoinPopup('silver')" data-tooltip="点击查看银币数量变化">
-            <div class="coin-card-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="coin-card-icon"><img src="logo/Silver_planes.png" alt="银币"></div>
             <div class="coin-card-info">
               <div class="coin-card-label">银币</div>
               <div class="coin-card-value-row">
@@ -1497,7 +1499,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
           <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:20px;">
             <div>
               <div style="font-size:11px; color:var(--text3); font-weight:600; text-transform:uppercase;">当前资产</div>
-              <div id="wp-latest-val" style="font-size:28px; font-weight:700; color:var(--amber); font-family:var(--mono); line-height:1; margin-top:4px;">0 W</div>
+              <div id="wp-latest-val" style="font-size:28px; font-weight:700; color:var(--amber); font-family:var(--mono); line-height:1; margin-top:4px;">0 <img src="logo/Wollars.png" alt="W" class="wollars-icon"></div>
             </div>
             <div style="display:flex; gap:10px; align-items:center;">
               <input type="number" id="wp-input" class="page-jump-input" style="width:140px; text-align:left; padding:8px 12px; font-size:14px;" placeholder="录入今日余额..." onkeydown="if(event.key==='Enter') saveSingleWollars()">
@@ -1520,7 +1522,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 
         <div class="popup-header" style="padding: 20px 28px; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-input) 100%);">
           <div>
-            <div class="popup-title"><i class="fa-solid fa-coins" id="coin-popup-icon" style="color: var(--gold);"></i> <span id="coin-popup-title">金币</span></div>
+            <div class="popup-title"><img id="coin-popup-icon" src="logo/Gold_planes.png" style="width:24px; height:24px; border-radius:50%; object-fit:cover; vertical-align:middle;"> <span id="coin-popup-title">金币</span></div>
             <div class="popup-subtitle" style="margin-top: 4px;" id="coin-popup-subtitle">数量变化记录</div>
           </div>
         </div>
@@ -1660,6 +1662,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
                 <div class="view-toggles" style="display:flex; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--r-sm); overflow:hidden; height: 100%;">
                     <button class="btn-view-toggle active" id="btn-rate-profit" onclick="setRatingBasis('profit')" style="font-size: 12px; padding: 0 12px; font-weight: 600;" title="S-D评级以单趟利润计算">按单趟利润评级</button>
                     <button class="btn-view-toggle" id="btn-rate-hourly" onclick="setRatingBasis('hourly')" style="font-size: 12px; padding: 0 12px; font-weight: 600;" title="S-D评级以单位时薪计算">按时薪评级</button>
+                    <button class="btn-view-toggle" id="btn-rate-combined" onclick="setRatingBasis('combined')" style="font-size: 12px; padding: 0 12px; font-weight: 600;" title="S-D评级综合加权计算：40% 单趟利润 + 40% 时薪 + 20% 资产回本进度，均与同级别（Size）机队对比">综合评级</button>
                 </div>
 
                 <select id="grid-sort-select" onchange="handleGridSort(this.value)" style="display:none; min-width:140px; height: 100%; margin: 0;">
@@ -1776,6 +1779,13 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
                 <div class="desc"><strong>亏损/警告 (Warning)</strong>：落后均值超过 <strong>-20%</strong>，或者<strong>单趟净利呈现负数</strong>。建议尽早除役或重排航线。</div>
             </div>
         </div>
+
+        <p class="logic-desc" style="margin-top:20px;">此外，还提供<strong>「综合评级」</strong>基准：不再单看单一指标，而是将三项核心表现按权重加权，得出综合超额表现（<code>Combined_Vs_Avg_Pct</code>），三项指标均分别与<strong>同级别（相同 Size）</strong>机队的全球平均值对比后再加权，因此权重之间可以直接横向比较、互不失真。</p>
+
+        <div class="logic-formula">
+          <span class="var">Combined_Vs_Avg_Pct</span> <span class="op">=</span> 40% <span class="op">×</span> Vs_Avg_Pct(单趟利润) <span class="op">+</span> 40% <span class="op">×</span> Vs_Avg_Pct(时薪) <span class="op">+</span> 20% <span class="op">×</span> Vs_Avg_Pct(回本进度)
+        </div>
+        <p class="logic-desc" style="margin-top:8px;">其中回本进度 <code>= 累计收益 / 机身原价 × 100%</code>，同样先与同级别机队的平均回本进度做百分比对比，再纳入加权。加权得出的 <code>Combined_Vs_Avg_Pct</code> 会代入与上表相同的 S-D 分档标准；若该机单趟净利润为负，则无论综合得分多少，都会被强制判定为 D 级。</p>
       </div>
     </section>
 
@@ -2092,7 +2102,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 
 <div id="toast"></div>
 <div id="coin-refresh-badge" class="coin-refresh-badge">
-  <div class="coin-refresh-badge-icon"><i class="fa-solid fa-coins"></i></div>
+  <div class="coin-refresh-badge-icon"><img src="logo/Gold_planes.png" alt="金币"></div>
   <div class="coin-refresh-badge-text">
     <div class="coin-refresh-badge-title">金币已刷新</div>
     <div class="coin-refresh-badge-sub">今日金币已可领取</div>
@@ -2104,6 +2114,9 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 // GLOBAL AIRCRAFT DATABASE (DB) 已迁移至外部文件 飞机.js
 
 const SIZE_LABELS = {A:'A-Mini',B:'B-Small',C:'C-Medium',D:'D-Large',E:'E-Heavy',F:'F-Super',G:'G-Mega'};
+// Wollars 货币图标（用于替换文本中的 "W"）
+const W_ICON = '<img src="logo/Wollars.png" alt="W" class="wollars-icon">';
+const W_ICON_SQ = "<img src='logo/Wollars.png' alt='W' class='wollars-icon'>"; // 用于双引号属性内（如 data-tooltip）
 
 // ═══════════════════════════════════════════════
 // NEW: 结合外部 机场.js (CITIES Array) 逻辑提取
@@ -2478,6 +2491,7 @@ function setRatingBasis(basis, isInit = false) {
     localStorage.setItem('woa_rating_basis', basis);
     document.getElementById('btn-rate-profit').classList.toggle('active', basis === 'profit');
     document.getElementById('btn-rate-hourly').classList.toggle('active', basis === 'hourly');
+    document.getElementById('btn-rate-combined').classList.toggle('active', basis === 'combined');
     if (!isInit) {
         renderFleet(); // 切换时立即重绘机队，刷新评级
         // 如果详情弹窗开着，也重新渲染
@@ -4161,16 +4175,16 @@ function buildRoiRowHtml(a, rankIndex) {
         <div class="roi-data-col">
             <div class="roi-meta-box">
                 <div class="roi-meta-label">原造价</div>
-                <div class="roi-meta-val" style="color:var(--text2);">${formatLargeNum(a.price)} W</div>
+                <div class="roi-meta-val" style="color:var(--text2);">${formatLargeNum(a.price)} ${W_ICON}</div>
             </div>
             <div class="roi-meta-box">
                 <div class="roi-meta-label">累计收益</div>
-                <div class="roi-meta-val" style="color:var(--text1);">${formatLargeNum(a.totalEarned)} W</div>
+                <div class="roi-meta-val" style="color:var(--text1);">${formatLargeNum(a.totalEarned)} ${W_ICON}</div>
             </div>
             <div class="roi-meta-box" style="min-width: 105px;">
                 <div class="roi-meta-label">${isRec ? '超额净赚' : '尚差额度'}</div>
                 <div class="roi-meta-val" style="color:${isRec ? 'var(--green)' : 'var(--text2)'};">
-                    ${isRec ? `+${formatLargeNum(a.totalEarned - a.price)}` : formatLargeNum(missingWollars)} W
+                    ${isRec ? `+${formatLargeNum(a.totalEarned - a.price)}` : formatLargeNum(missingWollars)} ${W_ICON}
                 </div>
             </div>
         </div>
@@ -4245,7 +4259,7 @@ function openRoiModelDetail(icao) {
     document.getElementById('roi-model-popup-icon').className = `roi-model-icon ${isCargo ? 'type-cargo' : 'type-pax'}`;
     document.getElementById('roi-model-popup-icon').innerHTML = `<i class="fa-solid ${isCargo ? 'fa-box' : 'fa-plane'}"></i>`;
     document.getElementById('roi-model-popup-title').textContent = icao;
-    document.getElementById('roi-model-popup-sub').textContent = `${dbInfo ? dbInfo.mfr : ''} · 原造价 ${formatLargeNum(dbInfo ? dbInfo.price : 0)} W`;
+    document.getElementById('roi-model-popup-sub').innerHTML = `${dbInfo ? dbInfo.mfr : ''} · 原造价 ${formatLargeNum(dbInfo ? dbInfo.price : 0)} ${W_ICON}`;
     document.getElementById('roi-model-popup-frac').innerHTML = `${recoveredCount}<span style="font-size:14px; color:var(--text3); font-weight:500;">/${items.length}</span>`;
     document.getElementById('roi-model-popup-pct').textContent = `${pct}%`;
 
@@ -4492,6 +4506,20 @@ function routeMatchesAc(r, reg, icao) {
   return r.icao === icao;
 }
 function getAcProfit(reg, icao) { return routes.filter(r => routeMatchesAc(r, reg, icao)).reduce((sum, r) => sum + r.profit, 0); }
+
+// 计算单机的资产回本进度（%）：totalEarned / price * 100，price 未知时返回 0
+function getAcRoiProgress(a, singleTripProfit) {
+    const dbInfo = DB.find(d => d.icao === a.icao);
+    const price = dbInfo ? dbInfo.price : 0;
+    if (!(price > 0)) return 0;
+    const totalDist = parseInt(a.totalDist) || 0;
+    const oneWayDist = parseInt(a.dist) || 0;
+    let flightCount = 0;
+    if (oneWayDist > 0) flightCount = Math.floor(totalDist / (oneWayDist * 2));
+    const profit = singleTripProfit !== undefined ? singleTripProfit : getAcProfit(a.reg || a.icao, a.icao);
+    const totalEarned = flightCount * profit;
+    return (totalEarned / price) * 100;
+}
 function countBy(arr, key) {
   const m = {}; arr.forEach(a => { const v = a[key]||'?'; m[v]=(m[v]||0)+1; });
   return Object.entries(m).sort((a,b)=>b[1]-a[1]);
@@ -4503,6 +4531,19 @@ function getAircraftRating(acProfit, vsAvgPct) {
     if (vsAvgPct >= -5) return { tier: 'B', score: 3, class: 'rating-b' };
     if (vsAvgPct >= -20) return { tier: 'C', score: 2, class: 'rating-c' };
     return { tier: 'D', score: 1, class: 'rating-d' };
+}
+
+// ═══════════════════════════════════════════════
+// 综合评级（Combined Rating）
+// 40% 单趟利润 + 40% 单位时薪 + 20% 资产回本进度
+// 三项均与"同级别（Size）"机队的全球平均值对比后加权求和
+// ═══════════════════════════════════════════════
+function getCombinedVsAvgPct(size, acProfit, profitHr, roiProgress, combinedAverages) {
+    const ca = combinedAverages[size];
+    const vsProfitPct = (ca && ca.avgProfit > 0) ? ((acProfit - ca.avgProfit) / ca.avgProfit) * 100 : 0;
+    const vsHourlyPct = (ca && ca.avgHourly > 0) ? ((profitHr - ca.avgHourly) / ca.avgHourly) * 100 : 0;
+    const vsRoiPct = (ca && ca.avgRoi > 0) ? ((roiProgress - ca.avgRoi) / ca.avgRoi) * 100 : 0;
+    return (vsProfitPct * 0.4) + (vsHourlyPct * 0.4) + (vsRoiPct * 0.2);
 }
 
 // ═══════════════════════════════════════════════
@@ -4560,7 +4601,7 @@ function renderAnalytics() {
     <div class="stat-card amber"><div class="stat-label">货机数量</div><div class="stat-value">${cargo}</div><i class="fa-solid fa-box stat-icon"></i></div>
     <div class="stat-card cyan" data-tooltip="<b>${exactPax}</b> Pax"><div class="stat-label">总运送旅客 (Pax)</div><div class="stat-value">${paxDisplay}</div><div class="stat-sub">基于 95% 客座率</div><i class="fa-solid fa-users stat-icon"></i></div>
     <div class="stat-card amber" data-tooltip="<b>${exactCargo}</b> Ton"><div class="stat-label">总运送货物 (Ton)</div><div class="stat-value">${cargoDisplay}</div><div class="stat-sub">基于 95% 载货率</div><i class="fa-solid fa-boxes-stacked stat-icon"></i></div>
-    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}" data-tooltip="${exactProfit}</b> W"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${profitDisplay}</div><div class="stat-sub">Wollars</div><i class="fa-solid fa-money-bill-wave stat-icon"></i></div>
+    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}" data-tooltip="${exactProfit}</b> ${W_ICON_SQ}"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${profitDisplay}</div><div class="stat-sub">Wollars</div><img src="logo/Wollars.png" alt="Wollars" class="stat-icon" style="width:36px; height:36px; border-radius:50%; object-fit:cover;"></div>
     <div class="stat-card ${totalMargin >= 0 ? 'cyan' : 'red'}"><div class="stat-label">整体净利率</div><div class="stat-value" style="font-size:24px">${totalMargin}%</div><div class="stat-sub">基于预期毛利</div><i class="fa-solid fa-percent stat-icon"></i></div>`;
 
   const typeTop = countBy(data,'icao'); 
@@ -4633,7 +4674,7 @@ function renderAnalytics() {
   document.getElementById('maint-cost-grid').innerHTML = acProfits.length ? acProfits.map(a => `
     <div class="stat-card" style="padding:16px;">
       <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-        <span style="font-family:var(--mono); font-weight:600; font-size:14px;">${a.reg||a.icao}</span><span style="color:var(--cyan); font-family:var(--mono); font-size:14px; font-weight:600;">${Math.round(a.profit).toLocaleString()} W</span>
+        <span style="font-family:var(--mono); font-weight:600; font-size:14px;">${a.reg||a.icao}</span><span style="color:var(--cyan); font-family:var(--mono); font-size:14px; font-weight:600;">${Math.round(a.profit).toLocaleString()} ${W_ICON}</span>
       </div>
       <div style="font-size:11px; color:var(--text3); margin-bottom:10px;">${a.icao} | ${a.base||'No Base'} | Size ${a.size}</div>
       <div class="bar-track"><div class="bar-fill green" style="width:${Math.round(a.profit/topProfitVal*100)}%"></div></div>
@@ -4646,9 +4687,9 @@ function renderAnalytics() {
     <div class="donut-row"><div class="donut-dot" style="background:var(--amber)"></div><span class="donut-label">货运任务</span><span class="donut-val">${crgPct}%</span></div>` : '';
 
   document.getElementById('maint-summary').innerHTML = `
-    <div class="donut-row"><div class="donut-dot" style="background:var(--cyan)"></div><span class="donut-label">预期总收益 (Revenue)</span><span class="donut-val" style="color:var(--cyan-dim)">${Math.round(totalRev).toLocaleString()} W</span></div>
-    <div class="donut-row"><div class="donut-dot" style="background:var(--amber)"></div><span class="donut-label">维修总成本 (Maint. Cost)</span><span class="donut-val" style="color:var(--amber-dim)">${Math.round(totalCost).toLocaleString()} W</span></div>
-    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)"><div class="donut-row"><div class="donut-dot" style="background:${totalProfit >= 0 ? 'var(--green)' : 'var(--red)'}"></div><span class="donut-label" style="font-weight:600; color:var(--text1)">整体净利润 (Net Profit)</span><span class="donut-val" style="color:${totalProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${Math.round(totalProfit).toLocaleString()} W</span></div></div>`;
+    <div class="donut-row"><div class="donut-dot" style="background:var(--cyan)"></div><span class="donut-label">预期总收益 (Revenue)</span><span class="donut-val" style="color:var(--cyan-dim)">${Math.round(totalRev).toLocaleString()} ${W_ICON}</span></div>
+    <div class="donut-row"><div class="donut-dot" style="background:var(--amber)"></div><span class="donut-label">维修总成本 (Maint. Cost)</span><span class="donut-val" style="color:var(--amber-dim)">${Math.round(totalCost).toLocaleString()} ${W_ICON}</span></div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)"><div class="donut-row"><div class="donut-dot" style="background:${totalProfit >= 0 ? 'var(--green)' : 'var(--red)'}"></div><span class="donut-label" style="font-weight:600; color:var(--text1)">整体净利润 (Net Profit)</span><span class="donut-val" style="color:${totalProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${Math.round(totalProfit).toLocaleString()} ${W_ICON}</span></div></div>`;
 }
 
 // ═══════════════════════════════════════════════
@@ -4946,8 +4987,8 @@ const COL_RENDERERS = {
     },
     timeStr: (a) => `<span style="font-family:var(--mono);font-size:12px;color:var(--text2)">${a.timeStr}</span>`,
     seats: (a) => `<span style="font-size:12px;color:var(--text2)">${seatLabel(a)}</span>`,
-    profit: (a) => `<span style="font-size:12px;font-weight:600;font-family:var(--mono);color:${a.acProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${a.acProfit !== 0 ? fmt(Math.round(a.acProfit)) + ' W' : '—'}</span>`,
-    profitHr: (a) => `<span style="font-size:12px;font-weight:600;font-family:var(--mono);color:var(--cyan)">${a.profitHr !== 0 ? fmt(Math.round(a.profitHr)) : '—'}</span>`,
+    profit: (a) => `<span style="font-size:12px;font-weight:600;font-family:var(--mono);color:${a.acProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${a.acProfit !== 0 ? fmt(Math.round(a.acProfit)) + ' ' + W_ICON : '—'}</span>`,
+    profitHr: (a) => `<span style="font-size:12px;font-weight:600;font-family:var(--mono);color:var(--cyan)">${a.profitHr !== 0 ? fmt(Math.round(a.profitHr)) + ' ' + W_ICON : '—'}</span>`,
     rating: (a) => `<span class="rating-badge ${a.ratingData.class}">${a.ratingData.tier}</span>`,
     vsAvg: (a) => {
         let diffHtml = '<span class="diff-badge diff-neu">—</span>';
@@ -4985,6 +5026,7 @@ function renderFleet() {
 
   // 1. 依据当前的评级基准，计算同级别（Size）的全球平均值
   const globalAverages = {};
+  const combinedAverages = {}; // 综合评级专用：按 size 分别累计 单趟利润 / 时薪 / 回本进度 三项均值
   fleet.forEach(a => { 
       const p = getAcProfit(a.reg || a.icao, a.icao); 
       const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60);
@@ -4997,8 +5039,21 @@ function renderFleet() {
           globalAverages[a.size].sum += targetVal; 
           globalAverages[a.size].count++; 
       } 
+
+      if (!combinedAverages[a.size]) combinedAverages[a.size] = { profitSum: 0, profitCount: 0, hourlySum: 0, hourlyCount: 0, roiSum: 0, roiCount: 0 };
+      const ca = combinedAverages[a.size];
+      if (p > 0) { ca.profitSum += p; ca.profitCount++; }
+      if (profitHr > 0) { ca.hourlySum += profitHr; ca.hourlyCount++; }
+      const roiProgress = getAcRoiProgress(a, p);
+      if (roiProgress > 0) { ca.roiSum += roiProgress; ca.roiCount++; }
   });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
+  Object.keys(combinedAverages).forEach(k => {
+      const ca = combinedAverages[k];
+      ca.avgProfit = ca.profitCount > 0 ? ca.profitSum / ca.profitCount : 0;
+      ca.avgHourly = ca.hourlyCount > 0 ? ca.hourlySum / ca.hourlyCount : 0;
+      ca.avgRoi = ca.roiCount > 0 ? ca.roiSum / ca.roiCount : 0;
+  });
 
   const seqMap = {}; [...fleet].sort((a, b) => Number(a.id) - Number(b.id)).forEach((ac, idx) => { seqMap[ac.id] = idx + 1; });
 
@@ -5013,10 +5068,16 @@ function renderFleet() {
     const avgVal = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
     
     let vsAvgPct = 0; 
-    if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
-    
-    // 如果原净利润已经是负数，无论基准是什么，都传 acProfit 进去触发 D 级，否则传 targetVal 计算 S-D 评级
-    const ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct); 
+    let ratingData;
+    if (currentRatingBasis === 'combined') {
+        const roiProgress = getAcRoiProgress(a, acProfit);
+        vsAvgPct = getCombinedVsAvgPct(a.size, acProfit, profitHr, roiProgress, combinedAverages);
+        ratingData = getAircraftRating(acProfit <= 0 ? acProfit : 1, vsAvgPct);
+    } else {
+        if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
+        // 如果原净利润已经是负数，无论基准是什么，都传 acProfit 进去触发 D 级，否则传 targetVal 计算 S-D 评级
+        ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct);
+    }
     
     const timeStr = (a.flightHrs !== undefined || a.flightMins !== undefined) ? `${a.flightHrs||0}h ${a.flightMins||0}m` : '—';
     return { ...a, acProfit, vsAvgPct, avgProfit: avgVal, profitHr, timeStr, totalHrs, ratingData };
@@ -5133,8 +5194,8 @@ function renderFleet() {
                    <div class="bp-end bp-dest"><span class="bp-code airport-link" onclick="openAirportInfo('${a.dest}')" title="点击查看机场详情">${a.dest||'—'}${dFlag}</span><span class="bp-city" title="${dName}">${dName||'&nbsp;'}</span></div>
                 </div>
                 <div class="fc-stats">
-                   <div>Profit: <span class="fc-stat-val" style="color:${a.acProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${a.acProfit !== 0 ? fmt(Math.round(a.acProfit)) + ' W' : '—'}</span></div>
-                   <div>P/Hr: <span class="fc-stat-val" style="color:var(--cyan)">${a.profitHr !== 0 ? fmt(Math.round(a.profitHr)) : '—'}</span></div>
+                   <div>Profit: <span class="fc-stat-val" style="color:${a.acProfit >= 0 ? 'var(--green)' : 'var(--red)'}">${a.acProfit !== 0 ? fmt(Math.round(a.acProfit)) + ' ' + W_ICON : '—'}</span></div>
+                   <div>P/Hr: <span class="fc-stat-val" style="color:var(--cyan)">${a.profitHr !== 0 ? fmt(Math.round(a.profitHr)) + ' ' + W_ICON : '—'}</span></div>
                 </div>
                 <div class="fc-perforation"></div>
                 <div style="display:flex; justify-content:flex-end; gap:4px;">
@@ -5206,6 +5267,7 @@ function openPopup(id) {
   const acProfit = getAcProfit(a.reg || a.icao, a.icao);
   
   const globalAverages = {};
+  const combinedAverages = {}; // 综合评级专用：按 size 分别累计 单趟利润 / 时薪 / 回本进度 三项均值
   fleet.forEach(f => { 
       const p = getAcProfit(f.reg || f.icao, f.icao); 
       const tHrs = (f.flightHrs || 0) + ((f.flightMins || 0) / 60);
@@ -5217,8 +5279,21 @@ function openPopup(id) {
           globalAverages[f.size].sum += tVal; 
           globalAverages[f.size].count++; 
       } 
+
+      if (!combinedAverages[f.size]) combinedAverages[f.size] = { profitSum: 0, profitCount: 0, hourlySum: 0, hourlyCount: 0, roiSum: 0, roiCount: 0 };
+      const fca = combinedAverages[f.size];
+      if (p > 0) { fca.profitSum += p; fca.profitCount++; }
+      if (pHr > 0) { fca.hourlySum += pHr; fca.hourlyCount++; }
+      const fRoi = getAcRoiProgress(f, p);
+      if (fRoi > 0) { fca.roiSum += fRoi; fca.roiCount++; }
   });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
+  Object.keys(combinedAverages).forEach(k => {
+      const ca = combinedAverages[k];
+      ca.avgProfit = ca.profitCount > 0 ? ca.profitSum / ca.profitCount : 0;
+      ca.avgHourly = ca.hourlyCount > 0 ? ca.hourlySum / ca.hourlyCount : 0;
+      ca.avgRoi = ca.roiCount > 0 ? ca.roiSum / ca.roiCount : 0;
+  });
   
   const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); 
   const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
@@ -5226,9 +5301,15 @@ function openPopup(id) {
   const avgVal = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
   
   let vsAvgPct = 0; 
-  if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
-  
-  const ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct);
+  let ratingData;
+  if (currentRatingBasis === 'combined') {
+      const roiProgress = getAcRoiProgress(a, acProfit);
+      vsAvgPct = getCombinedVsAvgPct(a.size, acProfit, profitHr, roiProgress, combinedAverages);
+      ratingData = getAircraftRating(acProfit <= 0 ? acProfit : 1, vsAvgPct);
+  } else {
+      if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
+      ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct);
+  }
   const badgeEl = document.getElementById('popup-rating-badge');
   badgeEl.className = `rating-badge ${ratingData.class}`; badgeEl.textContent = ratingData.tier;
   
@@ -5239,7 +5320,7 @@ function openPopup(id) {
   const currentTotalRev = flightCount * acProfit;
 
   let profitClass = acProfit > 0 ? 'profit-pos' : (acProfit < 0 ? 'profit-neg' : '');
-  let profitText = acProfit !== 0 ? Math.round(acProfit).toLocaleString() + ' W' : '暂无数据';
+  let profitText = acProfit !== 0 ? Math.round(acProfit).toLocaleString() + ' ' + W_ICON : '暂无数据';
 
   const totalSeats = (parseInt(a.first) || 0) + (parseInt(a.biz) || 0) + (parseInt(a.eco) || 0);
   const seatDisplay = a.load === 'Passenger' 
@@ -5278,7 +5359,7 @@ function openPopup(id) {
       </div>
       <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center;">
           <label style="font-size:10px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">时薪 (Profit/Hr)</label>
-          <div class="val" style="color:var(--cyan); font-size:18px; font-family:var(--mono); font-weight:600; line-height:1;">${profitHr > 0 ? Math.round(profitHr).toLocaleString() + ' W/h' : '—'}</div>
+          <div class="val" style="color:var(--cyan); font-size:18px; font-family:var(--mono); font-weight:600; line-height:1;">${profitHr > 0 ? Math.round(profitHr).toLocaleString() + ' ' + W_ICON + '/h' : '—'}</div>
       </div>
   `;
 
@@ -5325,7 +5406,7 @@ function openPopup(id) {
     <!-- 3. 右上和右下合并：总收益 (span 2 会让它横跨两行) -->
     <div class="popup-item" style="grid-row: span 2; display: flex; flex-direction: column; justify-content: center; background:var(--cyan-glow); border-color:rgba(0,229,255,0.3);">
         <label style="color:var(--cyan)">当前总收益 (TOTAL EARNED)</label>
-        <div class="val highlight" style="font-size:24px; margin-top:10px;">${Math.round(currentTotalRev).toLocaleString()} W</div>
+        <div class="val highlight" style="font-size:24px; margin-top:10px;">${Math.round(currentTotalRev).toLocaleString()} ${W_ICON}</div>
     </div>
 
     <!-- 4. 左下：累计运送 -->
@@ -5640,13 +5721,13 @@ function calcAddRoute() {
   const totalHrs = hrs + (mins / 60); let profitPerHour = 0; if (totalHrs > 0) profitPerHour = profit / totalHrs;
 
   document.getElementById('add-route-result').style.display = 'block';
-  document.getElementById('f-res-revenue').textContent = Math.round(rev).toLocaleString() + ' W';
-  document.getElementById('f-res-cost').textContent = Math.round(cost).toLocaleString() + ' W';
+  document.getElementById('f-res-revenue').innerHTML = Math.round(rev).toLocaleString() + ' ' + W_ICON;
+  document.getElementById('f-res-cost').innerHTML = Math.round(cost).toLocaleString() + ' ' + W_ICON;
   const profEl = document.getElementById('f-res-profit');
-  profEl.textContent = Math.round(profit).toLocaleString() + ' W';
+  profEl.innerHTML = Math.round(profit).toLocaleString() + ' ' + W_ICON;
   profEl.style.color = profit >= 0 ? 'var(--green)' : 'var(--red)';
-  document.getElementById('f-res-ph').textContent = totalHrs > 0 ? Math.round(profitPerHour).toLocaleString() + ' W/h' : '—';
-  document.getElementById('f-res-formula').textContent = `收益 = [${minR.toLocaleString()} + (${maxR.toLocaleString()} − ${minR.toLocaleString()}) × ${FIXED_LOAD_PCT}%] × ${multiplier} = ${Math.round(rev).toLocaleString()} W  |  磨损 = (${small.toLocaleString()}/100 × ${maint}) + (${large.toLocaleString()}/400 × ${maint}) = ${Math.round(cost).toLocaleString()} W`;
+  document.getElementById('f-res-ph').innerHTML = totalHrs > 0 ? Math.round(profitPerHour).toLocaleString() + ' ' + W_ICON + '/h' : '—';
+  document.getElementById('f-res-formula').innerHTML = `收益 = [${minR.toLocaleString()} + (${maxR.toLocaleString()} − ${minR.toLocaleString()}) × ${FIXED_LOAD_PCT}%] × ${multiplier} = ${Math.round(rev).toLocaleString()} ${W_ICON}  |  磨损 = (${small.toLocaleString()}/100 × ${maint}) + (${large.toLocaleString()}/400 × ${maint}) = ${Math.round(cost).toLocaleString()} ${W_ICON}`;
 }
 
 function clearForm() { 
@@ -5798,7 +5879,7 @@ function editAircraft(id) {
 // ═══════════════════════════════════════════════
 function renderRoutes() {
   const tbody = document.getElementById('routes-tbody');
-  tbody.innerHTML = routes.map(r => `<tr><td style="font-family:var(--mono);font-weight:600">${r.name}</td><td>${r.acLabel}${r.icao ? ` <span style="color:var(--text3);font-size:11px;">(${r.icao})</span>` : ''}</td><td>${r.minR.toLocaleString()}W</td><td>${r.maxR.toLocaleString()}W</td><td style="color:var(--cyan)">${Math.round(r.revenue).toLocaleString()}W</td><td style="color:var(--amber)">${Math.round(r.maintCost).toLocaleString()}W</td><td style="font-weight:600;color:${r.profit>=0?'var(--green)':'var(--red)'}">${Math.round(r.profit).toLocaleString()}W</td><td><button class="btn btn-danger btn-icon" onclick="deleteRoute('${r.id}')" title="删除记录"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="8"><div class="empty-state"><p>全局暂无预测存档，在录入飞机时填入收益范围即可自动生成。</p></div></td></tr>`;
+  tbody.innerHTML = routes.map(r => `<tr><td style="font-family:var(--mono);font-weight:600">${r.name}</td><td>${r.acLabel}${r.icao ? ` <span style="color:var(--text3);font-size:11px;">(${r.icao})</span>` : ''}</td><td>${r.minR.toLocaleString()}${W_ICON}</td><td>${r.maxR.toLocaleString()}${W_ICON}</td><td style="color:var(--cyan)">${Math.round(r.revenue).toLocaleString()}${W_ICON}</td><td style="color:var(--amber)">${Math.round(r.maintCost).toLocaleString()}${W_ICON}</td><td style="font-weight:600;color:${r.profit>=0?'var(--green)':'var(--red)'}">${Math.round(r.profit).toLocaleString()}${W_ICON}</td><td><button class="btn btn-danger btn-icon" onclick="deleteRoute('${r.id}')" title="删除记录"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="8"><div class="empty-state"><p>全局暂无预测存档，在录入飞机时填入收益范围即可自动生成。</p></div></td></tr>`;
 }
 
 function deleteRoute(id) {
@@ -5945,7 +6026,7 @@ function renderWollarsGrid() {
         const exactWollars = Math.round(currentVal).toLocaleString();
 
         html += `
-        <div class="iba-stat-card" style="width: 100%; cursor: pointer;" onclick="openWollarsDetail('${code}')" data-tooltip="<b>${exactWollars}</b> W">
+        <div class="iba-stat-card" style="width: 100%; cursor: pointer;" onclick="openWollarsDetail('${code}')" data-tooltip="<b>${exactWollars}</b> ${W_ICON_SQ}">
             <div class="iba-stat-title" style="display: flex; flex-direction: column; gap: 4px;">
                 <div style="color: var(--amber); font-size: 15px; display: flex; align-items: center; gap: 6px;">
                     ${flagHtml}<span style="font-family: var(--mono); font-weight: 700;">${code}</span>
@@ -5955,7 +6036,7 @@ function renderWollarsGrid() {
                 </div>
             </div>
             <div class="iba-stat-row">
-                <div class="iba-stat-val" style="font-size: 24px; color: var(--text1);">${formatLargeNum(currentVal)}</div>
+                <div class="iba-stat-val" style="font-size: 24px; color: var(--text1); display: flex; align-items: center; gap: 4px;">${W_ICON} ${formatLargeNum(currentVal)}</div>
                 ${badge}
             </div>
             <div class="iba-spark-wrap" style="opacity: 0.6;">${spark}</div>
@@ -5985,7 +6066,7 @@ function openWollarsDetail(code) {
     const history = wollarsHistory.map(d => ({ date: d.date.substring(5), val: d.data[code] || 0 }));
     const latestVal = history.length ? history[history.length - 1].val : 0;
     
-    document.getElementById('wp-latest-val').textContent = latestVal.toLocaleString() + ' W';
+    document.getElementById('wp-latest-val').innerHTML = latestVal.toLocaleString() + ' ' + W_ICON;
     document.getElementById('wp-input').value = latestVal || '';
     
     // 渲染 Chart.js 周期折线图
@@ -6125,7 +6206,7 @@ function openCoinPopup(type) {
     activeCoinType = type;
     const isGold = type === 'gold';
 
-    document.getElementById('coin-popup-icon').style.color = isGold ? 'var(--gold)' : '#c7ccd6';
+    document.getElementById('coin-popup-icon').src = isGold ? 'logo/Gold_planes.png' : 'logo/Silver_planes.png';
     document.getElementById('coin-popup-title').textContent = isGold ? '金币' : '银币';
     document.getElementById('coin-popup-subtitle').textContent = isGold ? '每日金币数量变化 · 刷新计时' : '银币数量变化记录';
     document.getElementById('coin-refresh-section').style.display = isGold ? 'flex' : 'none';
@@ -6297,13 +6378,16 @@ document.addEventListener('mouseover', (e) => {
     }
 });
 
-document.addEventListener('mousemove', (e) => {
-    if (!customTooltipEl.classList.contains('show')) return;
-    
+let ttPendingEvt = null, ttRafScheduled = false;
+function ttApplyPosition() {
+    ttRafScheduled = false;
+    const e = ttPendingEvt;
+    if (!e || !customTooltipEl.classList.contains('show')) return;
+
     // 鼠标偏移量
     let x = e.pageX + 14;
     let y = e.pageY + 14;
-    
+
     // 边缘碰撞检测 (防止悬浮窗超出屏幕右侧或下侧)
     if (x + customTooltipEl.offsetWidth > window.innerWidth + window.scrollX) {
         x = e.pageX - customTooltipEl.offsetWidth - 10;
@@ -6311,9 +6395,17 @@ document.addEventListener('mousemove', (e) => {
     if (y + customTooltipEl.offsetHeight > window.innerHeight + window.scrollY) {
         y = e.pageY - customTooltipEl.offsetHeight - 10;
     }
-    
+
     customTooltipEl.style.left = x + 'px';
     customTooltipEl.style.top = y + 'px';
+}
+document.addEventListener('mousemove', (e) => {
+    if (!customTooltipEl.classList.contains('show')) return;
+    ttPendingEvt = e;
+    if (!ttRafScheduled) {
+        ttRafScheduled = true;
+        requestAnimationFrame(ttApplyPosition);
+    }
 });
 
 document.addEventListener('mouseout', (e) => {
