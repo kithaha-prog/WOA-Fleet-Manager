@@ -7,6 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/tesseract.js@5.0.5/dist/tesseract.min.js"></script>
@@ -31,10 +38,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg-deep:    #080a0f;
-  --bg-panel:   rgba(17, 20, 26, 0.4);
-  --bg-card:    rgba(21, 25, 34, 0.4);
-  --bg-hover:   rgba(26, 31, 43, 0.6);
+  --bg-deep:    #000000;
+  --bg-panel:   rgba(17, 20, 26, 0.9);
+  --bg-card:    rgba(12, 22, 46, 0.4);
+  --bg-hover:   rgba(26, 31, 43, 0.215);
   --bg-input:   rgba(19, 23, 32, 0.5);
   
   --glass-blur: 24px;
@@ -66,8 +73,8 @@
   --gold:       #ffd700;
   --gold-glow:  rgba(255,215,0,0.15);
 
-  --mono: 'JetBrains Mono', monospace;
-  --sans: 'Inter', sans-serif;
+  --mono: 'Inter Tight', 'LXGW WenKai TC', monospace;
+  --sans: 'DM Sans', 'LXGW WenKai TC', sans-serif;
   --r-sm: 8px;
   --r-md: 14px; 
   --r-lg: 20px;
@@ -553,6 +560,37 @@ input[type="checkbox"] { accent-color: var(--amber); width: 14px; height: 14px; 
   z-index: 1; 
 }
 
+/* ═══════════════════════════════════════════════
+   COIN TRACKER (金币 / 银币 追踪)
+   ═══════════════════════════════════════════════ */
+.page-header-with-coins { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.coin-tracker-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.coin-card { position: relative; display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--r-md); padding: 10px 16px; cursor: pointer; transition: all var(--transition); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); box-shadow: var(--glass-shadow); }
+.coin-card:hover { border-color: var(--glass-border-lit); transform: translateY(-2px); }
+.coin-card-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.coin-card.gold .coin-card-icon { background: var(--gold-glow); color: var(--gold); box-shadow: 0 0 10px var(--gold-glow); }
+.coin-card.silver .coin-card-icon { background: rgba(192,197,206,0.15); color: #c7ccd6; box-shadow: 0 0 10px rgba(192,197,206,0.15); }
+html.light-theme .coin-card.silver .coin-card-icon { color: #6b7280; background: rgba(107,114,128,0.12); }
+.coin-card-label { font-size: 11px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.coin-card-value-row { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
+.coin-card-value { font-size: 18px; font-weight: 700; font-family: var(--mono); color: var(--text1); }
+.coin-card-delta { font-size: 11px; font-weight: 600; font-family: var(--mono); }
+.coin-card-delta.pos { color: var(--green); }
+.coin-card-delta.neg { color: var(--red); }
+.coin-card-delta.neu { color: var(--text3); }
+.coin-card.has-pending::after { content: ''; position: absolute; top: 6px; right: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 6px var(--red); animation: coin-pulse-dot 1.5s infinite; }
+@keyframes coin-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+.coin-refresh-btn { display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; }
+.coin-refresh-btn.counting { cursor: default; background: var(--amber-glow); border-color: var(--amber-dim); color: var(--amber); pointer-events: none; }
+.coin-refresh-timer { font-family: var(--mono); font-size: 16px; font-weight: 700; letter-spacing: 0.05em; }
+
+.coin-refresh-badge { position: fixed; bottom: 96px; right: 28px; background: var(--bg-card); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--gold); border-radius: var(--r-md); padding: 14px 16px; display: flex; align-items: center; gap: 12px; z-index: 9998; box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 20px var(--gold-glow); transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.coin-refresh-badge.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.coin-refresh-badge-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--gold-glow); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 0 10px var(--gold-glow); animation: coin-pulse-dot 2s infinite; flex-shrink: 0; }
+.coin-refresh-badge-title { font-size: 13px; font-weight: 700; color: var(--text1); }
+.coin-refresh-badge-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
 /* ── Top Row Layout (用于并排显示标题与统计格) ── */
 .dashboard-top-row {
   display: flex;
@@ -920,7 +958,9 @@ html.light-theme .form-group input, html.light-theme .form-group select { color-
 .form-group input::placeholder { color: var(--text3); }
 .form-group input:focus, .form-group select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px var(--cyan-glow); background: var(--bg-hover); }
 .form-group input.readonly, .form-group input[readonly] { background: var(--bg-input); color: var(--text2); cursor: default; border-color: transparent; }
+.form-group input:disabled, .form-group select:disabled { background: transparent; color: var(--text3); cursor: not-allowed; border-style: dashed; opacity: 0.5; }
 .form-hint { font-size: 11px; color: var(--text3); margin-top: 4px; }
+.form-hint.cargo-lock { color: var(--amber); }
 .autofill-highlight { border-color: rgba(0,229,255,0.4) !important; background: var(--cyan-glow) !important; color: var(--cyan) !important; font-family: var(--mono) !important; }
 .city-subtitle { font-size: 11px; margin-top: 2px; min-height: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cyan); display: flex; align-items: center; }
 
@@ -1401,9 +1441,33 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 
     <!-- 一级界面：Wollars 管理卡片网格 -->
     <section class="view" id="view-wollars">
-      <div class="page-header">
-        <h1><i class="fa-solid fa-sack-dollar"></i> 机场Wollars情况</h1>
-        <p>追踪可操作机场的 Wollars 资产累积，监控每日收益升降趋势。</p>
+      <div class="page-header page-header-with-coins">
+        <div>
+          <h1><i class="fa-solid fa-sack-dollar"></i> 机场Wollars情况</h1>
+          <p>追踪可操作机场的 Wollars 资产累积，监控每日收益升降趋势。</p>
+        </div>
+        <div class="coin-tracker-row">
+          <div class="coin-card gold" id="gold-coin-card" onclick="openCoinPopup('gold')" data-tooltip="点击查看金币详情与每日/每周刷新计时">
+            <div class="coin-card-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="coin-card-info">
+              <div class="coin-card-label">金币</div>
+              <div class="coin-card-value-row">
+                <span class="coin-card-value" id="gold-coin-value">0</span>
+                <span class="coin-card-delta neu" id="gold-coin-delta">— 0</span>
+              </div>
+            </div>
+          </div>
+          <div class="coin-card silver" id="silver-coin-card" onclick="openCoinPopup('silver')" data-tooltip="点击查看银币数量变化">
+            <div class="coin-card-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="coin-card-info">
+              <div class="coin-card-label">银币</div>
+              <div class="coin-card-value-row">
+                <span class="coin-card-value" id="silver-coin-value">0</span>
+                <span class="coin-card-delta neu" id="silver-coin-delta">— 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="runway-stripe"></div>
 
@@ -1444,6 +1508,49 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
           <!-- 每日周期图表容器 -->
           <div class="chart-card" style="padding:16px;">
             <div style="height: 260px; position: relative;"><canvas id="wollarsChartCanvas"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 二级界面：金币 / 银币 详情弹窗 -->
+    <div class="popup-overlay" id="coin-popup" onclick="if(event.target===this) closeCoinPopup()">
+      <div class="popup-box" style="max-width: 560px;">
+        <button class="popup-close-float" onclick="closeCoinPopup()"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="popup-header" style="padding: 20px 28px; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-input) 100%);">
+          <div>
+            <div class="popup-title"><i class="fa-solid fa-coins" id="coin-popup-icon" style="color: var(--gold);"></i> <span id="coin-popup-title">金币</span></div>
+            <div class="popup-subtitle" style="margin-top: 4px;" id="coin-popup-subtitle">数量变化记录</div>
+          </div>
+        </div>
+
+        <div class="popup-body" style="display:flex; flex-direction:column; padding:24px 28px; gap:22px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px;">
+            <div>
+              <div style="font-size:11px; color:var(--text3); font-weight:600; text-transform:uppercase;">当前数量</div>
+              <div id="coin-latest-val" style="font-size:28px; font-weight:700; color:var(--amber); font-family:var(--mono); line-height:1; margin-top:4px;">0</div>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <input type="number" id="coin-input" class="page-jump-input" style="width:140px; text-align:left; padding:8px 12px; font-size:14px;" placeholder="录入今日数量..." onkeydown="if(event.key==='Enter') saveCoinCount()">
+              <button class="btn btn-primary" onclick="saveCoinCount()">保存</button>
+            </div>
+          </div>
+
+          <!-- 金币专属：刷新计时按钮区 -->
+          <div id="coin-refresh-section" style="display:none; flex-direction:column; gap:12px;">
+            <div class="section-label" style="margin:0;"><i class="fa-solid fa-rotate"></i> 刷新计时</div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn btn-ghost coin-refresh-btn" id="coin-daily-btn" onclick="claimCoinRefresh('daily')" style="flex:1; min-width:210px; padding:14px; gap:6px;">
+                <span id="coin-daily-btn-label"><i class="fa-solid fa-sun"></i> 每日金币已刷新</span>
+                <span id="coin-daily-btn-timer" class="coin-refresh-timer" style="display:none;"></span>
+              </button>
+              <button class="btn btn-ghost coin-refresh-btn" id="coin-weekly-btn" onclick="claimCoinRefresh('weekly')" style="flex:1; min-width:210px; padding:14px; gap:6px;">
+                <span id="coin-weekly-btn-label"><i class="fa-solid fa-calendar-week"></i> 每周金币已刷新</span>
+                <span id="coin-weekly-btn-timer" class="coin-refresh-timer" style="display:none;"></span>
+              </button>
+            </div>
+            <p style="font-size:11px; color:var(--text3); line-height:1.6; margin:0;">点击按钮记录刷新时间：每日刷新倒计时 24 小时，每周刷新倒计时 7 天。倒计时结束后按钮会自动恢复可点击状态；每日倒计时结束后，主页「机队分析」右下角会持续提示「金币已刷新」，直到您点击「领取」。</p>
           </div>
         </div>
       </div>
@@ -1518,7 +1625,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
         <select id="ff-size" onchange="currentPage=1; renderFleet()"><option value="">All sizes</option><option value="A">Size A</option><option value="B">Size B</option><option value="C">Size C</option><option value="D">Size D</option><option value="E">Size E</option><option value="F">Size F</option><option value="G">Size G</option></select>
         <select id="ff-seats" onchange="currentPage=1; renderFleet()"><option value="">所有客舱布局</option></select>
         
-        <!-- 分页数量选择 -->
+        <!-- 👇 把你丢失的这段分页代码补回在这里 👇 -->
         <select id="ff-limit" onchange="currentPage=1; renderFleet()">
             <option value="5">5 条/页</option>
             <option value="10" selected>10 条/页</option>
@@ -1528,6 +1635,7 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
             <option value="all">无限制</option>
         </select>
 
+        <!-- 分页数量选择 -->
         <select id="ff-rating" onchange="currentPage=1; renderFleet()">
             <option value="">所有评级</option>
             <option value="S">👑 S 级</option>
@@ -1537,34 +1645,57 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
             <option value="D">⚠️ D 级</option>
         </select>
         
-        <div style="flex:1"></div>
+        <!-- 使用 width:100% 强制独占一行，左侧放记录数，右侧放所有的单行操作按钮，大幅降低高度 -->
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 4px; padding-top: 12px; border-top: 1px dashed var(--border);">
+            
+            <!-- 放在左边的记录数 -->
+            <span id="fleet-record-count" style="font-size: 13px; font-weight: 600; color: var(--cyan); white-space: nowrap;">
+                <i class="fa-solid fa-list-check"></i> 共 0 条记录
+            </span>
 
-        <select id="grid-sort-select" onchange="handleGridSort(this.value)" style="display:none; min-width:140px;">
-           <option value="profit_desc">默认排序 (利润 ↓)</option>
-           <option value="profit_asc">利润由低到高 ↑</option>
-           <option value="profitHr_desc">时薪最高 ↓</option>
-           <option value="rating_desc">评级最高 ↓</option>
-           <option value="reg_asc">注册号 A-Z</option>
-           <option value="timeStr_desc">耗时最长 ↓</option>
-        </select>
+            <!-- 操作按钮全部改为横向单行排列，统一高度 32px -->
+            <div style="display: flex; gap: 8px; align-items: center; height: 32px;">
+                
+                <!-- 评级基准切换按钮 -->
+                <div class="view-toggles" style="display:flex; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--r-sm); overflow:hidden; height: 100%;">
+                    <button class="btn-view-toggle active" id="btn-rate-profit" onclick="setRatingBasis('profit')" style="font-size: 12px; padding: 0 12px; font-weight: 600;" title="S-D评级以单趟利润计算">按单趟利润评级</button>
+                    <button class="btn-view-toggle" id="btn-rate-hourly" onclick="setRatingBasis('hourly')" style="font-size: 12px; padding: 0 12px; font-weight: 600;" title="S-D评级以单位时薪计算">按时薪评级</button>
+                </div>
 
-        <div class="view-toggles" style="display:flex; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--r-sm); overflow:hidden; height:100%;">
-           <button class="btn-view-toggle active" id="btn-view-table" onclick="setViewMode('table')" title="表格视图"><i class="fa-solid fa-table-list"></i></button>
-           <button class="btn-view-toggle" id="btn-view-grid" onclick="setViewMode('grid')" title="缩略图卡片视图"><i class="fa-solid fa-border-all"></i></button>
-        </div>
+                <select id="grid-sort-select" onchange="handleGridSort(this.value)" style="display:none; min-width:140px; height: 100%; margin: 0;">
+                   <option value="profit_desc">默认排序 (利润 ↓)</option>
+                   <option value="profit_asc">利润由低到高 ↑</option>
+                   <option value="profitHr_desc">时薪最高 ↓</option>
+                   <option value="rating_desc">评级最高 ↓</option>
+                   <option value="reg_asc">注册号 A-Z</option>
+                   <option value="timeStr_desc">耗时最长 ↓</option>
+                </select>
 
-        <div style="position:relative; height:100%;">
-           <button class="btn btn-ghost col-settings-btn" onclick="toggleColSettings()" title="自定义显示列" style="padding: 8px 12px; height: 100%;"><i class="fa-solid fa-sliders"></i></button>
-           <div id="col-settings-panel" class="dropdown-panel">
-               <div style="font-size:11px; font-weight:600; color:var(--text3); margin-bottom:10px; border-bottom:1px solid var(--border); padding-bottom:8px;"><i class="fa-solid fa-table-columns"></i> 配置表格显示列</div>
-               <div id="col-checkboxes" style="display:flex; flex-direction:column; gap:8px; max-height:300px; overflow-y:auto; padding-right:4px;">
+                <!-- 视图切换 -->
+                <div class="view-toggles" style="display:flex; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--r-sm); overflow:hidden; height:100%;">
+                   <button class="btn-view-toggle active" id="btn-view-table" onclick="setViewMode('table')" title="表格视图"><i class="fa-solid fa-table-list"></i></button>
+                   <button class="btn-view-toggle" id="btn-view-grid" onclick="setViewMode('grid')" title="缩略图卡片视图"><i class="fa-solid fa-border-all"></i></button>
+                </div>
+
+                <!-- 列设置 -->
+                <div style="position:relative; height:100%;">
+                   <button class="btn btn-ghost col-settings-btn" onclick="toggleColSettings()" title="自定义显示列" style="padding: 0 12px; height: 100%;"><i class="fa-solid fa-sliders"></i></button>
+                   <div id="col-settings-panel" class="dropdown-panel">
+                       <div style="font-size:11px; font-weight:600; color:var(--text3); margin-bottom:10px; border-bottom:1px solid var(--border); padding-bottom:8px;"><i class="fa-solid fa-table-columns"></i> 配置表格显示列</div>
+                       <div id="col-checkboxes" style="display:flex; flex-direction:column; gap:8px; max-height:300px; overflow-y:auto; padding-right:4px;"></div>
                    </div>
-           </div>
+                </div>
+
+                <!-- 极速更新总距离：跳过"查找+编辑"流程，按注册号直接改，支持 OCR 批量识别 -->
+                <button class="btn" onclick="openQuickDistModal()" title="按注册号直接更新累计总距离 (快捷键 Q)" style="padding:0 14px; height:100%; background:rgba(0,229,255,0.1); border:1px solid var(--cyan-dim); color:var(--cyan); font-weight:600; white-space:nowrap;">
+                    <i class="fa-solid fa-bolt"></i> 极速改距离
+                </button>
+            </div>
+
         </div>
 
-        <span id="fleet-record-count" style="margin-left: 10px; font-size: 13px; font-weight: 600; color: var(--cyan); white-space: nowrap;"><i class="fa-solid fa-list-check"></i> 共 0 条记录</span>
       </div>
-
+      
       <div class="bulk-bar" id="bulk-action-bar">
         <span id="bulk-count">已选择 0 架飞机</span>
         <button class="btn btn-danger" onclick="bulkDelete()"><i class="fa-solid fa-trash-can"></i> 批量除役</button>
@@ -1658,11 +1789,22 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
             
             <div id="ocr-dropzone" style="display: none; border: 2px dashed var(--border); padding: 30px 20px; text-align: center; margin-top: 15px; border-radius: 12px; cursor: pointer; background: var(--surface); transition: all 0.3s;">
                 <i class="fa-solid fa-cloud-arrow-up" style="font-size: 32px; margin-bottom: 12px; color: var(--text-secondary);"></i>
-                <h4 style="margin: 0 0 8px 0; color: var(--text);">一次性上传 4 张截图</h4>
-                <p style="margin: 0; font-size: 12px; color: var(--text-secondary);">无须排序，支持点击或拖拽至此 (自动提取注册号、航程、收益等)</p>
+                <h4 id="ocr-hint-title" style="margin: 0 0 8px 0; color: var(--text);">一次性上传 4 张截图</h4>
+                <p id="ocr-hint-desc" style="margin: 0; font-size: 12px; color: var(--text-secondary);">无须排序，支持点击或拖拽至此 (自动提取注册号、航程、收益等)</p>
+
+                <div id="ocr-mode-bar" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap;">
+                    <button type="button" id="toggle-precise-ocr-btn" class="btn" style="font-size: 12px; padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-crosshairs"></i> <span id="precise-ocr-btn-text">精确点位扫描：关闭</span>
+                    </button>
+                    <select id="ocr-resolution-select" style="display: none; font-size: 12px; padding: 6px 10px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: 'Inter Tight', monospace;">
+                        <option value="1600x900">1600 × 900</option>
+                        <option value="1920x1080">1920 × 1080（坐标待补充）</option>
+                    </select>
+                </div>
+
                 <input type="file" id="ocr-file-input" multiple accept="image/*" style="display: none;">
                 
-                <div id="ocr-status-panel" style="margin-top: 15px; font-size: 13px; font-weight: 500; font-family: 'JetBrains Mono', monospace;"></div>
+                <div id="ocr-status-panel" style="margin-top: 15px; font-size: 13px; font-weight: 500; font-family: 'Inter Tight', monospace;"></div>
             </div>
         </div>
       <div class="form-section">
@@ -1821,6 +1963,73 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
   </div>
 </div>
 
+<div class="popup-overlay" id="quick-dist-modal" onclick="if(event.target===this) closeQuickDistModal()">
+  <div class="popup-box" style="max-width: 640px;">
+    <button class="popup-close-float" onclick="closeQuickDistModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="popup-header" style="padding: 24px 28px 16px 28px;">
+      <div class="popup-title" style="display:flex; align-items:center; gap:10px;"><i class="fa-solid fa-bolt" style="color:var(--cyan)"></i> 极速更新累计总距离</div>
+      <div class="popup-subtitle" style="margin-top:4px; font-size:12px; color:var(--text2);">按注册号直接改，不用在乱序列表里翻找</div>
+    </div>
+    <div class="popup-body" style="display:block; padding: 0 28px 24px 28px;">
+
+      <div style="display:flex; gap:8px; margin-bottom:18px;">
+        <button type="button" id="qd-tab-manual-btn" class="btn btn-view-toggle active" onclick="switchQdTab('manual')" style="flex:1;">✍️ 手动输入</button>
+        <button type="button" id="qd-tab-ocr-btn" class="btn btn-view-toggle" onclick="switchQdTab('ocr')" style="flex:1;">📷 截图批量识别</button>
+      </div>
+
+      <div id="qd-panel-manual">
+        <div class="form-group">
+          <label>注册号 (Registration)</label>
+          <input type="text" id="qd-reg" list="qd-reg-list" placeholder="输入或选择注册号，如 9M-ABC" autocomplete="off"
+                 style="text-transform:uppercase;font-family:var(--mono);font-weight:600;letter-spacing:0.05em;color:var(--cyan)"
+                 oninput="onQdRegInput()" onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('qd-dist').focus();}">
+          <datalist id="qd-reg-list"></datalist>
+        </div>
+        <div id="qd-match-info" style="font-size:12px; color:var(--text2); margin: -6px 0 14px 2px; min-height:16px;"></div>
+        <div class="form-group">
+          <label>新的累计总距离 (Total nm)</label>
+          <input type="number" id="qd-dist" min="0" placeholder="e.g. 37248"
+                 onkeydown="if(event.key==='Enter'){event.preventDefault(); applyQuickDistManual();}">
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button class="btn btn-ghost" onclick="closeQuickDistModal()">取消</button>
+          <button class="btn btn-primary" id="qd-manual-apply-btn" onclick="applyQuickDistManual()"><i class="fa-solid fa-check"></i> 更新</button>
+        </div>
+      </div>
+
+      <div id="qd-panel-ocr" style="display:none;">
+        <div style="font-size:12px; color:var(--text2); margin-bottom:12px;">一次性拖入多张飞机详情截图，自动识别注册号与累计总距离并匹配到机队中对应的飞机（目前按 1600×900 分辨率的坐标裁剪识别）</div>
+        <div id="qd-ocr-dropzone" style="border:2px dashed var(--border); padding:24px 16px; text-align:center; border-radius:12px; cursor:pointer; background:var(--bg-input);">
+          <i class="fa-solid fa-cloud-arrow-up" style="font-size:22px; color:var(--cyan); margin-bottom:8px; display:block;"></i>
+          <span style="font-size:13px; color:var(--text2);">点击或拖拽多张截图到此处（无须排序）</span>
+          <input type="file" id="qd-ocr-file-input" multiple accept="image/*" style="display:none;">
+        </div>
+        <div id="qd-ocr-status" style="margin-top:12px; font-size:13px; font-weight:500; font-family:var(--mono);"></div>
+        <div id="qd-review-wrap" style="display:none; margin-top:16px;">
+          <div style="max-height:320px; overflow-y:auto; border:1px solid var(--border); border-radius:10px;">
+            <table style="width:100%; font-size:12px; border-collapse:collapse;">
+              <thead style="position:sticky; top:0; background:var(--bg-hover); z-index:1;">
+                <tr>
+                  <th style="padding:8px; text-align:center;"><input type="checkbox" id="qd-check-all" checked onchange="qdToggleAll(this.checked)"></th>
+                  <th style="padding:8px; text-align:left;">识别注册号（可修正）</th>
+                  <th style="padding:8px; text-align:left;">匹配到的飞机</th>
+                  <th style="padding:8px; text-align:left;">旧距离 → 新距离（可修正）</th>
+                </tr>
+              </thead>
+              <tbody id="qd-review-tbody"></tbody>
+            </table>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+            <button class="btn btn-ghost" onclick="closeQuickDistModal()">取消</button>
+            <button class="btn btn-primary" onclick="applyQuickDistBatch()"><i class="fa-solid fa-check-double"></i> 应用勾选项</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="popup-overlay" id="changelog-modal" onclick="if(event.target===this) closeChangelog()">
   <div class="popup-box" style="max-width: 500px;">
     <button class="popup-close-float" onclick="closeChangelog()"><i class="fa-solid fa-xmark"></i></button>
@@ -1882,6 +2091,14 @@ html.light-theme .toast-undo-btn { background: rgba(0,0,0,0.05); }
 </div>
 
 <div id="toast"></div>
+<div id="coin-refresh-badge" class="coin-refresh-badge">
+  <div class="coin-refresh-badge-icon"><i class="fa-solid fa-coins"></i></div>
+  <div class="coin-refresh-badge-text">
+    <div class="coin-refresh-badge-title">金币已刷新</div>
+    <div class="coin-refresh-badge-sub">今日金币已可领取</div>
+  </div>
+  <button class="btn btn-primary" style="padding:6px 14px; font-size:12px;" onclick="claimCoinBadge()">领取</button>
+</div>
 
 <script>
 // GLOBAL AIRCRAFT DATABASE (DB) 已迁移至外部文件 飞机.js
@@ -2254,6 +2471,22 @@ let profitChartInstance = null;
 let timelineChartInstance = null;
 let lastDeleted = null; 
 
+let currentRatingBasis = localStorage.getItem('woa_rating_basis') || 'profit';
+
+function setRatingBasis(basis, isInit = false) {
+    currentRatingBasis = basis;
+    localStorage.setItem('woa_rating_basis', basis);
+    document.getElementById('btn-rate-profit').classList.toggle('active', basis === 'profit');
+    document.getElementById('btn-rate-hourly').classList.toggle('active', basis === 'hourly');
+    if (!isInit) {
+        renderFleet(); // 切换时立即重绘机队，刷新评级
+        // 如果详情弹窗开着，也重新渲染
+        if (currentPopupAcId && document.getElementById('ac-popup').classList.contains('show')) {
+            openPopup(currentPopupAcId); 
+        }
+    }
+}
+
 // Form Lock State
 let lockedFields = new Set();
 try {
@@ -2294,9 +2527,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. 点击上传舱触发文件选择
     ocrDropzone.addEventListener('click', (e) => {
-        if (e.target.id !== 'ocr-status-panel' && !ocrStatusPanel.contains(e.target)) {
-            ocrFileInput.click();
-        }
+        if (e.target.id === 'ocr-status-panel' || ocrStatusPanel.contains(e.target)) return;
+        if (e.target.closest('#ocr-mode-bar')) return; // 精确扫描开关/分辨率选择区域不触发文件选择
+        ocrFileInput.click();
     });
 
     // 3. 拖拽文件进入上传舱的支持
@@ -2315,16 +2548,275 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.files.length > 0) handleOcrProcessing(e.target.files);
     });
 
+    // 4.5 精确点位扫描模式：开关 + 分辨率选择
+    const precOcrToggleBtn = document.getElementById('toggle-precise-ocr-btn');
+    const precOcrBtnText = document.getElementById('precise-ocr-btn-text');
+    const ocrResolutionSelect = document.getElementById('ocr-resolution-select');
+    const ocrHintTitle = document.getElementById('ocr-hint-title');
+    const ocrHintDesc = document.getElementById('ocr-hint-desc');
+    let preciseOcrEnabled = false;
+
+    // 各分辨率下的精确点位坐标表 (x1, x2, y1, y2)，由用户提供的截图坐标录入
+    // 1920x1080 的坐标待后续补充；补充后按同样结构填入 fields 即可自动生效
+    const PRECISE_OCR_REGIONS = {
+        '1600x900': {
+            w: 1600, h: 900,
+            fields: {
+                base:         [156, 202, 25, 54],    // 基地
+                reg:          [297, 375, 188, 218],// 飞机注册号
+                dest:         [328, 370, 218, 244],// 目的地
+                flightTime:   [1040, 1146, 511, 546],// 飞行时长
+                destDist:     [1046, 1146, 546, 579],// 目的地距离 (单程航程)
+                minMax:       [905, 1062, 501, 533], // 最低/最高收益
+                aircraftType: [830, 953, 242, 266],  // 机型
+                totalDist:    [820, 950, 374, 402],  // 累计飞行距离
+                seatEco:      [967, 1064, 560, 590], // 座位布局 - 经济舱
+                seatBiz:      [1072, 1150, 560, 590],// 座位布局 - 商务舱
+                seatFirst:    [1186, 1247, 560, 590],// 座位布局 - 头等舱
+                maintenance:  [650, 844, 327, 368],  // 维修点 (单次维保点数消耗)
+            }
+        },
+        '1920x1080': {
+            w: 1920, h: 1080,
+            fields: null // 待补充：拿到 1080p 坐标后按 1600x900 的结构填入即可
+        }
+    };
+
+    if (precOcrToggleBtn && ocrResolutionSelect) {
+        precOcrToggleBtn.addEventListener('click', () => {
+            preciseOcrEnabled = !preciseOcrEnabled;
+            precOcrToggleBtn.style.background = preciseOcrEnabled ? 'rgba(59, 130, 246, 0.15)' : 'var(--surface)';
+            precOcrToggleBtn.style.borderColor = preciseOcrEnabled ? 'var(--primary)' : 'var(--border)';
+            precOcrToggleBtn.style.color = preciseOcrEnabled ? 'var(--primary)' : 'var(--text-secondary)';
+            precOcrBtnText.innerText = preciseOcrEnabled ? '精确点位扫描：开启' : '精确点位扫描：关闭';
+            ocrResolutionSelect.style.display = preciseOcrEnabled ? 'inline-block' : 'none';
+            if (ocrHintTitle && ocrHintDesc) {
+                if (preciseOcrEnabled) {
+                    ocrHintTitle.innerText = '上传截图 (按已配置的精确坐标定点识别)';
+                    ocrHintDesc.innerText = '请确保截图分辨率与下方所选一致，否则坐标会错位；识别更快更准，但仅支持已录入坐标的分辨率';
+                } else {
+                    ocrHintTitle.innerText = '一次性上传 4 张截图';
+                    ocrHintDesc.innerText = '无须排序，支持点击或拖拽至此 (自动提取注册号、航程、收益等)';
+                }
+            }
+        });
+    }
+
+    // ═══════════════════════════════════════════════
+    // 全局复用的 Tesseract Worker
+    // ═══════════════════════════════════════════════
+    // 之前每次 Tesseract.recognize(img, 'chi_sim+eng') 都会在内部临时创建一个
+    // worker、重新加载一遍 chi_sim+eng 语言包和 WASM 引擎，识别完再销毁——
+    // 这个初始化开销（尤其中文语言包）比真正的识别运算耗时大得多。
+    // 精确扫描一张图要拆 10 个字段，就等于把这个初始化开销重复了 10 次。
+    // 这里改成：整个页面生命周期内只初始化 1 次 worker，之后所有识别请求
+    // 都复用同一个 worker.recognize(...)，实测能把多字段/多图场景提速数倍。
+    let tesseractWorkerPromise = null;
+    function getTesseractWorker() {
+        if (!tesseractWorkerPromise) {
+            tesseractWorkerPromise = Tesseract.createWorker('chi_sim+eng').catch(err => {
+                tesseractWorkerPromise = null; // 初始化失败时允许下次重试
+                throw err;
+            });
+        }
+        return tesseractWorkerPromise;
+    }
+
+    // 将裁剪区域从原图中抠出并放大，返回可直接喂给 Tesseract 的 canvas
+    // region: [x1, x2, y1, y2]，均基于 refDims 所在的参考分辨率
+    function cropRegionFromImage(img, region, refDims) {
+        const scaleX = img.naturalWidth / refDims.w;
+        const scaleY = img.naturalHeight / refDims.h;
+        const [x1, x2, y1, y2] = region;
+        const sx = x1 * scaleX, sy = y1 * scaleY;
+        const sw = Math.max(1, (x2 - x1) * scaleX), sh = Math.max(1, (y2 - y1) * scaleY);
+        const upscale = 3; // 小字块放大后识别准确率更高
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(sw * upscale);
+        canvas.height = Math.round(sh * upscale);
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+        return canvas;
+    }
+
+    function loadImageFromFile(file) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+            img.onload = () => { resolve(img); };
+            img.onerror = (err) => { URL.revokeObjectURL(url); reject(err); };
+            img.src = url;
+        });
+    }
+
+    // --- 精确扫描专用字段提取器：由于每个字段已被单独裁剪出来，不再需要关键词锚定 ---
+    function pxExtractAirportCode(text) {
+        const m = text.match(/[A-Za-z]{3,4}/);
+        return m ? m[0].toUpperCase() : null;
+    }
+    function pxExtractRegCode(text) {
+        const candidates = (text.match(/[A-Za-z0-9-]{3,8}/g) || []).map(s => s.toUpperCase().replace(/[^A-Z0-9-]/g, '')).filter(s => /[A-Za-z]/.test(s) || /\d/.test(s));
+        if (!candidates.length) return null;
+        // 精确扫描同一字段会跨多张截图重复裁剪识别，用模糊聚类+逐位投票纠正偶发的 I/L/J、0/O 误读，
+        // 而不是简单取最长的一次结果。
+        return clusterAndVoteByChar(candidates);
+    }
+    function pxExtractFlightTime(text) {
+        let m = text.match(/(\d{1,2})\s*h\s*(\d{1,2})\s*m/i);
+        if (m) return { hrs: parseInt(m[1]), mins: parseInt(m[2]) };
+        const nums = text.match(/\d{1,2}/g);
+        if (nums && nums.length >= 2) return { hrs: parseInt(nums[0]), mins: parseInt(nums[1]) };
+        return null;
+    }
+    function pxExtractDistance(text) {
+        let m = text.match(/(\d[\d,\s]*)\s*NM/i);
+        if (m) return parseInt(m[1].replace(/[\s,]/g, ''));
+        m = text.match(/(\d[\d,\s]{2,})/);
+        return m ? parseInt(m[1].replace(/[\s,]/g, '')) : null;
+    }
+    function pxExtractMinMax(text) {
+        const m = text.match(/(\d{2,6})\s*[-~]\s*(\d{2,6})/);
+        return m ? { min: parseInt(m[1]), max: parseInt(m[2]) } : null;
+    }
+    function pxExtractAircraftType(text) {
+        if (typeof DB === 'undefined' || !Array.isArray(DB)) return null;
+        const tokens = [...text.matchAll(/[A-Za-z][A-Za-z0-9]{2,5}/g)].map(m => m[0].toUpperCase());
+        let best = null, bestD = 99;
+        for (const t of tokens) {
+            for (const a of DB) {
+                if (!a.icao) continue;
+                const d = editDistance(a.icao, t);
+                if (d < bestD) { bestD = d; best = a.icao; }
+            }
+        }
+        return bestD <= 1 ? best : null;
+    }
+    // 单一舱位数字提取：每个舱位已被单独裁剪成独立小图，直接取图中识别到的第一个 1~3 位数字即可
+    function pxExtractSingleSeatCount(text) {
+        const m = text.match(/\d{1,3}/);
+        return m ? parseInt(m[0]) : null;
+    }
+    function pxExtractMaintPoints(text) {
+        let m = text.match(/(\d+\.\d{1,2})/);
+        if (m) return m[1];
+        m = text.match(/(\d{3,5})\b/);
+        if (m) { const raw = m[1]; return raw.slice(0, -2) + '.' + raw.slice(-2); }
+        return null;
+    }
+
+    const PX_MANAGED_FIELDS = ['f-hrs', 'f-mins', 'f-dist', 'f-totalDist', 'f-maint', 'f-eco', 'f-biz', 'f-first', 'f-min', 'f-max', 'f-icao', 'f-reg', 'f-base', 'f-dest'];
+
+    // 精确点位扫描主流程：逐张图 × 逐字段裁剪 → 单独 OCR → 直接填表
+    async function handlePreciseOcrProcessing(files) {
+        const resKey = ocrResolutionSelect.value;
+        const regionSet = PRECISE_OCR_REGIONS[resKey];
+        if (!regionSet || !regionSet.fields) {
+            ocrStatusPanel.innerHTML = `<span style="color: #ef4444"><i class="fa-solid fa-triangle-exclamation"></i> 该分辨率 (${resKey}) 的精确点位坐标尚未配置，暂无法使用精确扫描。</span>`;
+            return;
+        }
+
+        // 清空本引擎接管的字段 (锁定字段除外)
+        PX_MANAGED_FIELDS.forEach(id => {
+            if (isLocked(id)) return;
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+        });
+
+        const fieldEntries = Object.entries(regionSet.fields);
+        const collected = {};
+        fieldEntries.forEach(([key]) => collected[key] = []);
+
+        try {
+            ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-gear fa-spin"></i> 正在初始化 Tesseract 识别引擎 (仅本次会话首次加载需要等待)...</span>`;
+            const worker = await getTesseractWorker(); // 只在整个会话中初始化一次，后面全部复用
+
+            for (let i = 0; i < files.length; i++) {
+                const img = await loadImageFromFile(files[i]);
+                for (let j = 0; j < fieldEntries.length; j++) {
+                    const [key, rect] = fieldEntries[j];
+                    ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-crosshairs fa-spin"></i> 精确扫描第 ${i + 1}/${files.length} 张：定位字段 ${j + 1}/${fieldEntries.length}...</span>`;
+                    const canvas = cropRegionFromImage(img, rect, { w: regionSet.w, h: regionSet.h });
+                    const result = await worker.recognize(canvas);
+                    collected[key].push(result.data.text || '');
+                }
+            }
+
+            ocrStatusPanel.innerHTML = `<span style="color: #10b981"><i class="fa-solid fa-circle-check"></i> 精确扫描完成！正在写入表单...</span>`;
+            console.log("=== PRECISE OCR PER-FIELD RAW TEXT ===", collected);
+
+            applyPreciseResults(collected);
+
+            setTimeout(() => {
+                ocrStatusPanel.innerHTML = "";
+                ocrDropzone.style.display = 'none';
+                ocrBtnText.innerText = '展开 OCR 智能多图录入 (一次性传4张)';
+            }, 2500);
+        } catch (error) {
+            console.error("Precise OCR Error: ", error);
+            ocrStatusPanel.innerHTML = `<span style="color: #ef4444"><i class="fa-solid fa-triangle-exclamation"></i> 精确扫描中止: ${error.message}</span>`;
+        }
+    }
+
+    function applyPreciseResults(collected) {
+        const joined = key => (collected[key] || []).join('\n');
+
+        const baseCode = pxExtractAirportCode(joined('base'));
+        if (baseCode) setFieldValue('f-base', baseCode);
+
+        const regCode = pxExtractRegCode(joined('reg'));
+        if (regCode) setFieldValue('f-reg', regCode);
+
+        const destCode = pxExtractAirportCode(joined('dest'));
+        if (destCode) setFieldValue('f-dest', destCode);
+
+        const ft = pxExtractFlightTime(joined('flightTime'));
+        if (ft) { setFieldValue('f-hrs', ft.hrs); setFieldValue('f-mins', ft.mins); }
+
+        const destDist = pxExtractDistance(joined('destDist'));
+        if (destDist !== null) setFieldValue('f-dist', destDist);
+
+        const mm = pxExtractMinMax(joined('minMax'));
+        if (mm) { setFieldValue('f-min', mm.min); setFieldValue('f-max', mm.max); }
+
+        const acType = pxExtractAircraftType(joined('aircraftType'));
+        if (acType) setFieldValue('f-icao', acType);
+
+        const totalDist = pxExtractDistance(joined('totalDist'));
+        if (totalDist !== null) setFieldValue('f-totalDist', totalDist);
+
+        const ecoCount = pxExtractSingleSeatCount(joined('seatEco'));
+        if (ecoCount !== null) setFieldValue('f-eco', ecoCount);
+        const bizCount = pxExtractSingleSeatCount(joined('seatBiz'));
+        if (bizCount !== null) setFieldValue('f-biz', bizCount);
+        const firstCount = pxExtractSingleSeatCount(joined('seatFirst'));
+        if (firstCount !== null) setFieldValue('f-first', firstCount);
+
+        const maint = pxExtractMaintPoints(joined('maintenance'));
+        if (maint !== null) setFieldValue('f-maint', maint);
+
+        if (typeof onTypeSelect === 'function') onTypeSelect();
+        PX_MANAGED_FIELDS.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    }
+
     // 5. 核心流式解析与队列控制
     async function handleOcrProcessing(files) {
+        if (preciseOcrEnabled) { await handlePreciseOcrProcessing(files); return; }
+
         ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-gear fa-spin"></i> 正在初始化 Tesseract 识别矩阵 (首次加载中文语言包稍慢，请耐心等待)...</span>`;
         
         try {
+            // 使用中文简体 + 英文混合识别，游戏界面标签为中文，纯英文模型会把中文标签识别成乱码干扰数字定位
+            const worker = await getTesseractWorker(); // 全局单例 worker，避免每张图都重新加载一次语言包
+
             let combinedText = "";
             for (let i = 0; i < files.length; i++) {
                 ocrStatusPanel.innerHTML = `<span style="color: var(--primary)"><i class="fa-solid fa-radar fa-spin"></i> 正在深度解析第 ${i + 1}/${files.length} 张截图... 请勿关闭页面</span>`;
-                // 使用中文简体 + 英文混合识别，游戏界面标签为中文，纯英文模型会把中文标签识别成乱码干扰数字定位
-                const result = await Tesseract.recognize(files[i], 'chi_sim+eng');
+                const result = await worker.recognize(files[i]);
                 combinedText += "\n" + result.data.text;
             }
 
@@ -2360,17 +2852,72 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el && val !== null && val !== undefined && val !== '') el.value = val;
     }
 
-    // 极简编辑距离，用于机型代码的模糊比对 (容忍 OCR 把 1/I、0/O 等认错)
+    // OCR 易混淆字符分组：同组内字符互相替换只计 0.4 分（而不是整整 1 分），
+    // 这样即使一个代码里出现 1~2 个这种典型误读，加权总分依然能落在容忍阈值内。
+    // I / L / J / 1 这组是最常见的竖线状误读，其余几组顺手一并覆盖 (0/O、5/S、2/Z、8/B、6/G)。
+    const OCR_CONFUSION_GROUPS = [
+        ['I', 'L', 'J', '1', '|'],
+        ['0', 'O', 'Q', 'D'],
+        ['5', 'S'],
+        ['2', 'Z'],
+        ['8', 'B'],
+        ['6', 'G'],
+    ];
+    const OCR_CONFUSION_MAP = {};
+    OCR_CONFUSION_GROUPS.forEach((group, gi) => group.forEach(ch => { OCR_CONFUSION_MAP[ch] = gi; }));
+    function isConfusablePair(x, y) {
+        if (x === y) return true;
+        const gx = OCR_CONFUSION_MAP[x], gy = OCR_CONFUSION_MAP[y];
+        return gx !== undefined && gx === gy;
+    }
+
+    // 加权编辑距离，用于机型代码的模糊比对：
+    // - 完全相同字符替换成本 0
+    // - 属于同一"易混淆分组"的替换成本 0.4（容忍 OCR 把 I/L/J/1、0/O 等认错）
+    // - 其他替换/增删成本仍为 1
     function editDistance(a, b) {
         a = a.toUpperCase(); b = b.toUpperCase();
         const dp = Array.from({length: a.length + 1}, (_, i) => [i, ...Array(b.length).fill(0)]);
         for (let j = 0; j <= b.length; j++) dp[0][j] = j;
         for (let i = 1; i <= a.length; i++) {
             for (let j = 1; j <= b.length; j++) {
-                dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+                if (a[i-1] === b[j-1]) {
+                    dp[i][j] = dp[i-1][j-1];
+                } else {
+                    const subCost = isConfusablePair(a[i-1], b[j-1]) ? 0.4 : 1;
+                    dp[i][j] = Math.min(dp[i-1][j-1] + subCost, dp[i-1][j] + 1, dp[i][j-1] + 1);
+                }
             }
         }
         return dp[a.length][b.length];
+    }
+
+    // 通用模糊聚类 + 逐位多数投票：把一批读数（比如同一个注册号在4张截图里反复出现的多次识别结果）
+    // 按加权编辑距离分堆，取票数最多的堆；堆内长度一致时逐个字符位置投票取多数，
+    // 这样偶发的单字符误读（I/L/J、0/O 等）会被其余几次正确识别的结果盖过去，而不是简单看哪个原始字符串出现次数最多。
+    function clusterAndVoteByChar(candidates) {
+        if (!candidates.length) return null;
+        const clusters = [];
+        for (const cand of candidates) {
+            let cluster = clusters.find(c => editDistance(c.items[0], cand) <= 1);
+            if (cluster) cluster.items.push(cand); else clusters.push({ items: [cand] });
+        }
+        clusters.sort((a, b) => b.items.length - a.items.length);
+        const winner = clusters[0].items;
+        const sameLength = winner.every(s => s.length === winner[0].length);
+        if (!sameLength) {
+            const freq = {};
+            winner.forEach(v => freq[v] = (freq[v] || 0) + 1);
+            return Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+        }
+        const len = winner[0].length;
+        let result = '';
+        for (let i = 0; i < len; i++) {
+            const charFreq = {};
+            winner.forEach(s => { charFreq[s[i]] = (charFreq[s[i]] || 0) + 1; });
+            result += Object.entries(charFreq).sort((a, b) => b[1] - a[1])[0][0];
+        }
+        return result;
     }
 
     // Tesseract 的 chi_sim 模型经常把连续中文关键词拆成带空格的独立字/词块识别，
@@ -2482,14 +3029,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- G. 注册号 (优先定位"航空器注册"关键词；同一架飞机的注册号在4张截图里会反复出现，
-        // 用出现频次投票取多数，避免单次 J/I、0/O 这类形近字符误读把结果带偏) ---
+        // 先按加权编辑距离聚类，再在得票最多的簇内逐位多数投票，纠正单次 I/L/J、0/O 这类形近字符误读) ---
         {
             const regCandidates = [...text.matchAll(new RegExp(kw('航空器注册') + '[^A-Za-z\\n]{0,8}([A-Z0-9]{3,6})\\b', 'gi'))].map(m => m[1].toUpperCase());
             let regVal = null;
             if (regCandidates.length) {
-                const freq = {};
-                regCandidates.forEach(v => freq[v] = (freq[v] || 0) + 1);
-                regVal = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+                regVal = clusterAndVoteByChar(regCandidates);
             } else {
                 const fallback = text.match(/\b([A-Z0-9]{4,6}|[A-Z0-9]{1,3}-[A-Z0-9]{2,5})\b/i);
                 if (fallback) regVal = fallback[1].toUpperCase();
@@ -2522,6 +3067,220 @@ document.addEventListener('DOMContentLoaded', () => {
         ['f-hrs', 'f-mins', 'f-dist', 'f-totalDist', 'f-maint', 'f-eco', 'f-biz', 'f-first', 'f-min', 'f-max', 'f-icao', 'f-reg', 'f-base', 'f-dest'].forEach(id => {
             const el = document.getElementById(id);
             if(el) el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    }
+
+    // ═══════════════════════════════════════════════
+    // ⚡ 极速更新累计总距离 (Quick Distance Update)
+    // ---------------------------------------------
+    // 解决痛点：机队列表排序随机，每次只是想改一下"累计总距离"却要先在列表
+    // 里翻找注册号、点编辑、再改字段、再保存。这里提供一条更短的路径：
+    //   1) 手动模式：直接打字/下拉选注册号 → 输入新距离 → 回车，立即写回，
+    //      不离开当前页面，改完自动清空可以连续输入下一架。
+    //   2) OCR 批量模式：复用已有的精确点位坐标（1600x900），但只裁剪"注册号"
+    //      和"累计飞行距离"这两个字段（比完整入库扫描快得多），一次拖入多张
+    //      截图，自动按注册号匹配到机队里的飞机，列出"旧值→新值"核对表，
+    //      勾选后一次性批量写回。
+    // 这些函数定义在本 OCR 闭包内，从而可以直接复用上面的 getTesseractWorker /
+    // cropRegionFromImage / loadImageFromFile / pxExtractRegCode / pxExtractDistance /
+    // editDistance / PRECISE_OCR_REGIONS；同时挂到 window 上，供 HTML 内联 onclick 调用。
+    // ═══════════════════════════════════════════════
+    let qdReviewRows = [];
+
+    function qdFindMatch(regGuess) {
+        if (!regGuess) return null;
+        const rg = String(regGuess).toUpperCase().replace(/[^A-Z0-9-]/g, '');
+        if (!rg) return null;
+        let exact = fleet.find(a => (a.reg || '').toUpperCase() === rg);
+        if (exact) return exact;
+        let best = null, bestD = 99;
+        fleet.forEach(a => {
+            const d = editDistance((a.reg || '').toUpperCase(), rg);
+            if (d < bestD) { bestD = d; best = a; }
+        });
+        return (best && bestD <= 2 && rg.length >= 3) ? best : null;
+    }
+
+    window.openQuickDistModal = function() {
+        const list = document.getElementById('qd-reg-list');
+        if (list) {
+            list.innerHTML = [...fleet].sort((a, b) => (a.reg || '').localeCompare(b.reg || ''))
+                .map(a => `<option value="${a.reg || ''}">${a.icao || ''} · 当前 ${a.totalDist ? Number(a.totalDist).toLocaleString() : 0} nm</option>`).join('');
+        }
+        const regEl = document.getElementById('qd-reg'); if (regEl) regEl.value = '';
+        const distEl = document.getElementById('qd-dist'); if (distEl) { distEl.value = ''; distEl.removeAttribute('placeholder'); }
+        const infoEl = document.getElementById('qd-match-info'); if (infoEl) infoEl.textContent = '';
+        const statusEl = document.getElementById('qd-ocr-status'); if (statusEl) statusEl.innerHTML = '';
+        const reviewWrap = document.getElementById('qd-review-wrap'); if (reviewWrap) reviewWrap.style.display = 'none';
+        qdReviewRows = [];
+        window.switchQdTab('manual');
+        const modal = document.getElementById('quick-dist-modal');
+        if (modal) modal.classList.add('show');
+        setTimeout(() => { const el = document.getElementById('qd-reg'); if (el) el.focus(); }, 100);
+    };
+
+    window.closeQuickDistModal = function() {
+        const modal = document.getElementById('quick-dist-modal');
+        if (modal) modal.classList.remove('show');
+    };
+
+    window.switchQdTab = function(tab) {
+        const mp = document.getElementById('qd-panel-manual'), op = document.getElementById('qd-panel-ocr');
+        const mb = document.getElementById('qd-tab-manual-btn'), ob = document.getElementById('qd-tab-ocr-btn');
+        if (mp) mp.style.display = tab === 'manual' ? 'block' : 'none';
+        if (op) op.style.display = tab === 'ocr' ? 'block' : 'none';
+        if (mb) mb.classList.toggle('active', tab === 'manual');
+        if (ob) ob.classList.toggle('active', tab === 'ocr');
+        if (tab === 'manual') setTimeout(() => { const el = document.getElementById('qd-reg'); if (el) el.focus(); }, 50);
+    };
+
+    window.onQdRegInput = function() {
+        const input = document.getElementById('qd-reg');
+        const infoEl = document.getElementById('qd-match-info');
+        const distInput = document.getElementById('qd-dist');
+        if (!input || !infoEl) return;
+        const val = input.value.trim().toUpperCase();
+        if (!val) { infoEl.textContent = ''; return; }
+        const match = fleet.find(a => (a.reg || '').toUpperCase() === val);
+        if (match) {
+            infoEl.innerHTML = `✅ 匹配到 <strong style="color:var(--cyan)">${match.icao}</strong>，当前累计总距离：<strong>${match.totalDist ? Number(match.totalDist).toLocaleString() : '未记录'}</strong> nm`;
+            infoEl.style.color = 'var(--green)';
+            if (distInput) distInput.placeholder = `当前 ${match.totalDist || 0}`;
+        } else {
+            infoEl.textContent = '⚠️ 未找到该注册号对应的飞机，请检查输入';
+            infoEl.style.color = 'var(--amber)';
+            if (distInput) distInput.removeAttribute('placeholder');
+        }
+    };
+
+    window.applyQuickDistManual = function() {
+        const regInput = document.getElementById('qd-reg');
+        const distInput = document.getElementById('qd-dist');
+        const reg = regInput.value.trim().toUpperCase();
+        const distVal = distInput.value;
+        if (!reg) { toast('请输入注册号', true); regInput.focus(); return; }
+        if (distVal === '' || isNaN(parseInt(distVal))) { toast('请输入有效的总距离数值', true); distInput.focus(); return; }
+        const idx = fleet.findIndex(a => (a.reg || '').toUpperCase() === reg);
+        if (idx < 0) { toast(`未找到注册号为 ${reg} 的飞机`, true); return; }
+        const oldVal = fleet[idx].totalDist;
+        fleet[idx].totalDist = parseInt(distVal);
+        fleet[idx].updatedAt = new Date().toISOString();
+        fleet[idx].changelog = fleet[idx].changelog || [];
+        fleet[idx].changelog.unshift({ time: new Date().toISOString(), changes: [`<strong>累计总距离</strong>: ${oldVal || '空'} ➔ ${distVal}（极速更新）`] });
+        persistFleet();
+        if (typeof renderFleet === 'function') renderFleet();
+        if (typeof syncFilters === 'function') syncFilters();
+        toast(`${reg} 累计总距离已更新为 ${parseInt(distVal).toLocaleString()} nm`);
+        // 清空以便连续录入下一架，不关闭弹窗
+        regInput.value = ''; distInput.value = ''; distInput.removeAttribute('placeholder');
+        document.getElementById('qd-match-info').textContent = '';
+        regInput.focus();
+    };
+
+    function qdRenderReviewTable() {
+        const tbody = document.getElementById('qd-review-tbody');
+        const wrap = document.getElementById('qd-review-wrap');
+        if (!tbody || !wrap) return;
+        wrap.style.display = qdReviewRows.length ? 'block' : 'none';
+        tbody.innerHTML = qdReviewRows.map(row => {
+            const match = qdFindMatch(row.reg);
+            row.matchedId = match ? match.id : null;
+            const oldDist = match ? (parseInt(match.totalDist) || 0) : null;
+            const matchHtml = match
+                ? `<span style="color:var(--cyan); font-weight:600;">${match.reg}</span> <span style="color:var(--text3)">(${match.icao})</span>`
+                : `<span style="color:var(--amber)"><i class="fa-solid fa-triangle-exclamation"></i> 未匹配</span>`;
+            return `<tr data-row-id="${row.id}">
+                <td style="padding:8px; text-align:center;"><input type="checkbox" ${row.checked ? 'checked' : ''} onchange="qdRowCheckChanged('${row.id}', this.checked)"></td>
+                <td style="padding:8px;"><input type="text" value="${row.reg || ''}" style="width:100px; font-family:var(--mono); text-transform:uppercase; padding:4px 6px;" onchange="qdRowRegChanged('${row.id}', this.value)"></td>
+                <td style="padding:8px;">${matchHtml}</td>
+                <td style="padding:8px;"><span style="color:var(--text3)">${oldDist !== null ? oldDist.toLocaleString() : '—'}</span> <i class="fa-solid fa-arrow-right" style="color:var(--text3); font-size:10px;"></i> <input type="number" value="${row.newDist}" style="width:90px; padding:4px 6px;" onchange="qdRowDistChanged('${row.id}', this.value)"></td>
+            </tr>`;
+        }).join('');
+    }
+
+    window.qdRowCheckChanged = function(id, val) { const r = qdReviewRows.find(x => x.id === id); if (r) r.checked = val; };
+    window.qdRowRegChanged = function(id, val) { const r = qdReviewRows.find(x => x.id === id); if (r) { r.reg = val.trim().toUpperCase(); qdRenderReviewTable(); } };
+    window.qdRowDistChanged = function(id, val) { const r = qdReviewRows.find(x => x.id === id); if (r) r.newDist = val; };
+    window.qdToggleAll = function(checked) { qdReviewRows.forEach(r => r.checked = checked); qdRenderReviewTable(); };
+
+    window.applyQuickDistBatch = function() {
+        let applied = 0, skipped = 0;
+        qdReviewRows.forEach(row => {
+            if (!row.checked) return;
+            const match = qdFindMatch(row.reg);
+            const distNum = parseInt(row.newDist);
+            if (!match || isNaN(distNum)) { skipped++; return; }
+            const idx = fleet.findIndex(a => a.id === match.id);
+            if (idx < 0) { skipped++; return; }
+            const oldVal = fleet[idx].totalDist;
+            fleet[idx].totalDist = distNum;
+            fleet[idx].updatedAt = new Date().toISOString();
+            fleet[idx].changelog = fleet[idx].changelog || [];
+            fleet[idx].changelog.unshift({ time: new Date().toISOString(), changes: [`<strong>累计总距离</strong>: ${oldVal || '空'} ➔ ${distNum}（OCR批量更新）`] });
+            applied++;
+        });
+        if (applied > 0) {
+            persistFleet();
+            if (typeof renderFleet === 'function') renderFleet();
+            if (typeof syncFilters === 'function') syncFilters();
+        }
+        toast(`已更新 ${applied} 架飞机的总距离${skipped ? '，' + skipped + ' 条因未匹配到飞机或数值无效被跳过' : ''}`, skipped > 0 && applied === 0);
+        if (applied > 0 && skipped === 0) window.closeQuickDistModal();
+    };
+
+    async function qdProcessOcrFiles(files) {
+        const qdOcrStatus = document.getElementById('qd-ocr-status');
+        const regionSet = PRECISE_OCR_REGIONS['1600x900'];
+        if (!regionSet || !regionSet.fields) {
+            qdOcrStatus.innerHTML = `<span style="color:#ef4444"><i class="fa-solid fa-triangle-exclamation"></i> 当前分辨率的精确点位坐标尚未配置，暂无法使用批量识别</span>`;
+            return;
+        }
+        qdReviewRows = [];
+        document.getElementById('qd-review-wrap').style.display = 'none';
+        try {
+            qdOcrStatus.innerHTML = `<span style="color:var(--cyan)"><i class="fa-solid fa-gear fa-spin"></i> 正在初始化识别引擎 (仅首次加载较慢)...</span>`;
+            const worker = await getTesseractWorker();
+            const fileArr = Array.from(files);
+            for (let i = 0; i < fileArr.length; i++) {
+                qdOcrStatus.innerHTML = `<span style="color:var(--cyan)"><i class="fa-solid fa-crosshairs fa-spin"></i> 正在识别第 ${i + 1}/${fileArr.length} 张截图...</span>`;
+                const img = await loadImageFromFile(fileArr[i]);
+                const regCanvas = cropRegionFromImage(img, regionSet.fields.reg, { w: regionSet.w, h: regionSet.h });
+                const distCanvas = cropRegionFromImage(img, regionSet.fields.totalDist, { w: regionSet.w, h: regionSet.h });
+                const regResult = await worker.recognize(regCanvas);
+                const distResult = await worker.recognize(distCanvas);
+                const ocrReg = pxExtractRegCode(regResult.data.text || '') || '';
+                const ocrDist = pxExtractDistance(distResult.data.text || '');
+                qdReviewRows.push({
+                    id: 'qdrow' + i + '_' + Date.now(),
+                    reg: ocrReg,
+                    newDist: ocrDist !== null ? ocrDist : '',
+                    checked: true
+                });
+            }
+            qdOcrStatus.innerHTML = `<span style="color:#10b981"><i class="fa-solid fa-circle-check"></i> 识别完成，共 ${fileArr.length} 张，请核对下方结果后再应用</span>`;
+            qdRenderReviewTable();
+        } catch (err) {
+            console.error('Quick-dist OCR error:', err);
+            qdOcrStatus.innerHTML = `<span style="color:#ef4444"><i class="fa-solid fa-triangle-exclamation"></i> 识别中止: ${err.message}</span>`;
+        }
+    }
+
+    const qdOcrDropzone = document.getElementById('qd-ocr-dropzone');
+    const qdOcrFileInput = document.getElementById('qd-ocr-file-input');
+    if (qdOcrDropzone && qdOcrFileInput) {
+        qdOcrDropzone.addEventListener('click', (e) => {
+            if (e.target.closest('input')) return;
+            qdOcrFileInput.click();
+        });
+        qdOcrDropzone.addEventListener('dragover', (e) => { e.preventDefault(); qdOcrDropzone.style.borderColor = 'var(--cyan)'; });
+        qdOcrDropzone.addEventListener('dragleave', () => { qdOcrDropzone.style.borderColor = 'var(--border)'; });
+        qdOcrDropzone.addEventListener('drop', (e) => {
+            e.preventDefault(); qdOcrDropzone.style.borderColor = 'var(--border)';
+            if (e.dataTransfer.files.length) qdProcessOcrFiles(e.dataTransfer.files);
+        });
+        qdOcrFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) qdProcessOcrFiles(e.target.files);
+            qdOcrFileInput.value = '';
         });
     }
 });
@@ -3118,6 +3877,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initColSettings();
     initLocks();
     setViewMode(currentViewMode, true); 
+    setRatingBasis(currentRatingBasis, true); // <--- 新增这行初始化评级按钮状态
     setupCountryRowClickHandlers();
 });
 
@@ -3126,6 +3886,7 @@ function showView(name, el) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
   (el || document.querySelector(`[data-view="${name}"]`)).classList.add('active');
+  currentViewName = name;
   if (name === 'analytics') renderAnalytics();
   if (name === 'profitchart') renderProfitCurve();
   if (name === 'timeline') renderTimeline();
@@ -3135,12 +3896,15 @@ function showView(name, el) {
   if (name === 'wollars') {
     loadWollars();
     renderWollarsGrid();
+    loadCoins();
+    renderCoinTrackers();
   }
   if (name === 'routes') renderRoutes();
   if (name === 'countries') renderCountries();
   if (name === 'routemap') {
       setTimeout(() => { renderMap(); }, 150); 
   }
+  renderCoinRefreshBadge(); // 每次切换视图后，重新判断是否应显示右下角金币提示
 }
 
 function syncFilters() {
@@ -3599,10 +4363,31 @@ function renderMap() {
 // ═══════════════════════════════════════════════
 function exportData() {
   const countryPeriods = loadCountryPeriods();
-  const data = { fleet, routes, countryPeriods, wollarsHistory };
+  const data = {
+    __version: 2,
+    fleet, routes, countryPeriods, wollarsHistory,
+    // 金币 / 银币 历史记录
+    goldHistory, silverHistory,
+    // 金币刷新计时与待领取状态
+    coinTimers: {
+      dailyTs: localStorage.getItem('woa_coin_daily_ts') || null,
+      weeklyTs: localStorage.getItem('woa_coin_weekly_ts') || null,
+      dailyPending: localStorage.getItem('woa_coin_daily_pending') === '1'
+    },
+    // 界面偏好设置（主题 / 侧栏 / 视图模式 / 排序基准 / 锁定字段 / 显示列 / 国家测试日期）
+    settings: {
+      theme: localStorage.getItem('woa_theme') || null,
+      sidebar: localStorage.getItem('woa_sidebar') || null,
+      viewMode: localStorage.getItem('woa_view_mode') || null,
+      ratingBasis: localStorage.getItem('woa_rating_basis') || null,
+      lockedFields: [...lockedFields],
+      visibleColumns,
+      countryTestDate: localStorage.getItem('woa_country_test_date') || null
+    }
+  };
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
   const dl = document.createElement('a'); dl.setAttribute("href", dataStr); dl.setAttribute("download", `woa_command_backup_${new Date().toISOString().slice(0, 10)}.json`);
-  document.body.appendChild(dl); dl.click(); dl.remove(); toast('系统数据已导出存档');
+  document.body.appendChild(dl); dl.click(); dl.remove(); toast('系统数据已导出存档（含金币银币与全部设置）');
 }
 function importData(event) {
   const file = event.target.files[0]; if (!file) return;
@@ -3645,13 +4430,51 @@ function importData(event) {
         wollarsHistory.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
         persistWollars();
       }
+
+      // 金币 / 银币 历史记录合并（按日期去重，同日新数据覆盖）
+      let addedCoinDays = 0;
+      ['goldHistory', 'silverHistory'].forEach(field => {
+        if (data[field] && Array.isArray(data[field])) {
+          const target = field === 'goldHistory' ? goldHistory : silverHistory;
+          data[field].forEach(newRec => {
+            if (!newRec || !newRec.date) return;
+            const existingRec = target.find(r => r.date === newRec.date);
+            if (existingRec) { existingRec.value = newRec.value; }
+            else { target.push({ date: newRec.date, value: newRec.value }); addedCoinDays++; }
+          });
+          target.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+          persistCoinHistory(field === 'goldHistory' ? 'gold' : 'silver');
+        }
+      });
+
+      // 金币刷新计时与待领取状态（直接覆盖，取存档中的最新状态）
+      if (data.coinTimers) {
+        const ct = data.coinTimers;
+        if (ct.dailyTs) localStorage.setItem('woa_coin_daily_ts', ct.dailyTs); else localStorage.removeItem('woa_coin_daily_ts');
+        if (ct.weeklyTs) localStorage.setItem('woa_coin_weekly_ts', ct.weeklyTs); else localStorage.removeItem('woa_coin_weekly_ts');
+        localStorage.setItem('woa_coin_daily_pending', ct.dailyPending ? '1' : '0');
+      }
+
+      // 界面偏好设置（直接覆盖）
+      if (data.settings) {
+        const s = data.settings;
+        if (s.theme) localStorage.setItem('woa_theme', s.theme);
+        if (s.sidebar) localStorage.setItem('woa_sidebar', s.sidebar);
+        if (s.viewMode) localStorage.setItem('woa_view_mode', s.viewMode);
+        if (s.ratingBasis) localStorage.setItem('woa_rating_basis', s.ratingBasis);
+        if (Array.isArray(s.lockedFields)) { lockedFields = new Set(s.lockedFields); localStorage.setItem('woa_locked_fields', JSON.stringify(s.lockedFields)); }
+        if (Array.isArray(s.visibleColumns) && s.visibleColumns.length > 0) { visibleColumns = s.visibleColumns; localStorage.setItem('woa_visible_cols', JSON.stringify(visibleColumns)); }
+        if (s.countryTestDate) localStorage.setItem('woa_country_test_date', s.countryTestDate);
+      }
+
+      renderCoinTrackers(); renderCoinRefreshBadge(); updateCoinRefreshUI();
       syncFilters(); 
       if(document.getElementById('view-fleet').classList.contains('active')) renderFleet();
       if(document.getElementById('view-routes').classList.contains('active')) renderRoutes();
       if(document.getElementById('view-timeline').classList.contains('active')) renderTimeline();
       if(document.getElementById('view-countries').classList.contains('active')) renderCountries();
       if(document.getElementById('view-wollars').classList.contains('active')) renderWollarsGrid();
-      toast(`增量导入成功：新增 ${addedFleet} 架飞机，${addedRoutes} 条记录，${addedPeriods} 期国家快照，${addedWollarsDays} 天 Wollars 数据`);
+      toast(`增量导入成功：新增 ${addedFleet} 架飞机，${addedRoutes} 条记录，${addedPeriods} 期国家快照，${addedWollarsDays} 天 Wollars 数据，${addedCoinDays} 天金银币数据`);
     } catch (err) { toast('导入失败：数据格式不匹配', true); }
   };
   reader.readAsText(file); event.target.value = '';
@@ -3726,13 +4549,18 @@ function renderAnalytics() {
   const cargoDisplay = formatLargeNum(totalCargoTransportedTon);
   const profitDisplay = formatLargeNum(totalProfit);
 
+  // 提前计算好精确的字符串
+  const exactPax = Math.round(totalPaxTransported).toLocaleString();
+  const exactCargo = Math.round(totalCargoTransportedTon).toLocaleString();
+  const exactProfit = Math.round(totalProfit).toLocaleString();
+
   document.getElementById('stat-grid').innerHTML = `
     <div class="stat-card"><div class="stat-label">编队总数</div><div class="stat-value">${total}</div><i class="fa-solid fa-plane stat-icon"></i></div>
     <div class="stat-card cyan"><div class="stat-label">客机数量</div><div class="stat-value">${pax}</div><i class="fa-solid fa-person-seat stat-icon"></i></div>
     <div class="stat-card amber"><div class="stat-label">货机数量</div><div class="stat-value">${cargo}</div><i class="fa-solid fa-box stat-icon"></i></div>
-    <div class="stat-card cyan"><div class="stat-label">总运送旅客 (Pax)</div><div class="stat-value">${paxDisplay}</div><div class="stat-sub">基于 95% 客座率</div><i class="fa-solid fa-users stat-icon"></i></div>
-    <div class="stat-card amber"><div class="stat-label">总运送货物 (Ton)</div><div class="stat-value">${cargoDisplay}</div><div class="stat-sub">基于 95% 载货率</div><i class="fa-solid fa-boxes-stacked stat-icon"></i></div>
-    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${profitDisplay}</div><div class="stat-sub">Wollars</div><i class="fa-solid fa-money-bill-wave stat-icon"></i></div>
+    <div class="stat-card cyan" data-tooltip="<b>${exactPax}</b> Pax"><div class="stat-label">总运送旅客 (Pax)</div><div class="stat-value">${paxDisplay}</div><div class="stat-sub">基于 95% 客座率</div><i class="fa-solid fa-users stat-icon"></i></div>
+    <div class="stat-card amber" data-tooltip="<b>${exactCargo}</b> Ton"><div class="stat-label">总运送货物 (Ton)</div><div class="stat-value">${cargoDisplay}</div><div class="stat-sub">基于 95% 载货率</div><i class="fa-solid fa-boxes-stacked stat-icon"></i></div>
+    <div class="stat-card ${totalProfit >= 0 ? 'green' : 'red'}" data-tooltip="${exactProfit}</b> W"><div class="stat-label">净利润总额</div><div class="stat-value" style="font-size:24px">${profitDisplay}</div><div class="stat-sub">Wollars</div><i class="fa-solid fa-money-bill-wave stat-icon"></i></div>
     <div class="stat-card ${totalMargin >= 0 ? 'cyan' : 'red'}"><div class="stat-label">整体净利率</div><div class="stat-value" style="font-size:24px">${totalMargin}%</div><div class="stat-sub">基于预期毛利</div><i class="fa-solid fa-percent stat-icon"></i></div>`;
 
   const typeTop = countBy(data,'icao'); 
@@ -3783,8 +4611,8 @@ function renderAnalytics() {
       options: {
         indexAxis: 'y', responsive: true, maintainAspectRatio: false,
         scales: { 
-            x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'JetBrains Mono', monospace"} }, title: { display: true, text: 'ROI (%)', color: textColor, font: {size: 10} } },
-            y: { grid: { display: false }, ticks: { color: isLight ? '#1a202c' : '#edf0f5', font: {family: "'JetBrains Mono', monospace", weight: 'bold'} } }
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'Inter Tight', monospace"} }, title: { display: true, text: 'ROI (%)', color: textColor, font: {size: 10} } },
+            y: { grid: { display: false }, ticks: { color: isLight ? '#1a202c' : '#edf0f5', font: {family: "'Inter Tight', monospace", size: 9} } }
         },
         plugins: { 
             legend: { display: false },
@@ -3859,15 +4687,15 @@ function renderProfitCurve() {
     options: { 
         layout: { padding: { right: 40 } }, responsive: true, maintainAspectRatio: false, 
         scales: { 
-            x: { type: 'linear', title: { display: true, text: 'Distance (nm)', color: textColor }, grid: { color: gridColor }, ticks: { color: textColor, font: { family: "'JetBrains Mono', monospace" }, beginAtZero: true } }, 
-            y: { title: { display: true, text: 'Net Profit (W)', color: textColor }, grid: { color: gridColor }, ticks: { color: textColor, font: { family: "'JetBrains Mono', monospace" } } } 
+            x: { type: 'linear', title: { display: true, text: 'Distance (nm)', color: textColor }, grid: { color: gridColor }, ticks: { color: textColor, font: { family: "'Inter Tight', monospace" }, beginAtZero: true } }, 
+            y: { title: { display: true, text: 'Net Profit (W)', color: textColor }, grid: { color: gridColor }, ticks: { color: textColor, font: { family: "'Inter Tight', monospace" } } } 
         }, 
         plugins: { 
             legend: { display: true, position: 'top', labels: { color: isLight ? '#1a202c' : '#edf0f5', usePointStyle: true } },
             tooltip: { backgroundColor: tooltipBg, titleColor: tooltipColor, bodyColor: isLight ? '#008ca8' : '#00e5ff', borderColor: isLight ? 'rgba(0,0,0,0.1)' : 'rgba(0,229,255,0.2)', borderWidth: 1, callbacks: { label: function(context) { if(context.raw.x === 0 && context.raw.y === 0) return `${context.dataset.label} : 0 W @ 起点`; return `${context.raw.label} : ${context.raw.y.toLocaleString()} W @ ${context.raw.x} nm`; } } }
         } 
     },
-    plugins: [{ id: 'tailLabelPlugin', afterDraw: (chart) => { const ctx = chart.ctx; ctx.font = 'bold 11px "JetBrains Mono", monospace'; ctx.textBaseline = 'middle'; chart.data.datasets.forEach((dataset, i) => { const meta = chart.getDatasetMeta(i); if (!meta.hidden && meta.data.length > 0) { const lastPoint = meta.data[meta.data.length - 1]; const { x, y } = lastPoint.getProps(['x', 'y']); ctx.fillStyle = dataset.borderColor; ctx.textAlign = 'left'; ctx.fillText(dataset.label, x + 6, y); } }); } }]
+    plugins: [{ id: 'tailLabelPlugin', afterDraw: (chart) => { const ctx = chart.ctx; ctx.font = 'bold 11px "Inter Tight", monospace'; ctx.textBaseline = 'middle'; chart.data.datasets.forEach((dataset, i) => { const meta = chart.getDatasetMeta(i); if (!meta.hidden && meta.data.length > 0) { const lastPoint = meta.data[meta.data.length - 1]; const { x, y } = lastPoint.getProps(['x', 'y']); ctx.fillStyle = dataset.borderColor; ctx.textAlign = 'left'; ctx.fillText(dataset.label, x + 6, y); } }); } }]
   });
 }
 
@@ -3993,8 +4821,8 @@ function renderTimeline() {
         options: {
             responsive: true, maintainAspectRatio: false,
             scales: { 
-                x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'JetBrains Mono', monospace"} } }, 
-                y: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'JetBrains Mono', monospace"}, beginAtZero: true } } 
+                x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'Inter Tight', monospace"} } }, 
+                y: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'Inter Tight', monospace"}, beginAtZero: true } } 
             },
             plugins: {
                 legend: { display: false },
@@ -4155,19 +4983,43 @@ function renderFleet() {
   const ld = document.getElementById('ff-load').value; const sz = document.getElementById('ff-size').value; const seats = document.getElementById('ff-seats').value;
   const ratingFilter = document.getElementById('ff-rating').value;
 
+  // 1. 依据当前的评级基准，计算同级别（Size）的全球平均值
   const globalAverages = {};
-  fleet.forEach(a => { const p = getAcProfit(a.reg || a.icao, a.icao); if(p !== 0) { if(!globalAverages[a.size]) globalAverages[a.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[a.size].sum += p; globalAverages[a.size].count++; } });
+  fleet.forEach(a => { 
+      const p = getAcProfit(a.reg || a.icao, a.icao); 
+      const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60);
+      const profitHr = totalHrs > 0 ? p / totalHrs : 0;
+      
+      const targetVal = currentRatingBasis === 'hourly' ? profitHr : p;
+
+      if(targetVal > 0) { 
+          if(!globalAverages[a.size]) globalAverages[a.size] = { sum: 0, count: 0, avg: 0 }; 
+          globalAverages[a.size].sum += targetVal; 
+          globalAverages[a.size].count++; 
+      } 
+  });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
 
   const seqMap = {}; [...fleet].sort((a, b) => Number(a.id) - Number(b.id)).forEach((ac, idx) => { seqMap[ac.id] = idx + 1; });
 
+  // 2. 为每架飞机分配评级
   let data = fleet.map(a => {
-    const acProfit = getAcProfit(a.reg || a.icao, a.icao); const avgProfit = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
-    let vsAvgPct = 0; if(avgProfit > 0) vsAvgPct = ((acProfit - avgProfit) / avgProfit) * 100;
-    const ratingData = getAircraftRating(acProfit, vsAvgPct);
-    const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
+    const acProfit = getAcProfit(a.reg || a.icao, a.icao); 
+    const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); 
+    const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
+    
+    // 取出该机型对应的比较基准值
+    const targetVal = currentRatingBasis === 'hourly' ? profitHr : acProfit;
+    const avgVal = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
+    
+    let vsAvgPct = 0; 
+    if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
+    
+    // 如果原净利润已经是负数，无论基准是什么，都传 acProfit 进去触发 D 级，否则传 targetVal 计算 S-D 评级
+    const ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct); 
+    
     const timeStr = (a.flightHrs !== undefined || a.flightMins !== undefined) ? `${a.flightHrs||0}h ${a.flightMins||0}m` : '—';
-    return { ...a, acProfit, vsAvgPct, avgProfit, profitHr, timeStr, totalHrs, ratingData };
+    return { ...a, acProfit, vsAvgPct, avgProfit: avgVal, profitHr, timeStr, totalHrs, ratingData };
   });
 
   data = data.filter(a => {
@@ -4354,17 +5206,33 @@ function openPopup(id) {
   const acProfit = getAcProfit(a.reg || a.icao, a.icao);
   
   const globalAverages = {};
-  fleet.forEach(f => { const p = getAcProfit(f.reg || f.icao, f.icao); if(p !== 0) { if(!globalAverages[f.size]) globalAverages[f.size] = { sum: 0, count: 0, avg: 0 }; globalAverages[f.size].sum += p; globalAverages[f.size].count++; } });
+  fleet.forEach(f => { 
+      const p = getAcProfit(f.reg || f.icao, f.icao); 
+      const tHrs = (f.flightHrs || 0) + ((f.flightMins || 0) / 60);
+      const pHr = tHrs > 0 ? p / tHrs : 0;
+      const tVal = currentRatingBasis === 'hourly' ? pHr : p;
+      
+      if(tVal > 0) { 
+          if(!globalAverages[f.size]) globalAverages[f.size] = { sum: 0, count: 0, avg: 0 }; 
+          globalAverages[f.size].sum += tVal; 
+          globalAverages[f.size].count++; 
+      } 
+  });
   Object.keys(globalAverages).forEach(k => globalAverages[k].avg = globalAverages[k].sum / globalAverages[k].count);
-  const avgProfit = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
-  let vsAvgPct = 0; if(avgProfit > 0) vsAvgPct = ((acProfit - avgProfit) / avgProfit) * 100;
   
-  const ratingData = getAircraftRating(acProfit, vsAvgPct);
+  const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); 
+  const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
+  const targetVal = currentRatingBasis === 'hourly' ? profitHr : acProfit;
+  const avgVal = globalAverages[a.size] ? globalAverages[a.size].avg : 0;
+  
+  let vsAvgPct = 0; 
+  if(avgVal > 0) vsAvgPct = ((targetVal - avgVal) / avgVal) * 100;
+  
+  const ratingData = getAircraftRating(acProfit <= 0 ? acProfit : targetVal, vsAvgPct);
   const badgeEl = document.getElementById('popup-rating-badge');
   badgeEl.className = `rating-badge ${ratingData.class}`; badgeEl.textContent = ratingData.tier;
   
   const age = calculateAge(a.inductionDate); 
-  const totalHrs = (a.flightHrs || 0) + ((a.flightMins || 0) / 60); const profitHr = totalHrs > 0 ? acProfit / totalHrs : 0;
   const timeStr = (a.flightHrs !== undefined || a.flightMins !== undefined) ? `${a.flightHrs||0}h ${a.flightMins||0}m` : '—';
   const totalDist = parseInt(a.totalDist) || 0; const oneWayDist = parseInt(a.dist) || 0;
   let flightCount = 0; if (oneWayDist > 0) flightCount = Math.floor(totalDist / (oneWayDist * 2));
@@ -4699,13 +5567,26 @@ function autoFillRouteData() {
 }
 
 function populateTypeSelect() { const sel = document.getElementById('f-icao'); DB.forEach(a => { const o = document.createElement('option'); o.value = a.icao; o.textContent = `${a.icao} — ${a.mfr} (${a.load})`; sel.appendChild(o); }); }
+// 货机没有客舱，三舱位输入框在选中货机机型时禁止输入并清空（锁定字段除外），切回客机机型自动恢复
+const SEAT_FIELD_IDS = ['f-eco', 'f-biz', 'f-first'];
+function setSeatFieldsCargoLock(isCargoType) {
+  SEAT_FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.disabled = isCargoType;
+    if (isCargoType && !lockedFields.has(id)) el.value = '';
+    const hint = el.parentElement ? el.parentElement.querySelector('.form-hint') : null;
+    if (hint) hint.classList.toggle('cargo-lock', isCargoType);
+  });
+}
 function onTypeSelect() {
   const icao = document.getElementById('f-icao').value; const ac = DB.find(a=>a.icao===icao);
-  if (!ac) { ['f-mfr','f-size','f-load','f-small','f-large','f-price'].forEach(id => document.getElementById(id).value=''); return; }
+  if (!ac) { ['f-mfr','f-size','f-load','f-small','f-large','f-price'].forEach(id => document.getElementById(id).value=''); setSeatFieldsCargoLock(false); return; }
   document.getElementById('f-mfr').value = ac.mfr; document.getElementById('f-size').value = ac.size; document.getElementById('f-load').value = ac.load; document.getElementById('f-price').value = fmtW(ac.price); document.getElementById('f-small').value = fmtW(ac.small); document.getElementById('f-large').value = fmtW(ac.large);
   if (!lockedFields.has('f-cargoCap')) {
     document.getElementById('f-cargoCap').value = (ac.load === 'Cargo') ? (ac.loadamt || '') : '';
   }
+  setSeatFieldsCargoLock(ac.load === 'Cargo');
   calcAddRoute(); autoFillRouteData();
 }
 
@@ -4953,6 +5834,7 @@ document.addEventListener('keydown', function(e) {
 
   if (e.key === 'Escape') {
     closePopup(); closeImageDrawer(); closeConfirm(); closeAirportInfo();
+    if (typeof closeQuickDistModal === 'function') closeQuickDistModal();
     if (isInputFocused) document.activeElement.blur();
     const panelEl = document.getElementById('col-settings-panel'); if(panelEl) panelEl.classList.remove('show');
     return;
@@ -4963,6 +5845,7 @@ document.addEventListener('keydown', function(e) {
   switch(e.key.toLowerCase()) {
     case 'n': e.preventDefault(); showView('add'); break;
     case 'w': e.preventDefault(); showView('wollars'); break;
+    case 'q': e.preventDefault(); if (typeof openQuickDistModal === 'function') openQuickDistModal(); break;
     case '/': e.preventDefault(); showView('fleet'); const searchInput = document.getElementById('fleet-search'); if (searchInput) searchInput.focus(); break;
     case '1': showView('analytics'); break;
     case 'm':
@@ -5059,8 +5942,10 @@ function renderWollarsGrid() {
         const flagHtml = cInfo ? getFlagImg(cInfo) : '';
         const fullName = (cInfo && cInfo.name) ? cInfo.name : '未知机场';
 
+        const exactWollars = Math.round(currentVal).toLocaleString();
+
         html += `
-        <div class="iba-stat-card" style="width: 100%; cursor: pointer;" onclick="openWollarsDetail('${code}')">
+        <div class="iba-stat-card" style="width: 100%; cursor: pointer;" onclick="openWollarsDetail('${code}')" data-tooltip="<b>${exactWollars}</b> W">
             <div class="iba-stat-title" style="display: flex; flex-direction: column; gap: 4px;">
                 <div style="color: var(--amber); font-size: 15px; display: flex; align-items: center; gap: 6px;">
                     ${flagHtml}<span style="font-family: var(--mono); font-weight: 700;">${code}</span>
@@ -5132,8 +6017,8 @@ function openWollarsDetail(code) {
         options: {
             responsive: true, maintainAspectRatio: false,
             scales: {
-                x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'JetBrains Mono', monospace"} } },
-                y: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'JetBrains Mono', monospace"} } }
+                x: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'Inter Tight', monospace"} } },
+                y: { grid: { color: gridColor }, ticks: { color: textColor, font: {family: "'Inter Tight', monospace"} } }
             },
             plugins: {
                 legend: { display: false },
@@ -5180,6 +6065,199 @@ function saveSingleWollars() {
     renderWollarsGrid();     // 刷新底层网格
     openWollarsDetail(activeWollarsAirport); // 原地刷新图表
 }
+
+// ═══════════════════════════════════════════════
+// 金币 / 银币 追踪系统 (COIN TRACKING SYSTEM)
+// ═══════════════════════════════════════════════
+const COIN_DAILY_MS  = 24 * 60 * 60 * 1000;      // 每日刷新周期：24 小时
+const COIN_WEEKLY_MS = 7 * 24 * 60 * 60 * 1000;  // 每周刷新周期：7 天
+
+let goldHistory = [];   // [{ date:'YYYY-MM-DD', value: number }]
+let silverHistory = [];
+let activeCoinType = null; // 'gold' | 'silver'
+let currentViewName = 'analytics'; // 追踪当前激活的一级界面，供徽章显示判断
+
+function loadCoinHistory(key) {
+    let hist = [];
+    try { hist = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) { hist = []; }
+    const today = getTodayStr();
+    if (hist.length === 0) {
+        hist.push({ date: today, value: 0 });
+    } else if (hist[hist.length - 1].date !== today) {
+        hist.push({ date: today, value: hist[hist.length - 1].value });
+    }
+    return hist;
+}
+function loadCoins() {
+    goldHistory = loadCoinHistory('woa_gold_history');
+    silverHistory = loadCoinHistory('woa_silver_history');
+    persistCoinHistory('gold');
+    persistCoinHistory('silver');
+}
+function persistCoinHistory(type) {
+    if (type === 'gold') localStorage.setItem('woa_gold_history', JSON.stringify(goldHistory));
+    else localStorage.setItem('woa_silver_history', JSON.stringify(silverHistory));
+}
+function coinHistoryOf(type) { return type === 'gold' ? goldHistory : silverHistory; }
+
+// 渲染标题右上角的金币/银币小卡片
+function renderCoinTrackers() {
+    ['gold', 'silver'].forEach(type => {
+        const hist = coinHistoryOf(type);
+        const todayRec = hist[hist.length - 1] || { value: 0 };
+        const prevRec = hist.length > 1 ? hist[hist.length - 2] : null;
+        const cur = todayRec.value || 0;
+        const prev = prevRec ? (prevRec.value || 0) : cur;
+        const diff = cur - prev;
+
+        document.getElementById(`${type}-coin-value`).textContent = Math.round(cur).toLocaleString();
+        const deltaEl = document.getElementById(`${type}-coin-delta`);
+        if (diff > 0) { deltaEl.className = 'coin-card-delta pos'; deltaEl.innerHTML = `<i class="fa-solid fa-arrow-up"></i> ${diff.toLocaleString()}`; }
+        else if (diff < 0) { deltaEl.className = 'coin-card-delta neg'; deltaEl.innerHTML = `<i class="fa-solid fa-arrow-down"></i> ${Math.abs(diff).toLocaleString()}`; }
+        else { deltaEl.className = 'coin-card-delta neu'; deltaEl.innerHTML = `<i class="fa-solid fa-minus"></i> 0`; }
+    });
+    // 金币卡片上若有待领取的每日刷新提醒，加上闪烁红点
+    const goldCard = document.getElementById('gold-coin-card');
+    if (goldCard) goldCard.classList.toggle('has-pending', localStorage.getItem('woa_coin_daily_pending') === '1');
+}
+
+function openCoinPopup(type) {
+    activeCoinType = type;
+    const isGold = type === 'gold';
+
+    document.getElementById('coin-popup-icon').style.color = isGold ? 'var(--gold)' : '#c7ccd6';
+    document.getElementById('coin-popup-title').textContent = isGold ? '金币' : '银币';
+    document.getElementById('coin-popup-subtitle').textContent = isGold ? '每日金币数量变化 · 刷新计时' : '银币数量变化记录';
+    document.getElementById('coin-refresh-section').style.display = isGold ? 'flex' : 'none';
+
+    const hist = coinHistoryOf(type);
+    const latest = hist.length ? hist[hist.length - 1].value : 0;
+    document.getElementById('coin-latest-val').textContent = latest.toLocaleString();
+    document.getElementById('coin-input').value = latest || '';
+
+    if (isGold) updateCoinRefreshUI();
+
+    document.getElementById('coin-popup').classList.add('show');
+    setTimeout(() => document.getElementById('coin-input').focus(), 150);
+}
+function closeCoinPopup() {
+    document.getElementById('coin-popup').classList.remove('show');
+    activeCoinType = null;
+}
+
+function saveCoinCount() {
+    if (!activeCoinType) return;
+    const val = parseInt(document.getElementById('coin-input').value);
+    if (isNaN(val) || val < 0) { toast('请输入有效的数量', true); return; }
+
+    const hist = coinHistoryOf(activeCoinType);
+    const today = getTodayStr();
+    let rec = hist.find(d => d.date === today);
+    if (!rec) { rec = { date: today, value: val }; hist.push(rec); }
+    else { rec.value = val; }
+
+    persistCoinHistory(activeCoinType);
+    toast(`${activeCoinType === 'gold' ? '金币' : '银币'}数量已更新`);
+    renderCoinTrackers();
+    openCoinPopup(activeCoinType); // 原地刷新
+}
+
+// 点击「每日/每周金币已刷新」按钮：记录点击时间，开始倒计时
+function claimCoinRefresh(kind) {
+    const key = kind === 'daily' ? 'woa_coin_daily_ts' : 'woa_coin_weekly_ts';
+    const state = getCoinTimerState(kind);
+    if (state.active) return; // 倒计时进行中，不可重复点击
+    localStorage.setItem(key, String(Date.now()));
+    toast(kind === 'daily' ? '已记录：每日金币刷新时间，开始 24 小时倒计时' : '已记录：每周金币刷新时间，开始 7 天倒计时');
+    updateCoinRefreshUI();
+}
+
+// 计算某个计时器（daily/weekly）的状态
+function getCoinTimerState(kind) {
+    const key = kind === 'daily' ? 'woa_coin_daily_ts' : 'woa_coin_weekly_ts';
+    const duration = kind === 'daily' ? COIN_DAILY_MS : COIN_WEEKLY_MS;
+    const tsRaw = localStorage.getItem(key);
+    if (!tsRaw) return { active: false, remainMs: 0 };
+    const ts = parseInt(tsRaw);
+    const remain = duration - (Date.now() - ts);
+    if (remain <= 0) return { active: false, remainMs: 0, justFinished: true, tsKey: key };
+    return { active: true, remainMs: remain };
+}
+
+function formatCoinCountdown(ms, kind) {
+    const totalSec = Math.max(0, Math.floor(ms / 1000));
+    if (kind === 'weekly') {
+        const d = Math.floor(totalSec / 86400);
+        const h = Math.floor((totalSec % 86400) / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+        return `${d}天 ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+// 刷新弹窗内两个按钮的显示状态（仅在金币弹窗打开时调用有实际视觉效果，但逻辑本身独立运行）
+function updateCoinRefreshUI() {
+    ['daily', 'weekly'].forEach(kind => {
+        const state = getCoinTimerState(kind);
+        const btn = document.getElementById(`coin-${kind}-btn`);
+        const label = document.getElementById(`coin-${kind}-btn-label`);
+        const timer = document.getElementById(`coin-${kind}-btn-timer`);
+        if (!btn) return; // 弹窗未打开时元素也存在于DOM中（display:none 的容器内），仍可安全更新
+
+        if (state.active) {
+            btn.classList.add('counting');
+            label.style.display = 'none';
+            timer.style.display = 'block';
+            timer.textContent = formatCoinCountdown(state.remainMs, kind);
+        } else {
+            btn.classList.remove('counting');
+            label.style.display = 'flex';
+            timer.style.display = 'none';
+        }
+    });
+}
+
+// 全局计时心跳：每秒检查一次，无论弹窗是否打开
+function tickCoinTimers() {
+    // 每日
+    const dailyState = getCoinTimerState('daily');
+    if (dailyState.justFinished) {
+        localStorage.removeItem('woa_coin_daily_ts');
+        localStorage.setItem('woa_coin_daily_pending', '1'); // 标记：每日金币已刷新，等待领取
+        renderCoinTrackers();
+    }
+    // 每周
+    const weeklyState = getCoinTimerState('weekly');
+    if (weeklyState.justFinished) {
+        localStorage.removeItem('woa_coin_weekly_ts');
+        toast('每周金币已刷新，可再次点击记录');
+    }
+
+    updateCoinRefreshUI();
+    renderCoinRefreshBadge();
+}
+
+// 主页分析仪表板右下角「金币已刷新」提示徽章
+function renderCoinRefreshBadge() {
+    const badge = document.getElementById('coin-refresh-badge');
+    if (!badge) return;
+    const pending = localStorage.getItem('woa_coin_daily_pending') === '1';
+    const onDashboard = currentViewName === 'analytics';
+    badge.classList.toggle('show', pending && onDashboard);
+}
+
+function claimCoinBadge() {
+    localStorage.setItem('woa_coin_daily_pending', '0');
+    renderCoinRefreshBadge();
+    renderCoinTrackers();
+    toast('已领取今日金币刷新提醒');
+}
+
+setInterval(tickCoinTimers, 1000);
 
 // INIT & TOAST
 let toastTimer;
@@ -5246,6 +6324,7 @@ document.addEventListener('mouseout', (e) => {
 });
 
 loadFleet(); loadRoutes(); populateTypeSelect(); syncFilters(); renderAnalytics(); renderRoutes(); loadWollars(); // 加载并初始化 Wollars 数据
+loadCoins(); renderCoinTrackers(); tickCoinTimers(); // 加载并初始化 金币/银币 追踪数据
 </script>
 </body>
 </html>
